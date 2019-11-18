@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -37,15 +39,9 @@ namespace EasySaveConsole.Model
             _travailRepository.Remove(travails);
         }
 
-        public void ToJson<T>(T[] ts)
-        {
-            throw new NotImplementedException();
-        }
-
         public void UpdateTravail(params Travail[] travails)
         {
             _travailRepository.Update(travails);
-        }
-
+        }     
     }
 }

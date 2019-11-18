@@ -23,8 +23,12 @@ namespace EasySaveConsole.View
             travail.Id = 2;
             travail.Name = "t";
             model.AddTravail(travail);
-            List<Travail> temp = (List<Travail>)model.GetAllTravail();
-            Console.WriteLine(temp.Count);
+            List<Travail> l = new List<Travail>();
+            l.Add(travail);
+            string temp = Tools.ObjectToJson<List<Travail>>(l);
+            Console.WriteLine(temp);
+            List <Travail> temp2 = (List<Travail>)model.GetAllTravail();
+            Console.WriteLine(temp2.Count);
             Console.WriteLine("Hello");
             Console.ReadLine();
         }
