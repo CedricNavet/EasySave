@@ -13,6 +13,6 @@ namespace Projet_EasySave.Model
         void AddTravail(params Travail[] departments);
         void UpdateTravail(params Travail[] departments);
         void RemoveTravail(params Travail[] departments);
-
+        void ToJson<T>(T[] ts);
     }
 }
