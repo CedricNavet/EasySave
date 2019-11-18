@@ -75,27 +75,27 @@
   <ItemGroup>
     <Compile Include="Controller\Controller.cs" />
     <Compile Include="Model\AllRepository.cs" />
-    <Compile Include="Model\DataBaseModels.Context.cs">
+    <Compile Include="Model\EntityModels.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DataBaseModels.Context.tt</DependentUpon>
+      <DependentUpon>EntityModels.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\DataBaseModels.cs">
+    <Compile Include="Model\EntityModels.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DataBaseModels.tt</DependentUpon>
+      <DependentUpon>EntityModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\DataBaseModels.Designer.cs">
+    <Compile Include="Model\EntityModels.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DataBaseModels.edmx</DependentUpon>
+      <DependentUpon>EntityModels.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\IModel.cs" />
     <Compile Include="Model\Model.cs" />
     <Compile Include="Model\Repository\GenericDataRepository.cs" />
     <Compile Include="Model\Repository\IGenericDataRepository.cs" />
     <Compile Include="Model\Travail.cs">
-      <DependentUpon>DataBaseModels.tt</DependentUpon>
+      <DependentUpon>EntityModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -103,16 +103,34 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="Model\DataBaseModels.edmx">
+    <EntityDeploy Include="Model\EntityModels.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DataBaseModels.Designer.cs</LastGenOutput>
+      <LastGenOutput>EntityModels.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model\DataBaseModels.edmx.diagram">
-      <DependentUpon>DataBaseModels.edmx</DependentUpon>
+    <None Include="Model\EntityModels.edmx.diagram">
+      <DependentUpon>EntityModels.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Model\EntityModels.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EntityModels.edmx</DependentUpon>
+      <LastGenOutput>EntityModels.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\EntityModels.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EntityModels.edmx</DependentUpon>
+      <LastGenOutput>EntityModels.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\Repository\DB.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Model\Repository\DB_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>DB.mdf</DependentUpon>
+    </Content>
+  </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>
@@ -124,25 +142,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Model\DataBaseModels.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>DataBaseModels.Context.cs</LastGenOutput>
-      <DependentUpon>DataBaseModels.edmx</DependentUpon>
-    </Content>
-    <Content Include="Model\DataBaseModels.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DataBaseModels.edmx</DependentUpon>
-      <LastGenOutput>DataBaseModels.cs</LastGenOutput>
-    </Content>
-    <Content Include="Model\Repository\DataBase.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Model\Repository\DataBase_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>DataBase.mdf</DependentUpon>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

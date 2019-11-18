@@ -13,7 +13,7 @@ namespace EasySaveConsole.Model.Repository
         public virtual IList<T> GetAll(params Expression<Func<T, object>>[] navigationProperties)
         {
             List<T> list;
-            using (var context = new DataBaseEntities())
+            using (var context = new DBEntities())
             {
                 IQueryable<T> dbQuery = context.Set<T>();
 
@@ -32,7 +32,7 @@ namespace EasySaveConsole.Model.Repository
              params Expression<Func<T, object>>[] navigationProperties)
         {
             List<T> list;
-            using (var context = new DataBaseEntities())
+            using (var context = new DBEntities())
             {
                 IQueryable<T> dbQuery = context.Set<T>();
 
@@ -52,7 +52,7 @@ namespace EasySaveConsole.Model.Repository
              params Expression<Func<T, object>>[] navigationProperties)
         {
             T item = null;
-            using (var context = new DataBaseEntities())
+            using (var context = new DBEntities())
             {
                 IQueryable<T> dbQuery = context.Set<T>();
 
@@ -69,7 +69,7 @@ namespace EasySaveConsole.Model.Repository
 
         public virtual void Add(params T[] items)
         {
-            using (var context = new DataBaseEntities())
+            using (var context = new DBEntities())
             {
                 foreach (T item in items)
                 {
@@ -81,7 +81,7 @@ namespace EasySaveConsole.Model.Repository
 
         public virtual void Update(params T[] items)
         {
-            using (var context = new DataBaseEntities())
+            using (var context = new DBEntities())
             {
                 foreach (T item in items)
                 {
@@ -93,7 +93,7 @@ namespace EasySaveConsole.Model.Repository
 
         public virtual void Remove(params T[] items)
         {
-            using (var context = new DataBaseEntities())
+            using (var context = new DBEntities())
             {
                 foreach (T item in items)
                 {

@@ -16,6 +16,6 @@ namespace EasySaveConsole.Model
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string TypeSave { get; set; }
+        public string SaveType { get; set; }
     }
 }

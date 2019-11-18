@@ -22,13 +22,6 @@ namespace EasySaveConsole.View
             Travail travail = new Travail();
             travail.Id = 2;
             travail.Name = "t";
-            travail.SaveType = "complete";
-            travail.TimeStamping = new DateTime(2019,02,22,00,00,00);
-            travail.TaskName = "n";
-            travail.SourceFile = "s";
-            travail.DestinationFile = "d";
-            travail.FileSize = 1;
-            travail.TransferTime = 1;
             model.AddTravail(travail);
             List<Travail> temp = (List<Travail>)model.GetAllTravail();
             Console.WriteLine(temp.Count);
