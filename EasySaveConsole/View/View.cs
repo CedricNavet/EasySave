@@ -1,11 +1,11 @@
-﻿using Projet_EasySave.Model;
+﻿using EasySaveConsole.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Projet_EasySave.View
+namespace EasySaveConsole.View
 {
     public class View
     {

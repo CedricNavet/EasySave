@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Projet_EasySave.Model.Repository
+namespace EasySaveConsole.Model.Repository
 {
     public interface IGenericDataRepository<T> where T : class
     {

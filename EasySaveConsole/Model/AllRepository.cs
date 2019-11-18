@@ -1,11 +1,11 @@
-﻿using Projet_EasySave.Model.Repository;
+﻿using EasySaveConsole.Model.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Projet_EasySave.Model
+namespace EasySaveConsole.Model
 {
     public interface ITravailRepository : IGenericDataRepository<Travail>
     {

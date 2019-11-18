@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace Projet_EasySave.Controller
+namespace EasySaveConsole.Controller
 {
     public class Controller
     {

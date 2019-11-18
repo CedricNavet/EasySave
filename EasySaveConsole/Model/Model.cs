@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Projet_EasySave.Model
+namespace EasySaveConsole.Model
 {
     public class Model : IModel
     {
