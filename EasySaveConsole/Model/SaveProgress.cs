@@ -8,8 +8,8 @@ namespace EasySaveConsole.Model
 {
     public class SaveProgress
     {
-        public DateTime timestamp { get; set; } //horodatage
-        public int numberTotalFiles { get; set; } //Nb fichier totaux
+        public DateTime Timestamp { get; set; } //horodatage
+        public int NumberTotalFiles { get; set; } //Nb fichier totaux
         public byte totalFileSize { get; set; } //Taille fichier totaux
         public int numberRemainFiles { get; set; } //Nb fichier restant
         public byte remainFileSize { get; set; } //Taille fichier restant
