@@ -94,7 +94,7 @@
     <Compile Include="Model\Model.cs" />
     <Compile Include="Model\Repository\GenericDataRepository.cs" />
     <Compile Include="Model\Repository\IGenericDataRepository.cs" />
-    <Compile Include="Model\Tools.cs" />
+    <Compile Include="Controller\Tools.cs" />
     <Compile Include="Model\Travail.cs">
       <DependentUpon>EntityModels.tt</DependentUpon>
     </Compile>
@@ -119,6 +119,7 @@
       <DependentUpon>EntityModels.edmx</DependentUpon>
       <LastGenOutput>EntityModels.Context.cs</LastGenOutput>
     </Content>
+    <Content Include="Model\EntityModels.edmx.sql" />
     <Content Include="Model\EntityModels.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>EntityModels.edmx</DependentUpon>

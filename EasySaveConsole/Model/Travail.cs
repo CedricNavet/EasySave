@@ -11,15 +11,13 @@ namespace EasySaveConsole.Model
 {
     using System;
     using System.Collections.Generic;
-    public enum TypeSave
-    {
-        Miroir,
-        Différentiel
-    }
+    
     public partial class Travail
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public TypeSave SaveType { get; set; }
+        public string SaveType { get; set; }
+        public string RepSource { get; set; }
+        public string RepCible { get; set; }
     }
 }
