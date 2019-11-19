@@ -8,9 +8,9 @@ namespace EasySaveConsole.Model
 {
     public class Backups
     {
-        public String backupsName; // Nom de sauvegarde
-        public String source; // Source
-        public String target; // Destination
-        enum backupType {mirror, differential }; // Type de sauvegarde
+        public String backupsName { get; set; } // Nom de sauvegarde
+        public String source { get; set; }// Source
+        public String target { get; set; } // Destination
+        public enum backupType {mirror, differential }; // Type de sauvegarde
     }
 }
