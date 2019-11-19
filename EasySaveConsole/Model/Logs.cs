@@ -8,11 +8,11 @@ namespace EasySaveConsole.Model
 {
     public class Logs
     {
-        public DateTime timestamp { get; set; } //horodatage
-        public String nameTable { get; set; } //nom de la table
-        public String sourceFileAddress { get; set; } //adresse fichier source
-        public String destinationFileAddress { get; set; } //adress fichier de destination
-        public byte fileSize { get; set; } //taille fichier
-        public int transferTime { get; set; } //temps de transfert
+        public DateTime Timestamp { get; set; } //horodatage
+        public String NameTable { get; set; } //nom de la table
+        public String SourceFileAddress { get; set; } //adresse fichier source
+        public String DestinationFileAddress { get; set; } //adress fichier de destination
+        public byte FileSize { get; set; } //taille fichier
+        public int TransferTime { get; set; } //temps de transfert
     }
 }
