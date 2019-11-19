@@ -75,6 +75,7 @@
   <ItemGroup>
     <Compile Include="Controller\Controller.cs" />
     <Compile Include="Model\AllRepository.cs" />
+    <Compile Include="Model\Backups.cs" />
     <Compile Include="Model\EntityModels.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -91,9 +92,11 @@
       <DependentUpon>EntityModels.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\IModel.cs" />
+    <Compile Include="Model\Logs.cs" />
     <Compile Include="Model\Model.cs" />
     <Compile Include="Model\Repository\GenericDataRepository.cs" />
     <Compile Include="Model\Repository\IGenericDataRepository.cs" />
+    <Compile Include="Model\SaveProgress.cs" />
     <Compile Include="Model\Travail.cs">
       <DependentUpon>EntityModels.tt</DependentUpon>
     </Compile>
