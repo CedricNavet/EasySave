@@ -9,9 +9,9 @@ namespace EasySaveConsole.Model
     public enum BackupType { mirror, differential };
     public class Backups
     {
-        public String backupsName { get; set; } // Nom de sauvegarde
-        public String source { get; set; }// Source
-        public String target { get; set; } // Destination
-        public BackupType backupType { get; set; } // Type de sauvegarde
+        public String BackupsName { get; set; } // Nom de sauvegarde
+        public String Source { get; set; }// Source
+        public String Target { get; set; } // Destination
+        public BackupType BackupType { get; set; } // Type de sauvegarde
     }
 }
