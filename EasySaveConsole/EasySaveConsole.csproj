@@ -103,6 +103,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\Menu.cs" />
     <Compile Include="View\View.cs" />
   </ItemGroup>
   <ItemGroup>
