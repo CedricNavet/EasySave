@@ -74,6 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\Controller.cs" />
+    <Compile Include="Model\Tools.cs" />
     <Compile Include="Model\AllRepository.cs" />
     <Compile Include="Model\Backups.cs" />
     <Compile Include="Model\EntityModels.Context.cs">
