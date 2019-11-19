@@ -10,7 +10,12 @@ namespace EasySaveConsole.View
     public class View
     {
         private Model.Model model;
-        enum ArrowPosition { Top,Middle,Down } arrowPosition;
+        enum ArrowPosition { 
+            Top,
+            Middle,
+            Down 
+        };
+        private ArrowPosition arrowPosition;
 
         public View(Model.Model model)
         {
@@ -44,12 +49,40 @@ namespace EasySaveConsole.View
 
         private void CheckKey(object sender, System.Timers.ElapsedEventArgs e)
         {
-            if()
-            if(Console.ReadKey().Key == ConsoleKey.DownArrow)
+            if (Console.ReadKey().Key == ConsoleKey.DownArrow)
             {
-                Console.Clear();
-                Console.WriteLine("LOL");
+                if (arrowPosition == ArrowPosition.Down)
+                {
+                    arrowPosition = ArrowPosition.Top;
+                    Console.Clear();
+                    Console.WriteLine("Top");
+                }
+                else
+                {
+                    arrowPosition += 1;
+                    Console.Clear();
+                    Console.WriteLine("middle or down");
+                }
+                
             }
+            else if (Console.ReadKey().Key == ConsoleKey.UpArrow)
+            {
+                if (arrowPosition == ArrowPosition.Top)
+                {
+                    arrowPosition = ArrowPosition.Down;
+                    Console.Clear();
+                    Console.WriteLine("Bottom");
+                }
+                else
+                {
+                    arrowPosition -= 1;
+                    Console.Clear();
+                    Console.WriteLine("middle or top");
+                }
+            }
+            
+            
+            
         }
     }
 }
