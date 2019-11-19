@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace EasySaveConsole.Model
 {
-    class Backups
+    public class Backups
     {
+        public String backupsName; // Nom de sauvegarde
+        public String source; // Source
+        public String target; // Destination
+        enum backupType {mirror, differential }; // Type de sauvegarde
     }
 }
