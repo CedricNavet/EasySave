@@ -88,10 +88,10 @@ namespace EasySaveConsole.Model
         {
             if(currentTime == saveTime)
             {
-                //oui
+                return true;
             }
             else
-                //non
+                return false;
         }
     }
 }
