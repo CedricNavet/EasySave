@@ -24,5 +24,10 @@ namespace EasySaveConsole.View
             foreach (FileInfo f in bytes)
                 Console.WriteLine("The size of {0} is {1} bytes.", f.Name, f.Length);
         }
+
+        public void compareSize()
+        {
+
+        }
     }
 }
