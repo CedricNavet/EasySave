@@ -55,13 +55,13 @@ namespace EasySaveConsole.View
 
             while (true)
             {
-                DrawMenu();
+                DrawMenu(menuAction);
             }
         }
 
-        private void DrawMenu()
+        private void DrawMenu<T>(List<T> menuAction)
         {
-            foreach (MenuAction item in menuAction)
+            foreach (var item in menuAction)
             {
                 if(item.ArrowPosition == arrowPosition)
                 {
