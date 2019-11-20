@@ -18,8 +18,8 @@ namespace EasySaveConsole.Controller
         {
             this.view = view;
             this.model = model;
-            menu.Test();
-            menu.SizeBytes();
+            //menu.Test();
+            //menu.SizeBytes();
             view.Menu();
             
             

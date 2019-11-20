@@ -67,5 +67,20 @@ namespace EasySaveConsole.Model
                 throw new Exception(e.Message);
             }
         }
+
+        public static long SizeBytes(string filename)
+        {
+            return new FileInfo(filename).Length;
+        }
+
+        public static bool IsSizeEquivalent(long s1,long s2)
+        {
+            if (s1 == s2)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
     }
 }

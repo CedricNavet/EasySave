@@ -8,26 +8,81 @@ using System.Threading.Tasks;
 
 namespace EasySaveConsole.View
 {
+
+    public enum ArrowPosition
+    {
+        Top,
+        Middle,
+        Down
+    };
+
     public class Menu
     {
-        public void Test()
+        
+        protected ArrowPosition arrowPosition;
+
+        protected void DrawMenu(List<MenuAction> menuAction)
         {
-            Console.WriteLine("Test");
-            Tools.WriteData("Coucou", @"C:\Users\hautb\Desktop\CCTL\Annuaire\Marboulin");
-            
+            foreach (MenuAction item in menuAction)
+            {
+                if (item.ArrowPosition == arrowPosition)
+                {
+                    Console.BackgroundColor = ConsoleColor.Gray;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.WriteLine(item.Name);
+                }
+                else
+                {
+                    Console.WriteLine(item.Name);
+                }
+                Console.ResetColor();
+            }
+
+
+            ConsoleKey ckey = Console.ReadKey().Key;
+            CheckKey(ckey, menuAction);
         }
-        public void SizeBytes()
+        protected void CheckKey(ConsoleKey consoleKey, List<MenuAction> menuAction)
         {
-            DirectoryInfo sizeOctet = new DirectoryInfo("c:\\Users\\hautb\\Desktop\\CCTL\\Annuaire");
-            FileInfo[] bytes = sizeOctet.GetFiles();
-            Console.WriteLine(sizeOctet.Name);
-            foreach (FileInfo f in bytes)
-                Console.WriteLine("The size of {0} is {1} bytes.", f.Name, f.Length);
+            if (consoleKey == ConsoleKey.DownArrow)
+            {
+                if (arrowPosition == ArrowPosition.Down)
+                {
+                    arrowPosition = ArrowPosition.Top;
+                    Console.Clear();
+                }
+                else
+                {
+                    arrowPosition += 1;
+                    Console.Clear();
+                }
+
+            }
+            else if (consoleKey == ConsoleKey.UpArrow)
+            {
+                if (arrowPosition == ArrowPosition.Top)
+                {
+                    arrowPosition = ArrowPosition.Down;
+                    Console.Clear();
+                }
+                else
+                {
+                    arrowPosition -= 1;
+                    Console.Clear();
+                }
+            }
+            else if (consoleKey == ConsoleKey.Enter)
+            {
+                foreach (MenuAction item in menuAction)
+                {
+                    if (arrowPosition == item.ArrowPosition)
+                    {
+                        Console.Clear();
+                        item.Instanciate();
+                    }
+                }
+            }
         }
 
-        public void compareSize()
-        {
-
-        }
     }
 }
