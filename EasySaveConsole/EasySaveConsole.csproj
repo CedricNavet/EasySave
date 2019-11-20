@@ -106,6 +106,7 @@
     <Compile Include="View\Menu.cs" />
     <Compile Include="View\MenuAction.cs" />
     <Compile Include="View\OneSaveMenu.cs" />
+    <Compile Include="View\SequentialMenu.cs" />
     <Compile Include="View\View.cs" />
   </ItemGroup>
   <ItemGroup>
