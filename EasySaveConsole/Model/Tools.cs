@@ -82,5 +82,16 @@ namespace EasySaveConsole.Model
             else
                 return false;
         }
+
+        //fonction qui compare l'heure actuelle et l'heure de sauvegarde
+        public static bool SequentialBackup (DateTime currentTime, DateTime saveTime)
+        {
+            if(currentTime == saveTime)
+            {
+                //oui
+            }
+            else
+                //non
+        }
     }
 }
