@@ -18,7 +18,7 @@ namespace EasySaveConsole.View
 
     public class Menu
     {
-        
+        protected bool IsFinsih = false;
         protected ArrowPosition arrowPosition;
 
         protected virtual void DrawMenu(List<MenuAction> menuAction)
@@ -78,7 +78,12 @@ namespace EasySaveConsole.View
                     if (arrowPosition == item.ArrowPosition)
                     {
                         Console.Clear();
-                        item.Instanciate();
+                        if (arrowPosition == ArrowPosition.Down)
+                        {
+                            IsFinsih = true;
+                        }
+                        else
+                            item.Instanciate();
                     }
                 }
             }

@@ -8,11 +8,10 @@ namespace EasySaveConsole.View
 {
     public class OneSaveMenu : Menu
     {
-        private bool isFinish = false;
         List<MenuAction> menuAction = new List<MenuAction>() {
             new MenuAction("Save a File", ArrowPosition.Top),
             new MenuAction("Save a Folder", ArrowPosition.Middle),
-            new MenuAction("Action 3", ArrowPosition.Down),
+            new MenuAction("Retour", ArrowPosition.Down),
         };
 
         public OneSaveMenu()
@@ -22,7 +21,7 @@ namespace EasySaveConsole.View
 
         private void ShowMenu()
         {
-            while (!isFinish)
+            while (!IsFinsih)
             {
                 DrawMenu(menuAction);
             }

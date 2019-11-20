@@ -42,11 +42,11 @@ namespace EasySaveConsole.View
             //timer.Elapsed += CheckKey;
             //timer.Interval = 10;
             //timer.Enabled = true;
-
+            
             Console.CursorVisible = false;
             Console.WriteLine("Hello");
 
-            while (true)
+            while (!IsFinsih)
             {
                 DrawMenu(menuAction);
             }

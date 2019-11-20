@@ -8,6 +8,7 @@ namespace EasySaveConsole.View
 {
     public class MenuAction
     {
+
         public readonly string Name;
         public readonly ArrowPosition ArrowPosition;
         public readonly Type ClassName;
@@ -23,7 +24,7 @@ namespace EasySaveConsole.View
         {
             if(ClassName == null)
             {
-                return 0;
+                return new Exception("No ClassName");
             }
             else
                 return (object)Activator.CreateInstance(ClassName);
