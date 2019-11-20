@@ -21,7 +21,7 @@ namespace EasySaveConsole.View
         
         protected ArrowPosition arrowPosition;
 
-        protected void DrawMenu(List<MenuAction> menuAction)
+        protected virtual void DrawMenu(List<MenuAction> menuAction)
         {
             foreach (MenuAction item in menuAction)
             {
@@ -42,7 +42,7 @@ namespace EasySaveConsole.View
             ConsoleKey ckey = Console.ReadKey().Key;
             CheckKey(ckey, menuAction);
         }
-        protected void CheckKey(ConsoleKey consoleKey, List<MenuAction> menuAction)
+        protected virtual void CheckKey(ConsoleKey consoleKey, List<MenuAction> menuAction)
         {
             if (consoleKey == ConsoleKey.DownArrow)
             {
