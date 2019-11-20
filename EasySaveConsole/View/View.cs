@@ -7,15 +7,24 @@ using System.Threading.Tasks;
 
 namespace EasySaveConsole.View
 {
+
+    public enum ArrowPosition
+    {
+        Top,
+        Middle,
+        Down
+    };
     public class View
     {
-        private Model.Model model;
-        enum ArrowPosition { 
-            Top,
-            Middle,
-            Down 
+        private readonly Model.Model model;
+        
+        public ArrowPosition arrowPosition;
+
+        List<MenuAction> menuAction = new List<MenuAction>() {
+            new MenuAction("Action 1", ArrowPosition.Top, typeof(Model.Logs)),
+            new MenuAction("Action 2", ArrowPosition.Middle, typeof(Model.Logs)),
+            new MenuAction("Action 3", ArrowPosition.Down, typeof(Model.Logs)),
         };
-        private ArrowPosition arrowPosition;
 
         public View(Model.Model model)
         {
@@ -36,20 +45,44 @@ namespace EasySaveConsole.View
             //List <Travail> temp2 = (List<Travail>)model.GetAllTravail();
             //Console.WriteLine(temp2.Count);
 
-            System.Timers.Timer timer = new System.Timers.Timer();
-            timer.Elapsed += CheckKey;
-            timer.Interval = 10;
-            timer.Enabled = true;
+            //System.Timers.Timer timer = new System.Timers.Timer();
+            //timer.Elapsed += CheckKey;
+            //timer.Interval = 10;
+            //timer.Enabled = true;
+
+            Console.CursorVisible = false;
             Console.WriteLine("Hello");
+
             while (true)
             {
-
+                DrawMenu();
             }
         }
 
-        private void CheckKey(object sender, System.Timers.ElapsedEventArgs e)
+        private void DrawMenu()
         {
-            if (Console.ReadKey().Key == ConsoleKey.DownArrow)
+            foreach (MenuAction item in menuAction)
+            {
+                if(item.ArrowPosition == arrowPosition)
+                {
+                    Console.BackgroundColor = ConsoleColor.Gray;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.WriteLine(item.Name);
+                }
+                else
+                {
+                    Console.WriteLine(item.Name);
+                }
+                Console.ResetColor();
+            }
+           
+
+            ConsoleKey ckey = Console.ReadKey().Key;
+            CheckKey(ckey);
+        }
+        private void CheckKey(ConsoleKey consoleKey)
+        {
+            if (consoleKey == ConsoleKey.DownArrow)
             {
                 if (arrowPosition == ArrowPosition.Down)
                 {
@@ -65,7 +98,7 @@ namespace EasySaveConsole.View
                 }
                 
             }
-            else if (Console.ReadKey().Key == ConsoleKey.UpArrow)
+            else if (consoleKey == ConsoleKey.UpArrow)
             {
                 if (arrowPosition == ArrowPosition.Top)
                 {
@@ -80,9 +113,35 @@ namespace EasySaveConsole.View
                     Console.WriteLine("middle or top");
                 }
             }
-            
-            
-            
+            else if (consoleKey == ConsoleKey.Enter)
+            {
+                foreach (MenuAction item in menuAction)
+                {
+                    if(arrowPosition == item.ArrowPosition)
+                    {
+                        item.Instanciate();
+                    }
+                }
+            }         
+        }
+    }
+
+    public class MenuAction
+    {
+        public readonly string Name;
+        public readonly ArrowPosition ArrowPosition;
+        public readonly Type ClassName;
+
+        public MenuAction(string name, ArrowPosition arrowPosition, Type ClassName)
+        {
+            this.Name = name;
+            this.ArrowPosition = arrowPosition;
+            this.ClassName = ClassName;
+        }
+
+        public object Instanciate()
+        {
+            return (object)Activator.CreateInstance(ClassName);
         }
     }
 }
