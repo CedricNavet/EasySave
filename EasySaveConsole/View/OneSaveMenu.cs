@@ -10,9 +10,9 @@ namespace EasySaveConsole.View
     {
         private bool isFinish = false;
         List<MenuAction> menuAction = new List<MenuAction>() {
-            new MenuAction("Save a File", ArrowPosition.Top, typeof(Model.Logs)),
-            new MenuAction("Save a Folder", ArrowPosition.Middle, typeof(Model.Logs)),
-            new MenuAction("Action 3", ArrowPosition.Down, typeof(Model.Logs)),
+            new MenuAction("Save a File", ArrowPosition.Top),
+            new MenuAction("Save a Folder", ArrowPosition.Middle),
+            new MenuAction("Action 3", ArrowPosition.Down),
         };
 
         public OneSaveMenu()
@@ -27,6 +27,16 @@ namespace EasySaveConsole.View
                 DrawMenu(menuAction);
             }
             
+        }
+
+        protected override void DrawMenu(List<MenuAction> menuAction)
+        {
+            base.DrawMenu(menuAction);
+        }
+
+        protected override void CheckKey(ConsoleKey consoleKey, List<MenuAction> menuAction)
+        {
+            base.CheckKey(consoleKey, menuAction);
         }
     }
 }
