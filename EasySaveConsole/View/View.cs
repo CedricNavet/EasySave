@@ -44,7 +44,6 @@ namespace EasySaveConsole.View
             //timer.Enabled = true;
             
             Console.CursorVisible = false;
-            Console.WriteLine("Hello");
 
             while (!IsFinsih)
             {

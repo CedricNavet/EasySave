@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace EasySaveConsole.Model
@@ -68,19 +69,14 @@ namespace EasySaveConsole.Model
             }
         }
 
-        public static long SizeBytes(string filename)
+        public static long FileSize(string filename)
         {
             return new FileInfo(filename).Length;
         }
 
         public static bool IsSizeEquivalent(long s1,long s2)
         {
-            if (s1 == s2)
-            {
-                return true;
-            }
-            else
-                return false;
+            return s1 == s2;
         }
 
         //fonction qui compare l'heure actuelle et l'heure de sauvegarde
@@ -92,6 +88,53 @@ namespace EasySaveConsole.Model
             }
             else
                 return false;
+        }
+
+        public static bool CopyFiles(string source, string destination, bool IsFolder)
+        {
+            if (IsFolder)
+            {
+                try
+                {
+                    string[] picList = Directory.GetFiles(source);
+                    foreach (string item in picList)
+                    {
+                        // Remove path from the file name.
+                        string fName = item.Substring(source.Length + 1);
+
+                        // Use the Path.Combine method to safely append the file name to the path.
+                        // Will overwrite if the destination file already exists.
+                        File.Copy(Path.Combine(source, fName), Path.Combine(destination, fName), true);
+                    }
+                    return true;
+                }
+                catch (Exception)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Wrong path");
+                    Thread.Sleep(2000);
+                    return false;
+                }
+                
+            }
+            else
+            {
+                try
+                {
+                    throw new NotImplementedException();
+
+                    string fName = source.Substring(source.Length + 1);
+                    File.Copy(Path.Combine(source, fName), Path.Combine(destination, fName), true);
+                    return true;
+                }
+                catch (Exception)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Wrong path");
+                    Thread.Sleep(2000);
+                    return false; ;
+                }
+            }
         }
     }
 }

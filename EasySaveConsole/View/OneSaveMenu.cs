@@ -35,7 +35,81 @@ namespace EasySaveConsole.View
 
         protected override void CheckKey(ConsoleKey consoleKey, List<MenuAction> menuAction)
         {
-            base.CheckKey(consoleKey, menuAction);
+            if (consoleKey == ConsoleKey.DownArrow)
+            {
+                if (arrowPosition == ArrowPosition.Down)
+                {
+                    arrowPosition = ArrowPosition.Top;
+                    Console.Clear();
+                }
+                else
+                {
+                    arrowPosition += 1;
+                    Console.Clear();
+                }
+
+            }
+            else if (consoleKey == ConsoleKey.UpArrow)
+            {
+                if (arrowPosition == ArrowPosition.Top)
+                {
+                    arrowPosition = ArrowPosition.Down;
+                    Console.Clear();
+                }
+                else
+                {
+                    arrowPosition -= 1;
+                    Console.Clear();
+                }
+            }
+            else if (consoleKey == ConsoleKey.Enter)
+            {
+
+                    if(arrowPosition == ArrowPosition.Top)
+                    {
+                        SaveOneFile();
+                    }
+                    if (arrowPosition == ArrowPosition.Middle)
+                    {
+                        SaveOneFolder();
+                    }
+                
+            }
+        }
+
+        private void SaveOneFolder()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void SaveOneFile()
+        {
+            string typeOfSave = @"";
+            string filepathSource = "";
+            string filepathDestination = "";
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("Type A if you want to Copy a folder or Type B if you want to save on file");
+                typeOfSave += Console.ReadLine();
+            } while (!(typeOfSave == "a" || typeOfSave == "b"));
+
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("Give the file source :");
+                filepathSource = Console.ReadLine();
+
+                Console.Clear();
+                Console.WriteLine("Give the file target :");
+                filepathDestination = Console.ReadLine();
+
+            } while (Model.Tools.CopyFiles(filepathSource,filepathDestination,typeOfSave=="a"));
+
+            
+
+            
+            
         }
     }
 }
