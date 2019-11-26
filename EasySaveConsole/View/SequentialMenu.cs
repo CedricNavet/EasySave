@@ -44,8 +44,55 @@ namespace EasySaveConsole.View
 
         private void SequentialDisplay()
         {
-            throw new NotImplementedException();
+            String display;
+            do
+            {
+
+            }
+            while {
+                //tester si la string est ok, vérifier que c'est un .JSON
+            }
+            List<Model.Logs> temp = Model.Tools.JsonToObject<Model.Logs>(display); //retourne une liste
+            //print la liste dans la console avec un foreach
         }
     }
 }
 
+/*
+private void SaveOneFolder()
+{
+    string filepathSource = "";
+    string filepathDestination = "";
+    do
+    {
+        Console.Clear();
+        Console.WriteLine("Give the folder source :");
+        filepathSource = Console.ReadLine();
+
+        Console.Clear();
+        Console.WriteLine("Give the folder target :");
+        filepathDestination = Console.ReadLine();
+
+    } while (Model.Tools.CopyFiles(filepathSource, filepathDestination, true));
+    Console.Clear();
+}
+
+private void SaveOneFile()
+{
+    string filepathSource = "";
+    string filepathDestination = "";
+    do
+    {
+        Console.Clear();
+        Console.WriteLine("Give the file source :");
+        filepathSource = Console.ReadLine();
+
+        Console.Clear();
+        Console.WriteLine("Give the file target :");
+        filepathDestination = Console.ReadLine();
+
+    } while (Model.Tools.CopyFiles(filepathSource, filepathDestination, false));
+    Console.Clear();
+
+}
+*/
