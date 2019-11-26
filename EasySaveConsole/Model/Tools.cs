@@ -131,5 +131,56 @@ namespace EasySaveConsole.Model
                 }
             }
         }
+
+        public static void backUp(Backups backups)
+        {
+            try
+            {
+                /*
+                 * if sourcePath & destPath are both Directories
+                 * @param SourcePath : Source path of the Directory to copy
+                 * Copy the entire Directory & Sub-Directory in a mirror-like manner in a new Selected Directory
+                 */
+                if (Directory.Exists(backups.Source) && Directory.Exists(backups.Target))
+                {
+                    foreach (string dirPath in Directory.GetDirectories(backups.Source, "*", SearchOption.AllDirectories))
+                        Directory.CreateDirectory(dirPath.Replace(backups.Source, backups.Target));
+                    foreach (string newPath in Directory.GetFiles(backups.Source, "*.*", SearchOption.AllDirectories))
+                        File.Copy(newPath, newPath.Replace(backups.Source, backups.Target), true);
+                }
+                /*
+                 * @param destPath : Destination of the file to be copied
+                 * If the sourcePath is a File & the destPath a Directory
+                 * Get the fileName of sourcePath and save it into the destPath
+                 */
+                else if (File.Exists(backups.Source) && Directory.Exists(backups.Target))
+                {
+                    string[] path = backups.Source.Split(@"\".ToCharArray());
+                    string file = path[path.Length - 1];
+                    String destFile = Path.Combine(backups.Target, file);
+                    File.Copy(backups.Source, backups.Source.Replace(backups.Source, destFile), true);
+                }
+                /*
+                 * If destPath & sourcePath are Files, copy the source to the Destination
+                 */
+                else if (File.Exists(backups.Source))
+                {
+                    File.Copy(backups.Source, backups.Source.Replace(backups.Source, backups.Target), true);
+
+                }
+                /*
+                 * If destPath & sourcePath are Files & Directory, nonono bad u
+                 */
+                else if (Directory.Exists(backups.Source) && File.Exists(backups.Target))
+                {
+                    Console.WriteLine("Nonono bad you no directory in file  T_T'");
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.Write("Une erreur a été levé {0}", e);
+            }
+        }
     }
 }

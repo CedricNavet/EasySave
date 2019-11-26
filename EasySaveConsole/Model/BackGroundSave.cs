@@ -38,7 +38,7 @@ namespace EasySaveConsole.Model
                     {
                         if(backup.BackupType == BackupType.mirror)
                         {
-                            Tools.
+                            Tools.backUp(backup);
                         }
                         else
                         {
