@@ -130,6 +130,35 @@ namespace EasySaveConsole.Model
                     return false; ;
                 }
             }
+
+        }
+
+        /// <summary>
+        /// check JSON valid type 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="strInput"></param>
+        /// <returns></returns>
+        public static bool IsValidJson<T>(this string strInput)
+        {
+            strInput = strInput.Trim();
+            if ((strInput.StartsWith("{") && strInput.EndsWith("}")) || //For object
+                (strInput.StartsWith("[") && strInput.EndsWith("]"))) //For array
+            {
+                try
+                {
+                    var obj = JsonConvert.DeserializeObject<T>(strInput);
+                    return true;
+                }
+                catch // not valid
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public static void backUp(Backups backups)
