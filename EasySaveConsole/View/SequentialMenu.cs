@@ -53,7 +53,7 @@ namespace EasySaveConsole.View
         public String Target { get; set; } // Destination
         public BackupType BackupType { get; set; } // Type de sauvegarde
         */
-    }
+        }
 
         private void SequentialDisplay()
         {
