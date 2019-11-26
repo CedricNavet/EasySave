@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -47,13 +48,43 @@ namespace EasySaveConsole.View
             String display;
             do
             {
-
-            }
-            while {
-                //tester si la string est ok, vérifier que c'est un .JSON
-            }
+                Console.Clear();
+                Console.WriteLine("Display :");
+                display = Console.ReadLine();
+            } while ((IsValidJson<Model.Logs>(display))==true); //tester si la string est ok, vérifier que c'est un .JSON
+          
             List<Model.Logs> temp = Model.Tools.JsonToObject<Model.Logs>(display); //retourne une liste
             //print la liste dans la console avec un foreach
+            int count = 0;
+            foreach (Model.Logs element in temp)
+            {
+                count++;
+                Console.WriteLine({count}":"{element});
+            }
+            Console.WriteLine("Nombre d'élément"{count});
+        }
+
+        //test
+        public static bool IsValidJson<T>(this string strInput)
+        {
+            strInput = strInput.Trim();
+            if ((strInput.StartsWith("{") && strInput.EndsWith("}")) || //For object
+                (strInput.StartsWith("[") && strInput.EndsWith("]"))) //For array
+            {
+                try
+                {
+                    var obj = JsonConvert.DeserializeObject<T>(strInput);
+                    return true;
+                }
+                catch // not valid
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
