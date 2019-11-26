@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EasySaveConsole.View
 {
-    class SequentialMenu : Menu
+    public class SequentialMenu : Menu
     {
         private bool isFinish = false;
         List<MenuAction> menuAction = new List<MenuAction>() {
@@ -51,7 +51,7 @@ namespace EasySaveConsole.View
                 Console.Clear();
                 Console.WriteLine("Display :");
                 display = Console.ReadLine();
-            } while ((IsValidJson<Model.Logs>(display))==true); //tester si la string est ok, vérifier que c'est un .JSON
+            } while ((Model.Tools.IsValidJson<Model.Logs>(display))==true); //tester si la string est ok, vérifier que c'est un .JSON
           
             List<Model.Logs> temp = Model.Tools.JsonToObject<Model.Logs>(display); //retourne une liste
             //print la liste dans la console avec un foreach
@@ -63,29 +63,7 @@ namespace EasySaveConsole.View
             }
             Console.WriteLine($"Nombre d'élément {count}");
         }
-
-        //test
-        public static bool IsValidJson<T>(this string strInput)
-        {
-            strInput = strInput.Trim();
-            if ((strInput.StartsWith("{") && strInput.EndsWith("}")) || //For object
-                (strInput.StartsWith("[") && strInput.EndsWith("]"))) //For array
-            {
-                try
-                {
-                    var obj = JsonConvert.DeserializeObject<T>(strInput);
-                    return true;
-                }
-                catch // not valid
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                return false;
-            }
-        }
+   
     }
 }
 
