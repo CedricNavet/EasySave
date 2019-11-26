@@ -10,8 +10,8 @@ namespace EasySaveConsole.View
 {
 
     
-    public class View : Menu
-    {
+    public class View
+    { 
         private readonly Model.Model model;
         private string jsonSave;
         private string path;
@@ -37,7 +37,7 @@ namespace EasySaveConsole.View
             backups.Add(backups1);
             string temp = Model.Tools.ObjectToJson<List<Backups>>(backups);
             Console.WriteLine(temp);
-            //Model.Tools.WriteData(temp, @"C:\Users\ccdu2\OneDrive - Association Cesi Viacesi mail\Mes Devoirs\Autres\C#\EasySave\EasySaveConsole\SaveState\InMemorySave.json");
+            Model.Tools.WriteData(temp, @"C:\Users\pierr\Source\Repos\EasySave\EasySaveConsole\SaveState\InMemorySave.json");
             do
             {
                 Console.Clear();
@@ -52,22 +52,12 @@ namespace EasySaveConsole.View
 
             Console.Clear();
 
-            SequentialMenu sequentialMenu = new SequentialMenu();
+            SequentialMenu sequentialMenu = new SequentialMenu(path + @"\InMemorySave.json");
             //while (!IsFinsih)
             //{
             //    DrawMenu(menuAction);
             //}
             //Savethread.Suspend();
-        }
-
-        protected override void FunctionFirstPosition()
-        {
-            menuAction[0].Instanciate();
-        }
-
-        protected override void FunctionSecondPosition()
-        {
-            menuAction[1].Instanciate();
         }
 
         public void SaveThread()

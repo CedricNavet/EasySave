@@ -16,9 +16,11 @@ namespace EasySaveConsole.View
             new MenuAction("Create Sequence", ArrowPosition.Middle),
             new MenuAction("Return", ArrowPosition.Down),
         };
+        private string pathJson;
 
-        public SequentialMenu()
+        public SequentialMenu(string pathJson)
         {
+            this.pathJson = pathJson;
             stringAddingToDisplay = "";
             ShowMenu();
         }
@@ -60,6 +62,8 @@ namespace EasySaveConsole.View
             {
                 Console.Clear();
                 Console.WriteLine("Display :");
+                IList<Model.Backups> savedData = Model.Tools.JsonToObject<Model.Backups>(Model.Tools.ReadData(pathJson));
+                Console.WriteLine(savedData[0].BackupsName);
                 display = Console.ReadLine();
             } while ((Model.Tools.IsValidJson<Model.Logs>(display))==true); //tester si la string est ok, vérifier que c'est un .JSON
           
