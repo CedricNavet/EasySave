@@ -59,9 +59,9 @@ namespace EasySaveConsole.View
             foreach (Model.Logs element in temp)
             {
                 count++;
-                Console.WriteLine({count}":"{element});
+                Console.WriteLine($"{count}:{element}");
             }
-            Console.WriteLine("Nombre d'élément"{count});
+            Console.WriteLine($"Nombre d'élément {count}");
         }
 
         //test
