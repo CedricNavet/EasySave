@@ -74,6 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\Controller.cs" />
+    <Compile Include="Model\BackGroundSave.cs" />
     <Compile Include="Model\Tools.cs" />
     <Compile Include="Model\AllRepository.cs" />
     <Compile Include="Model\Backups.cs" />
@@ -119,6 +120,9 @@
       <DependentUpon>EntityModels.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="SaveState\Backups.json" />
+    <None Include="SaveState\InMemorySave.json" />
+    <None Include="SaveState\SaveProgession.json" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Model\EntityModels.Context.tt">
