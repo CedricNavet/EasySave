@@ -27,55 +27,14 @@ namespace EasySaveConsole.View
                 DrawMenu(menuAction);
             }
         }
-        protected override void DrawMenu(List<MenuAction> menuAction)
+
+        protected override void FunctionFirstPosition()
         {
-            base.DrawMenu(menuAction);
+            SequentialDisplay();
         }
-
-        protected override void CheckKey(ConsoleKey consoleKey, List<MenuAction> menuAction)
+        protected override void FunctionSecondPosition()
         {
-            if (consoleKey == ConsoleKey.DownArrow)
-            {
-                if (arrowPosition == ArrowPosition.Down)
-                {
-                    arrowPosition = ArrowPosition.Top;
-                    Console.Clear();
-                }
-                else
-                {
-                    arrowPosition += 1;
-                    Console.Clear();
-                }
-
-            }
-            else if (consoleKey == ConsoleKey.UpArrow)
-            {
-                if (arrowPosition == ArrowPosition.Top)
-                {
-                    arrowPosition = ArrowPosition.Down;
-                    Console.Clear();
-                }
-                else
-                {
-                    arrowPosition -= 1;
-                    Console.Clear();
-                }
-            }
-            else if (consoleKey == ConsoleKey.Enter)
-            {
-                if (arrowPosition == ArrowPosition.Top)
-                {
-                    SequentialDisplay();
-                }
-                else if (arrowPosition == ArrowPosition.Middle)
-                {
-                    SequentialCreation();
-                }
-                else if (arrowPosition == ArrowPosition.Down)
-                {
-                    //retour
-                }
-            }
+            SequentialCreation();
         }
 
         private void SequentialCreation()
@@ -88,5 +47,5 @@ namespace EasySaveConsole.View
             throw new NotImplementedException();
         }
     }
-    }
+}
 

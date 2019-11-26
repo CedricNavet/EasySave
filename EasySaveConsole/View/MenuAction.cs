@@ -29,15 +29,5 @@ namespace EasySaveConsole.View
             else
                 return (object)Activator.CreateInstance(ClassName);
         }
-
-        public void SaveFile()
-        {
-
-        }
-
-        public void SaveFolder()
-        {
-
-        }
     }
 }

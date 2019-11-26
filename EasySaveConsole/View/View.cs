@@ -15,8 +15,8 @@ namespace EasySaveConsole.View
 
         List<MenuAction> menuAction = new List<MenuAction>() {
             new MenuAction("Occasional Save", ArrowPosition.Top, typeof(OneSaveMenu)),
-            new MenuAction("Action 2", ArrowPosition.Middle, typeof(Model.Logs)),
-            new MenuAction("Action 3", ArrowPosition.Down),
+            new MenuAction("Sequential Save", ArrowPosition.Middle, typeof(Model.Logs)),
+            new MenuAction("Quitter", ArrowPosition.Down),
         };
 
         public View(Model.Model model)
@@ -51,7 +51,17 @@ namespace EasySaveConsole.View
             }
         }
 
-        
+        protected override void FunctionFirstPosition()
+        {
+            menuAction[0].Instanciate();
+        }
+
+        protected override void FunctionSecondPosition()
+        {
+            menuAction[1].Instanciate();
+        }
+
+
     }
 
     

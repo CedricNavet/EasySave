@@ -28,72 +28,37 @@ namespace EasySaveConsole.View
             
         }
 
-        protected override void DrawMenu(List<MenuAction> menuAction)
+        protected override void FunctionFirstPosition()
         {
-            base.DrawMenu(menuAction);
+            SaveOneFile();
         }
-
-        protected override void CheckKey(ConsoleKey consoleKey, List<MenuAction> menuAction)
+        protected override void FunctionSecondPosition()
         {
-            if (consoleKey == ConsoleKey.DownArrow)
-            {
-                if (arrowPosition == ArrowPosition.Down)
-                {
-                    arrowPosition = ArrowPosition.Top;
-                    Console.Clear();
-                }
-                else
-                {
-                    arrowPosition += 1;
-                    Console.Clear();
-                }
-
-            }
-            else if (consoleKey == ConsoleKey.UpArrow)
-            {
-                if (arrowPosition == ArrowPosition.Top)
-                {
-                    arrowPosition = ArrowPosition.Down;
-                    Console.Clear();
-                }
-                else
-                {
-                    arrowPosition -= 1;
-                    Console.Clear();
-                }
-            }
-            else if (consoleKey == ConsoleKey.Enter)
-            {
-
-                    if(arrowPosition == ArrowPosition.Top)
-                    {
-                        SaveOneFile();
-                    }
-                    if (arrowPosition == ArrowPosition.Middle)
-                    {
-                        SaveOneFolder();
-                    }
-                
-            }
+            SaveOneFolder();
         }
 
         private void SaveOneFolder()
         {
-            throw new NotImplementedException();
-        }
-
-        private void SaveOneFile()
-        {
-            string typeOfSave = @"";
             string filepathSource = "";
             string filepathDestination = "";
             do
             {
                 Console.Clear();
-                Console.WriteLine("Type A if you want to Copy a folder or Type B if you want to save on file");
-                typeOfSave += Console.ReadLine();
-            } while (!(typeOfSave == "a" || typeOfSave == "b"));
+                Console.WriteLine("Give the folder source :");
+                filepathSource = Console.ReadLine();
 
+                Console.Clear();
+                Console.WriteLine("Give the folder target :");
+                filepathDestination = Console.ReadLine();
+
+            } while (Model.Tools.CopyFiles(filepathSource, filepathDestination, true));
+            Console.Clear();
+        }
+
+        private void SaveOneFile()
+        {
+            string filepathSource = "";
+            string filepathDestination = "";
             do
             {
                 Console.Clear();
@@ -104,11 +69,8 @@ namespace EasySaveConsole.View
                 Console.WriteLine("Give the file target :");
                 filepathDestination = Console.ReadLine();
 
-            } while (Model.Tools.CopyFiles(filepathSource,filepathDestination,typeOfSave=="a"));
-
-            
-
-            
+            } while (Model.Tools.CopyFiles(filepathSource, filepathDestination, false));
+            Console.Clear();         
             
         }
     }
