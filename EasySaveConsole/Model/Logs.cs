@@ -13,6 +13,6 @@ namespace EasySaveConsole.Model
         public String SourceFileAddress { get; set; } //adresse fichier source
         public String DestinationFileAddress { get; set; } //adress fichier de destination
         public byte FileSize { get; set; } //taille fichier
-        public int TransferTime { get; set; } //temps de transfert
+        public TimeSpan TransferTime { get; set; } //temps de transfert
     }
 }

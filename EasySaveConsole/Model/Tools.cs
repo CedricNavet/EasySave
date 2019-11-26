@@ -74,13 +74,13 @@ namespace EasySaveConsole.Model
             return new FileInfo(filename).Length;
         }
 
-        public static bool IsSizeEquivalent(long s1,long s2)
+        public static bool IsSizeEquivalent(long s1, long s2)
         {
             return s1 == s2;
         }
 
         //fonction qui compare l'heure actuelle et l'heure de sauvegarde
-        public static bool SequentialBackup (DateTime currentTime, DateTime saveTime)
+        public static bool SequentialBackup(DateTime currentTime, DateTime saveTime)
         {
             return currentTime >= saveTime;
         }
@@ -110,7 +110,7 @@ namespace EasySaveConsole.Model
                     Thread.Sleep(2000);
                     return false;
                 }
-                
+
             }
             else
             {
@@ -161,10 +161,11 @@ namespace EasySaveConsole.Model
             }
         }
 
-        public static void backUp(Backups backups)
+        public static void backUp(Backups backups, string pathJson)
         {
             try
             {
+
                 /*
                  * if sourcePath & destPath are both Directories
                  * @param SourcePath : Source path of the Directory to copy
@@ -175,7 +176,12 @@ namespace EasySaveConsole.Model
                     foreach (string dirPath in Directory.GetDirectories(backups.Source, "*", SearchOption.AllDirectories))
                         Directory.CreateDirectory(dirPath.Replace(backups.Source, backups.Target));
                     foreach (string newPath in Directory.GetFiles(backups.Source, "*.*", SearchOption.AllDirectories))
+                    {
+                        SaveProgression(Directory.GetFiles(backups.Source, "*", SearchOption.AllDirectories), pathJson, newPath);
                         File.Copy(newPath, newPath.Replace(backups.Source, backups.Target), true);
+                        
+                    }
+                        
                 }
                 /*
                  * @param destPath : Destination of the file to be copied
@@ -210,6 +216,40 @@ namespace EasySaveConsole.Model
             {
                 Console.Write("Une erreur a été levé {0}", e);
             }
+        }
+
+        private static void SaveProgression(string[] directoryFile, string path, string currentFile)
+        {
+            long TotalFileSize = 0;
+            int numberRemainFiles = 0;
+            long RemainFileSize = 0;
+            foreach (string item in directoryFile)
+            {
+                if (item == currentFile)
+                {
+                    numberRemainFiles++;
+                    long temp = FileSize(item);
+                    RemainFileSize += temp;
+                    TotalFileSize += temp;
+                }
+                else
+                {
+                    TotalFileSize += FileSize(item);
+                }
+                
+            }
+              
+            SaveProgress saveProgress = new SaveProgress()
+            {
+                Timestamp = DateTime.Now,
+                NumberTotalFiles = directoryFile.Length,
+                TotalFileSize = TotalFileSize,
+                NumberRemainFiles = numberRemainFiles,
+                RemainFileSize = RemainFileSize,
+                CurrentFileName = currentFile,
+            };
+            
+            WriteData(ObjectToJson(saveProgress),path+@"\SaveProgression" );
         }
     }
 }

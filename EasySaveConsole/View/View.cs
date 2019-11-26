@@ -14,6 +14,7 @@ namespace EasySaveConsole.View
     {
         private readonly Model.Model model;
         private string jsonSave;
+        private string path;
         List<MenuAction> menuAction = new List<MenuAction>() {
             new MenuAction("Occasional Save", ArrowPosition.Top, typeof(OneSaveMenu)),
             new MenuAction("Sequential Save", ArrowPosition.Middle, typeof(Model.Logs)),
@@ -29,7 +30,6 @@ namespace EasySaveConsole.View
         public void Menu()
         {     
             Console.CursorVisible = false;
-            string jsonFilePath = "";
 
             List<Backups> backups = new List<Backups>();
             Backups backups1 = new Backups() { BackupsName = "Temp", BackupType = BackupType.mirror, Source = @"C:\Users\ccdu2\OneDrive - Association Cesi Viacesi mail\Mes fichiers\autres", Target = @"C:\Users\ccdu2\OneDrive - Association Cesi Viacesi mail\Mes fichiers\autres", TimeToSave = new DateTime(2019, 11, 30, 2, 2, 2) };
@@ -39,9 +39,10 @@ namespace EasySaveConsole.View
             do
             {
                 Console.Clear();
-                Console.WriteLine("Give the source of InMemorySave.json");
-                jsonFilePath = Console.ReadLine();
-                jsonSave = Model.Tools.ReadData(jsonFilePath);
+                Console.WriteLine("Give the folder where is InMemorySave.json");
+                path = Console.ReadLine();
+                string pathJson = path + @"\InMemorySave.json";
+                jsonSave = Model.Tools.ReadData(path);
             } while (false);// Check if is json is correct
                         
             Thread Savethread = new Thread(SaveThread);
@@ -69,7 +70,7 @@ namespace EasySaveConsole.View
         public void SaveThread()
         {
             BackGroundSave save = new BackGroundSave();
-            save.StartSave(jsonSave);
+            save.StartSave(jsonSave, path);
         }
     }
 

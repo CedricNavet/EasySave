@@ -10,14 +10,15 @@ namespace EasySaveConsole.Model
     {
         private List<Backups> backups = new List<Backups>();
         private string jsonSave;
-
+        private string path;
         public BackGroundSave()
         {
         }
 
-        public void StartSave(string jsonSave)
+        public void StartSave(string jsonSave, string path)
         {
             this.jsonSave = jsonSave;
+            this.path = path;
             backups = Tools.JsonToObject<Backups>(jsonSave);
             SaveCheck();
         }
@@ -36,14 +37,25 @@ namespace EasySaveConsole.Model
                 {
                     if (Tools.SequentialBackup(DateTime.Now, backup.TimeToSave))
                     {
+                        DateTime startsave = DateTime.Now;
                         if(backup.BackupType == BackupType.mirror)
                         {
-                            Tools.backUp(backup);
+                            Tools.backUp(backup, path);
                         }
                         else
                         {
 
                         }
+
+                        TimeSpan temp = DateTime.Now - startsave;
+                        Logs log = new Logs()
+                        {
+                            Timestamp = DateTime.Now,
+                            TaskName = backup.BackupsName,
+                            SourceFileAddress = backup.Source,
+                            DestinationFileAddress = backup.Target,
+                            FileSize = 0, TransferTime = temp
+                        };
                     }
                 }
 
