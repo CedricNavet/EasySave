@@ -1,9 +1,8 @@
-﻿using Newtonsoft.Json;
+﻿using EasySaveConsole.Model;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EasySaveConsole.View
 {
@@ -44,15 +43,46 @@ namespace EasySaveConsole.View
 
         private void SequentialCreation()
         {
-            throw new NotImplementedException();
-            // faire un objet
-            //faire en sorte que l'utilisateur renseigner les éléments de backups
-         /*
-        public String BackupsName { get; set; } // Nom de sauvegarde
-        public String Source { get; set; }// Source
-        public String Target { get; set; } // Destination
-        public BackupType BackupType { get; set; } // Type de sauvegarde
-        */
+            Backups save = new Backups();
+            Console.WriteLine("Choissisez le nom de votre Save :");
+            save.BackupsName = Console.ReadLine();
+            Console.WriteLine("Choissisez votre Dossier Source");
+            save.Source = Console.ReadLine();
+            Console.WriteLine("Choissisez votre Dossier de destination");
+            save.Target = Console.ReadLine();
+            Console.WriteLine("Choissisez le type de sauvegarde (differential ou mirror) :");
+            var list = new string[] { "mirror", "differential" };
+            string type = Console.ReadLine();
+
+            while (!list.Contains(type))
+            {
+                Console.WriteLine("Choissisez le type de sauvegarde (differential ou mirror) :");
+                type = Console.ReadLine();
+            }
+            int typeEnum = 50;
+            switch (type)
+            {
+                case "mirror":
+                    typeEnum = 0;
+                    break;
+                case "differential":
+                    typeEnum = 1;
+                    break;
+            }
+            save.BackupType = (BackupType) typeEnum;
+            save.TimeToSave = DateTime.Now;
+            //string temp = Tools.ObjectToJson<Backups>(save);
+            var jsonFile = JsonConvert.DeserializeObject<List<Backups>>(Tools.ReadData(@"..\..\..\EasySaveConsole\SaveState\InMemorySave.json"));
+            jsonFile.Add(save);
+            var temp = Tools.ObjectToJson<List<Backups>>(jsonFile);
+            /*
+             * Dans temp = 
+             * Rajouter le vrai ssytème de BackUp
+             * 
+             * 
+             */
+
+            //Tools.WriteData(temp, @"..\..\..\EasySaveConsole\SaveState\InMemorySave.json");
         }
 
         private void SequentialDisplay()
@@ -62,15 +92,20 @@ namespace EasySaveConsole.View
             {
                 Console.Clear();
                 Console.WriteLine("Display :");
-                IList<Model.Backups> savedData = Model.Tools.JsonToObject<Model.Backups>(Model.Tools.ReadData(pathJson));
-                Console.WriteLine(savedData[0].BackupsName);
+                IList<Backups> savedData = Tools.JsonToObject<Backups>(Tools.ReadData(pathJson));
+
+                for (int i = 0; i < savedData.Count(); i++)
+                {
+                    Console.WriteLine("BackupName : {0}, Source : {1}, Target : {2}, LastSavedOn : {3}, SaveType : {4}", savedData[i].BackupsName, savedData[i].Source, savedData[i].Target, savedData[i].TimeToSave, savedData[i].BackupType);
+                    Console.WriteLine("                                -----------------------------------------------------------------------------                           ");
+                }
                 display = Console.ReadLine();
-            } while ((Model.Tools.IsValidJson<Model.Logs>(display))==true); //tester si la string est ok, vérifier que c'est un .JSON
+            } while ((Tools.IsValidJson<Logs>(display))==true); //tester si la string est ok, vérifier que c'est un .JSON
           
-            IList<Model.Logs> temp = Model.Tools.JsonToObject<Model.Logs>(display); //retourne une liste
+            IList<Logs> temp = Tools.JsonToObject<Logs>(display); //retourne une liste
             //print la liste dans la console avec un foreach
             int count = 0;
-            foreach (Model.Logs element in temp)
+            foreach (Logs element in temp)
             {
                 count++;
                 Console.WriteLine($"{count}:{element}");
