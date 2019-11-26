@@ -15,6 +15,8 @@ namespace EasySaveConsole.View
         private readonly Model.Model model;
         private string jsonSave;
         private string path;
+        private SequentialMenu sequentialMenu;
+
         List<MenuAction> menuAction = new List<MenuAction>() {
             new MenuAction("Occasional Save", ArrowPosition.Top, typeof(OneSaveMenu)),
             new MenuAction("Sequential Save", ArrowPosition.Middle, typeof(Model.Logs)),
@@ -23,7 +25,6 @@ namespace EasySaveConsole.View
 
         public View(Model.Model model)
         {
-            
             this.model = model;
         }
 
@@ -51,11 +52,12 @@ namespace EasySaveConsole.View
 
             Console.Clear();
 
-            while (!IsFinsih)
-            {
-                DrawMenu(menuAction);
-            }
-            Savethread.Suspend();
+            SequentialMenu sequentialMenu = new SequentialMenu();
+            //while (!IsFinsih)
+            //{
+            //    DrawMenu(menuAction);
+            //}
+            //Savethread.Suspend();
         }
 
         protected override void FunctionFirstPosition()

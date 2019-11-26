@@ -21,10 +21,10 @@ namespace EasySaveConsole.View
 
         private void ShowMenu()
         {
-            while (!IsFinsih)
-            {
-                DrawMenu(menuAction);
-            }
+            //while (!IsFinsih)
+            //{
+            //    DrawMenu(menuAction);
+            //}
             
         }
 

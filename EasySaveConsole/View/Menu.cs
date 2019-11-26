@@ -21,8 +21,9 @@ namespace EasySaveConsole.View
         protected bool IsFinsih = false;
         protected ArrowPosition arrowPosition;
 
-        protected virtual void DrawMenu(List<MenuAction> menuAction)
+        protected virtual void DrawMenu(List<MenuAction> menuAction, string stringAddingToDisplay)
         {
+            Console.WriteLine(stringAddingToDisplay);
             foreach (MenuAction item in menuAction)
             {
                 if (item.ArrowPosition == arrowPosition)

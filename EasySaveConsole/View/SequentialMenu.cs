@@ -10,6 +10,7 @@ namespace EasySaveConsole.View
     public class SequentialMenu : Menu
     {
         private bool isFinish = false;
+        private string stringAddingToDisplay;
         List<MenuAction> menuAction = new List<MenuAction>() {
             new MenuAction("Display Sequence", ArrowPosition.Top),
             new MenuAction("Create Sequence", ArrowPosition.Middle),
@@ -18,6 +19,7 @@ namespace EasySaveConsole.View
 
         public SequentialMenu()
         {
+            stringAddingToDisplay = "";
             ShowMenu();
         }
 
@@ -25,7 +27,7 @@ namespace EasySaveConsole.View
         {
             while (!isFinish)
             {
-                DrawMenu(menuAction);
+                DrawMenu(menuAction, stringAddingToDisplay);
             }
         }
 
