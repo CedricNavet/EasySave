@@ -8,7 +8,7 @@ namespace EasySaveConsole.Model
 {
     public class BackGroundSave
     {
-        private List<Backups> backups = new List<Backups>();
+        private IList<Backups> backups = new List<Backups>();
         private string jsonSave;
         private string path;
         public BackGroundSave()

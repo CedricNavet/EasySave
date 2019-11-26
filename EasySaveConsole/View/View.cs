@@ -36,14 +36,14 @@ namespace EasySaveConsole.View
             backups.Add(backups1);
             string temp = Model.Tools.ObjectToJson<List<Backups>>(backups);
             Console.WriteLine(temp);
-            Model.Tools.WriteData(temp, @"C:\Users\pierr\Source\Repos\EasySave\EasySaveConsole\SaveState\InMemorySave.json");
+            //Model.Tools.WriteData(temp, @"C:\Users\ccdu2\OneDrive - Association Cesi Viacesi mail\Mes Devoirs\Autres\C#\EasySave\EasySaveConsole\SaveState\InMemorySave.json");
             do
             {
                 Console.Clear();
                 Console.WriteLine("Give the folder where is InMemorySave.json");
                 path = Console.ReadLine();
                 string pathJson = path + @"\InMemorySave.json";
-                jsonSave = Model.Tools.ReadData(path);
+                jsonSave = Model.Tools.ReadData(pathJson);
             } while (false);// Check if is json is correct
                         
             Thread Savethread = new Thread(SaveThread);

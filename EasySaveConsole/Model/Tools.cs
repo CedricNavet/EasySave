@@ -25,17 +25,22 @@ namespace EasySaveConsole.Model
             }
         }
 
-        public static IList<Backups> JsonToObject<T>(string jsonString)
+        public static IList<T> JsonToObject<T>(string jsonString)
         {
+            if (jsonString.Length == 0)
+            {
+                IList<T> list = new List<T>();
+                return list;
+            }
             try
             {
                 JToken parseJson = JToken.Parse(jsonString);
                 IList<JToken> results = parseJson.Children().ToList();
-                IList<Backups> backupData = new List<Backups>();
+                IList<T> backupData = new List<T>();
 
                 foreach (JToken result in results)
                 {
-                    Backups backup = result.ToObject<Backups>();
+                    T backup = result.ToObject<T>();
                     backupData.Add(backup);
                 }
 

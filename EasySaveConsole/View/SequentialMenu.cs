@@ -61,7 +61,7 @@ namespace EasySaveConsole.View
                 display = Console.ReadLine();
             } while ((Model.Tools.IsValidJson<Model.Logs>(display))==true); //tester si la string est ok, vérifier que c'est un .JSON
           
-            List<Model.Logs> temp = Model.Tools.JsonToObject<Model.Logs>(display); //retourne une liste
+            IList<Model.Logs> temp = Model.Tools.JsonToObject<Model.Logs>(display); //retourne une liste
             //print la liste dans la console avec un foreach
             int count = 0;
             foreach (Model.Logs element in temp)
