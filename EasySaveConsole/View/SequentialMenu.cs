@@ -41,7 +41,15 @@ namespace EasySaveConsole.View
         private void SequentialCreation()
         {
             throw new NotImplementedException();
-        }
+            // faire un objet
+            //faire en sorte que l'utilisateur renseigner les éléments de backups
+         /*
+        public String BackupsName { get; set; } // Nom de sauvegarde
+        public String Source { get; set; }// Source
+        public String Target { get; set; } // Destination
+        public BackupType BackupType { get; set; } // Type de sauvegarde
+        */
+    }
 
         private void SequentialDisplay()
         {
