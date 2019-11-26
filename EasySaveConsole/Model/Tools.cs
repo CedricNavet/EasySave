@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -24,15 +25,24 @@ namespace EasySaveConsole.Model
             }
         }
 
-        public static List<T> JsonToObject<T>(string jsonString)
+        public static IList<Backups> JsonToObject<T>(string jsonString)
         {
             try
             {
-                return (List<T>)JsonConvert.DeserializeObject(jsonString);
+                JToken parseJson = JToken.Parse(jsonString);
+                IList<JToken> results = parseJson.Children().ToList();
+                IList<Backups> backupData = new List<Backups>();
+
+                foreach (JToken result in results)
+                {
+                    Backups backup = result.ToObject<Backups>();
+                    backupData.Add(backup);
+                }
+
+                return backupData;
             }
             catch (Exception e)
             {
-
                 throw new Exception(e.Message);
             }
         }

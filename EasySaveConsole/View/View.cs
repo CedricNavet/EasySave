@@ -35,7 +35,8 @@ namespace EasySaveConsole.View
             Backups backups1 = new Backups() { BackupsName = "Temp", BackupType = BackupType.mirror, Source = @"C:\Users\ccdu2\OneDrive - Association Cesi Viacesi mail\Mes fichiers\autres", Target = @"C:\Users\ccdu2\OneDrive - Association Cesi Viacesi mail\Mes fichiers\autres", TimeToSave = new DateTime(2019, 11, 30, 2, 2, 2) };
             backups.Add(backups1);
             string temp = Model.Tools.ObjectToJson<List<Backups>>(backups);
-            Model.Tools.WriteData(temp, @"C:\Users\ccdu2\OneDrive - Association Cesi Viacesi mail\Mes Devoirs\Autres\C#\EasySave\EasySaveConsole\SaveState\InMemorySave.json");
+            Console.WriteLine(temp);
+            Model.Tools.WriteData(temp, @"C:\Users\pierr\Source\Repos\EasySave\EasySaveConsole\SaveState\InMemorySave.json");
             do
             {
                 Console.Clear();
