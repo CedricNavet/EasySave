@@ -14,7 +14,7 @@ namespace EasySaveConsole.View
     { 
         private readonly Model.Model model;
         private string jsonSave;
-        private string path;
+        private string path = @"..\..\..\EasySaveConsole\SaveState\InMemorySave.json";
         private SequentialMenu sequentialMenu;
 
         List<MenuAction> menuAction = new List<MenuAction>() {
@@ -32,19 +32,20 @@ namespace EasySaveConsole.View
         {     
             Console.CursorVisible = false;
 
-            List<Backups> backups = new List<Backups>();
+            /*List<Backups> backups = new List<Backups>();
             Backups backups1 = new Backups() { BackupsName = "Temp", BackupType = BackupType.mirror, Source = @"C:\Users\ccdu2\OneDrive - Association Cesi Viacesi mail\Mes fichiers\autres", Target = @"C:\Users\ccdu2\OneDrive - Association Cesi Viacesi mail\Mes fichiers\autres", TimeToSave = new DateTime(2019, 11, 30, 2, 2, 2) };
             backups.Add(backups1);
-            string temp = Model.Tools.ObjectToJson<List<Backups>>(backups);
-            Console.WriteLine(temp);
-            Model.Tools.WriteData(temp, @"C:\Users\pierr\Source\Repos\EasySave\EasySaveConsole\SaveState\InMemorySave.json");
+            Backups backups2 = new Backups() { BackupsName = "TrucDeux", BackupType = BackupType.mirror, Source = @"C:\Users\ccdu2\OneDrive - Association Cesi Viacesi mail\Mes fichiers\autres", Target = @"C:\Users\ccdu2\OneDrive - Association Cesi Viacesi mail\Mes fichiers\autres", TimeToSave = new DateTime(2019, 11, 30, 2, 2, 2) };
+            backups.Add(backups2);
+            string temp = Tools.ObjectToJson<List<Backups>>(backups);
+            Tools.WriteData(temp, @"..\..\..\EasySaveConsole\SaveState\InMemorySave.json");*/
             do
             {
                 Console.Clear();
-                Console.WriteLine("Give the folder where is InMemorySave.json");
-                path = Console.ReadLine();
-                string pathJson = path + @"\InMemorySave.json";
-                jsonSave = Model.Tools.ReadData(pathJson);
+                /*Console.WriteLine("Give the folder where is InMemorySave.json");
+                path = Console.ReadLine();*/
+                string pathJson = path;
+                jsonSave = Tools.ReadData(path);
             } while (false);// Check if is json is correct
                         
             Thread Savethread = new Thread(SaveThread);
@@ -52,7 +53,7 @@ namespace EasySaveConsole.View
 
             Console.Clear();
 
-            SequentialMenu sequentialMenu = new SequentialMenu(path + @"\InMemorySave.json");
+            SequentialMenu sequentialMenu = new SequentialMenu(path);
             //while (!IsFinsih)
             //{
             //    DrawMenu(menuAction);
