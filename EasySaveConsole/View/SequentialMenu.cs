@@ -77,12 +77,12 @@ namespace EasySaveConsole.View
             var temp = Tools.ObjectToJson<List<Backups>>(jsonFile);
             /*
              * Dans temp = 
-             * Rajouter le vrai ssytème de BackUp
+             * Rajouter le vrai sytème de BackUp
              * 
              * 
              */
-
-            //Tools.WriteData(temp, @"..\..\..\EasySaveConsole\SaveState\InMemorySave.json");
+            Tools.backUp(save, @"..\..\..\EasySaveConsole\SaveState\");
+            Tools.WriteData(temp, @"..\..\..\EasySaveConsole\SaveState\InMemorySave.json");
         }
 
         private void SequentialDisplay()

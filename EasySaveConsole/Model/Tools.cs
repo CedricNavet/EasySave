@@ -264,7 +264,7 @@ namespace EasySaveConsole.Model
                 CurrentFileName = currentFile,
             };
             
-            WriteData(ObjectToJson(saveProgress),path+@"\SaveProgression" );
+            WriteData(ObjectToJson(saveProgress),path+@"\SaveProgression.json" );
         }
     }
 }
