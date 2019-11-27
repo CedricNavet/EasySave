@@ -118,5 +118,901 @@
     "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\temp\\spawn tir2.PNG",
     "FileSize": 141786,
     "TransferTime": "00:00:00.0059840"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:11.0965753+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\2.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\2.PNG",
+    "FileSize": 249925,
+    "TransferTime": "00:00:00.0667955"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:11.1284903+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\Capture.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\Capture.PNG",
+    "FileSize": 5138,
+    "TransferTime": "00:00:00.0079793"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:11.1474394+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\lettre de motivation.docx",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\lettre de motivation.docx",
+    "FileSize": 13309,
+    "TransferTime": "00:00:00.0119671"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:11.1604058+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\projectile BP.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\projectile BP.PNG",
+    "FileSize": 158084,
+    "TransferTime": "00:00:00.0099742"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:11.1793542+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\Sans titre.png",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\Sans titre.png",
+    "FileSize": 422409,
+    "TransferTime": "00:00:00.0079782"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:11.1923193+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\temp\\2.png",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\temp\\2.png",
+    "FileSize": 199871,
+    "TransferTime": "00:00:00.0069816"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:11.2052848+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\temp\\spawn tir2.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\temp\\spawn tir2.PNG",
+    "FileSize": 141786,
+    "TransferTime": "00:00:00.0069811"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:34.8575626+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\2.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\2.PNG",
+    "FileSize": 249925,
+    "TransferTime": "00:00:00.0049872"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:34.8775096+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\Capture.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\Capture.PNG",
+    "FileSize": 5138,
+    "TransferTime": "00:00:00.0109704"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:34.8914742+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\lettre de motivation.docx",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\lettre de motivation.docx",
+    "FileSize": 13309,
+    "TransferTime": "00:00:00.0039911"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:34.9094241+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\projectile BP.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\projectile BP.PNG",
+    "FileSize": 158084,
+    "TransferTime": "00:00:00.0109706"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:34.9233866+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\Sans titre.png",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\Sans titre.png",
+    "FileSize": 422409,
+    "TransferTime": "00:00:00.0069812"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:34.9383462+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\temp\\2.png",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\temp\\2.png",
+    "FileSize": 199871,
+    "TransferTime": "00:00:00.0079780"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:34.9553018+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\temp\\spawn tir2.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\temp\\spawn tir2.PNG",
+    "FileSize": 141786,
+    "TransferTime": "00:00:00.0109714"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:42.8810303+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\2.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\2.PNG",
+    "FileSize": 249925,
+    "TransferTime": "00:00:00.0109704"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:42.8959899+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\Capture.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\Capture.PNG",
+    "FileSize": 5138,
+    "TransferTime": "00:00:00.0089769"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:42.9149394+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\lettre de motivation.docx",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\lettre de motivation.docx",
+    "FileSize": 13309,
+    "TransferTime": "00:00:00.0129657"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:42.930897+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\projectile BP.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\projectile BP.PNG",
+    "FileSize": 158084,
+    "TransferTime": "00:00:00.0069816"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:42.9468542+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\Sans titre.png",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\Sans titre.png",
+    "FileSize": 422409,
+    "TransferTime": "00:00:00.0089762"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:42.959819+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\temp\\2.png",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\temp\\2.png",
+    "FileSize": 199871,
+    "TransferTime": "00:00:00.0069794"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:42.9717872+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\temp\\spawn tir2.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\temp\\spawn tir2.PNG",
+    "FileSize": 141786,
+    "TransferTime": "00:00:00.0059846"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:45.6770795+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\2.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\2.PNG",
+    "FileSize": 249925,
+    "TransferTime": "00:00:00.0099756"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:45.6950295+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\Capture.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\Capture.PNG",
+    "FileSize": 5138,
+    "TransferTime": "00:00:00.0089758"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:45.7129819+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\lettre de motivation.docx",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\lettre de motivation.docx",
+    "FileSize": 13309,
+    "TransferTime": "00:00:00.0089758"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:45.7279415+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\projectile BP.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\projectile BP.PNG",
+    "FileSize": 158084,
+    "TransferTime": "00:00:00.0079787"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:45.7419047+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\Sans titre.png",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\Sans titre.png",
+    "FileSize": 422409,
+    "TransferTime": "00:00:00.0059841"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:45.7568644+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\temp\\2.png",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\temp\\2.png",
+    "FileSize": 199871,
+    "TransferTime": "00:00:00.0079790"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:45.7728225+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\temp\\spawn tir2.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\temp\\spawn tir2.PNG",
+    "FileSize": 141786,
+    "TransferTime": "00:00:00.0079719"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:47.0061457+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\2.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\2.PNG",
+    "FileSize": 249925,
+    "TransferTime": "00:00:00.0099734"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:47.0201081+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\Capture.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\Capture.PNG",
+    "FileSize": 5138,
+    "TransferTime": "00:00:00.0069817"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:47.030081+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\lettre de motivation.docx",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\lettre de motivation.docx",
+    "FileSize": 13309,
+    "TransferTime": "00:00:00.0029921"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:47.0450406+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\projectile BP.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\projectile BP.PNG",
+    "FileSize": 158084,
+    "TransferTime": "00:00:00.0079780"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:47.0580211+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\Sans titre.png",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\Sans titre.png",
+    "FileSize": 422409,
+    "TransferTime": "00:00:00.0069962"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:47.0759584+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\temp\\2.png",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\temp\\2.png",
+    "FileSize": 199871,
+    "TransferTime": "00:00:00.0119684"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:47.0919156+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\temp\\spawn tir2.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\temp\\spawn tir2.PNG",
+    "FileSize": 141786,
+    "TransferTime": "00:00:00.0089764"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:50.1583182+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\2.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\2.PNG",
+    "FileSize": 249925,
+    "TransferTime": "00:00:00.0099744"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:50.1732775+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\Capture.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\Capture.PNG",
+    "FileSize": 5138,
+    "TransferTime": "00:00:00.0079781"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:50.1892351+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\lettre de motivation.docx",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\lettre de motivation.docx",
+    "FileSize": 13309,
+    "TransferTime": "00:00:00.0089759"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:50.2051924+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\projectile BP.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\projectile BP.PNG",
+    "FileSize": 158084,
+    "TransferTime": "00:00:00.0089764"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:50.2201524+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\Sans titre.png",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\Sans titre.png",
+    "FileSize": 422409,
+    "TransferTime": "00:00:00.0069813"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:50.233118+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\temp\\2.png",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\temp\\2.png",
+    "FileSize": 199871,
+    "TransferTime": "00:00:00.0069543"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:50.2470804+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\temp\\spawn tir2.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\temp\\spawn tir2.PNG",
+    "FileSize": 141786,
+    "TransferTime": "00:00:00.0079789"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:50.9756148+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\2.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\2.PNG",
+    "FileSize": 249925,
+    "TransferTime": "00:00:00.0129659"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:50.989579+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\Capture.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\Capture.PNG",
+    "FileSize": 5138,
+    "TransferTime": "00:00:00.0069831"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:51.0035401+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\lettre de motivation.docx",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\lettre de motivation.docx",
+    "FileSize": 13309,
+    "TransferTime": "00:00:00.0069822"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:51.0175023+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\projectile BP.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\projectile BP.PNG",
+    "FileSize": 158084,
+    "TransferTime": "00:00:00.0069816"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:51.0304683+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\Sans titre.png",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\Sans titre.png",
+    "FileSize": 422409,
+    "TransferTime": "00:00:00.0069550"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:51.0444318+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\temp\\2.png",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\temp\\2.png",
+    "FileSize": 199871,
+    "TransferTime": "00:00:00.0069561"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:51.058393+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\temp\\spawn tir2.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\temp\\spawn tir2.PNG",
+    "FileSize": 141786,
+    "TransferTime": "00:00:00.0079785"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:51.5002114+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\2.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\2.PNG",
+    "FileSize": 249925,
+    "TransferTime": "00:00:00.0079790"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:51.521156+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\Capture.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\Capture.PNG",
+    "FileSize": 5138,
+    "TransferTime": "00:00:00.0079789"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:51.5391085+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\lettre de motivation.docx",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\lettre de motivation.docx",
+    "FileSize": 13309,
+    "TransferTime": "00:00:00.0109720"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:51.5530698+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\projectile BP.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\projectile BP.PNG",
+    "FileSize": 158084,
+    "TransferTime": "00:00:00.0079787"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:51.5700248+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\Sans titre.png",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\Sans titre.png",
+    "FileSize": 422409,
+    "TransferTime": "00:00:00.0079797"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:51.5829905+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\temp\\2.png",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\temp\\2.png",
+    "FileSize": 199871,
+    "TransferTime": "00:00:00.0069819"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:51.5989473+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\temp\\spawn tir2.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\temp\\spawn tir2.PNG",
+    "FileSize": 141786,
+    "TransferTime": "00:00:00.0089760"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:51.7056626+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\2.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\2.PNG",
+    "FileSize": 249925,
+    "TransferTime": "00:00:00.0069820"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:51.719625+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\Capture.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\Capture.PNG",
+    "FileSize": 5138,
+    "TransferTime": "00:00:00.0069782"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:51.7345851+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\lettre de motivation.docx",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\lettre de motivation.docx",
+    "FileSize": 13309,
+    "TransferTime": "00:00:00.0089766"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:51.7495448+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\projectile BP.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\projectile BP.PNG",
+    "FileSize": 158084,
+    "TransferTime": "00:00:00.0069812"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:51.7625254+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\Sans titre.png",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\Sans titre.png",
+    "FileSize": 422409,
+    "TransferTime": "00:00:00.0069968"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:51.7754759+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\temp\\2.png",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\temp\\2.png",
+    "FileSize": 199871,
+    "TransferTime": "00:00:00.0059848"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:51.7894383+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\temp\\spawn tir2.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\temp\\spawn tir2.PNG",
+    "FileSize": 141786,
+    "TransferTime": "00:00:00.0069813"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:51.8831873+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\2.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\2.PNG",
+    "FileSize": 249925,
+    "TransferTime": "00:00:00.0029896"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:51.8961526+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\Capture.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\Capture.PNG",
+    "FileSize": 5138,
+    "TransferTime": "00:00:00.0069814"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:51.9091181+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\lettre de motivation.docx",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\lettre de motivation.docx",
+    "FileSize": 13309,
+    "TransferTime": "00:00:00.0059848"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:51.9230811+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\projectile BP.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\projectile BP.PNG",
+    "FileSize": 158084,
+    "TransferTime": "00:00:00.0069791"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:51.9380406+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\Sans titre.png",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\Sans titre.png",
+    "FileSize": 422409,
+    "TransferTime": "00:00:00.0079788"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:51.953001+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\temp\\2.png",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\temp\\2.png",
+    "FileSize": 199871,
+    "TransferTime": "00:00:00.0079795"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:51.9669642+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\temp\\spawn tir2.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\temp\\spawn tir2.PNG",
+    "FileSize": 141786,
+    "TransferTime": "00:00:00.0069822"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:52.0666961+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\2.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\2.PNG",
+    "FileSize": 249925,
+    "TransferTime": "00:00:00.0079783"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:52.0816568+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\Capture.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\Capture.PNG",
+    "FileSize": 5138,
+    "TransferTime": "00:00:00.0079790"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:52.0946221+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\lettre de motivation.docx",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\lettre de motivation.docx",
+    "FileSize": 13309,
+    "TransferTime": "00:00:00.0059807"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:52.1085843+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\projectile BP.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\projectile BP.PNG",
+    "FileSize": 158084,
+    "TransferTime": "00:00:00.0069793"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:52.1215539+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\Sans titre.png",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\Sans titre.png",
+    "FileSize": 422409,
+    "TransferTime": "00:00:00.0069856"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:52.1355126+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\temp\\2.png",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\temp\\2.png",
+    "FileSize": 199871,
+    "TransferTime": "00:00:00.0069817"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:52.1504731+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\temp\\spawn tir2.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\temp\\spawn tir2.PNG",
+    "FileSize": 141786,
+    "TransferTime": "00:00:00.0079796"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:52.2442221+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\2.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\2.PNG",
+    "FileSize": 249925,
+    "TransferTime": "00:00:00.0029925"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:52.2641677+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\Capture.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\Capture.PNG",
+    "FileSize": 5138,
+    "TransferTime": "00:00:00.0129644"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:52.2771343+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\lettre de motivation.docx",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\lettre de motivation.docx",
+    "FileSize": 13309,
+    "TransferTime": "00:00:00.0059847"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:52.2970809+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\projectile BP.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\projectile BP.PNG",
+    "FileSize": 158084,
+    "TransferTime": "00:00:00.0119687"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:52.3120408+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\Sans titre.png",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\Sans titre.png",
+    "FileSize": 422409,
+    "TransferTime": "00:00:00.0079786"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:52.3279976+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\temp\\2.png",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\temp\\2.png",
+    "FileSize": 199871,
+    "TransferTime": "00:00:00.0079788"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:52.3429577+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\temp\\spawn tir2.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\temp\\spawn tir2.PNG",
+    "FileSize": 141786,
+    "TransferTime": "00:00:00.0069816"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:54.557901+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\2.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\2.PNG",
+    "FileSize": 249925,
+    "TransferTime": "00:00:00.0089747"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:54.5738589+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\Capture.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\Capture.PNG",
+    "FileSize": 5138,
+    "TransferTime": "00:00:00.0079785"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:54.5938054+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\lettre de motivation.docx",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\lettre de motivation.docx",
+    "FileSize": 13309,
+    "TransferTime": "00:00:00.0119684"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:54.6097622+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\projectile BP.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\projectile BP.PNG",
+    "FileSize": 158084,
+    "TransferTime": "00:00:00.0079788"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:54.6247222+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\Sans titre.png",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\Sans titre.png",
+    "FileSize": 422409,
+    "TransferTime": "00:00:00.0069812"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:54.6386851+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\temp\\2.png",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\temp\\2.png",
+    "FileSize": 199871,
+    "TransferTime": "00:00:00.0059842"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:54.6536463+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\temp\\spawn tir2.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\temp\\spawn tir2.PNG",
+    "FileSize": 141786,
+    "TransferTime": "00:00:00.0069834"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:54.7553728+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\2.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\2.PNG",
+    "FileSize": 249925,
+    "TransferTime": "00:00:00.0069813"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:54.7703327+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\Capture.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\Capture.PNG",
+    "FileSize": 5138,
+    "TransferTime": "00:00:00.0079784"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:54.7842958+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\lettre de motivation.docx",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\lettre de motivation.docx",
+    "FileSize": 13309,
+    "TransferTime": "00:00:00.0069817"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:54.7982585+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\projectile BP.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\projectile BP.PNG",
+    "FileSize": 158084,
+    "TransferTime": "00:00:00.0069823"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:54.8122204+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\Sans titre.png",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\Sans titre.png",
+    "FileSize": 422409,
+    "TransferTime": "00:00:00.0069813"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:54.8251863+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\temp\\2.png",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\temp\\2.png",
+    "FileSize": 199871,
+    "TransferTime": "00:00:00.0059845"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:54.8391489+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\temp\\spawn tir2.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\temp\\spawn tir2.PNG",
+    "FileSize": 141786,
+    "TransferTime": "00:00:00.0059842"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:54.9358905+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\2.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\2.PNG",
+    "FileSize": 249925,
+    "TransferTime": "00:00:00.0029928"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:54.9478586+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\Capture.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\Capture.PNG",
+    "FileSize": 5138,
+    "TransferTime": "00:00:00.0029918"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:54.9668073+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\lettre de motivation.docx",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\lettre de motivation.docx",
+    "FileSize": 13309,
+    "TransferTime": "00:00:00.0119684"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:54.9807699+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\projectile BP.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\projectile BP.PNG",
+    "FileSize": 158084,
+    "TransferTime": "00:00:00.0069817"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:54.9967277+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\Sans titre.png",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\Sans titre.png",
+    "FileSize": 422409,
+    "TransferTime": "00:00:00.0079791"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:55.0126851+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\temp\\2.png",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\temp\\2.png",
+    "FileSize": 199871,
+    "TransferTime": "00:00:00.0079790"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:55.0276451+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\temp\\spawn tir2.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\temp\\spawn tir2.PNG",
+    "FileSize": 141786,
+    "TransferTime": "00:00:00.0069815"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:55.1343595+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\2.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\2.PNG",
+    "FileSize": 249925,
+    "TransferTime": "00:00:00.0069820"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:55.1493194+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\Capture.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\Capture.PNG",
+    "FileSize": 5138,
+    "TransferTime": "00:00:00.0069816"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:55.1642803+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\lettre de motivation.docx",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\lettre de motivation.docx",
+    "FileSize": 13309,
+    "TransferTime": "00:00:00.0069828"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:55.177245+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\projectile BP.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\projectile BP.PNG",
+    "FileSize": 158084,
+    "TransferTime": "00:00:00.0059846"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:55.1912075+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\Sans titre.png",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\Sans titre.png",
+    "FileSize": 422409,
+    "TransferTime": "00:00:00.0059848"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:55.2051697+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\temp\\2.png",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\temp\\2.png",
+    "FileSize": 199871,
+    "TransferTime": "00:00:00.0059842"
+  },
+  {
+    "Timestamp": "2019-11-27T15:22:55.219133+01:00",
+    "TaskName": "hey",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres\\temp\\spawn tir2.PNG",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier\\temp\\spawn tir2.PNG",
+    "FileSize": 141786,
+    "TransferTime": "00:00:00.0069820"
   }
 ]

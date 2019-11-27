@@ -95,9 +95,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EntityModels.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Model\IModel.cs" />
     <Compile Include="Model\Logs.cs" />
-    <Compile Include="Model\Model.cs" />
     <Compile Include="Model\Repository\GenericDataRepository.cs" />
     <Compile Include="Model\Repository\IGenericDataRepository.cs" />
     <Compile Include="Model\SaveProgress.cs" />
@@ -109,7 +107,6 @@
     <Compile Include="View\DisplaySave.cs" />
     <Compile Include="View\Menu.cs" />
     <Compile Include="View\MenuAction.cs" />
-    <Compile Include="View\OneSaveMenu.cs" />
     <Compile Include="View\SaveCreation.cs" />
     <Compile Include="View\View.cs" />
   </ItemGroup>
