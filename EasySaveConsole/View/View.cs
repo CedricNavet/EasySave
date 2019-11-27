@@ -47,8 +47,6 @@ namespace EasySaveConsole.View
                 jsonSave = Model.Tools.ReadData(pathJson);
             } while (false);// Check if is json is correct
                         
-            Thread Savethread = new Thread(SaveThread);
-            Savethread.Start();
 
             Console.Clear();
 
@@ -58,12 +56,6 @@ namespace EasySaveConsole.View
             //    DrawMenu(menuAction);
             //}
             //Savethread.Suspend();
-        }
-
-        public void SaveThread()
-        {
-            BackGroundSave save = new BackGroundSave();
-            save.StartSave(jsonSave, path);
         }
     }
 

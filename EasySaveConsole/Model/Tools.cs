@@ -192,8 +192,10 @@ namespace EasySaveConsole.Model
                         Directory.CreateDirectory(dirPath.Replace(backups.Source, backups.Target));
                     foreach (string newPath in Directory.GetFiles(backups.Source, "*.*", SearchOption.AllDirectories))
                     {
+                        DateTime startsave = DateTime.Now;
                         SaveProgression(Directory.GetFiles(backups.Source, "*", SearchOption.AllDirectories), pathJson, newPath);
                         File.Copy(newPath, newPath.Replace(backups.Source, backups.Target), true);
+                        WriteLogs(backups, pathJson, startsave);
                         
                     }
                         
@@ -263,8 +265,26 @@ namespace EasySaveConsole.Model
                 RemainFileSize = RemainFileSize,
                 CurrentFileName = currentFile,
             };
-            
-            WriteData(ObjectToJson(saveProgress),path+@"\SaveProgression" );
+            StreamWriter stream = File.CreateText(path + @"\SaveProgression");
+            stream.Flush();
+            stream.Close();
+            WriteData(ObjectToJson(saveProgress),path+@"\SaveProgression");
+        }
+
+        private static void WriteLogs(Backups backup, string pathJson, DateTime startSave)
+        {           
+            TimeSpan temp = DateTime.Now - startSave;
+            Logs log = new Logs()
+            {
+                Timestamp = DateTime.Now,
+                TaskName = backup.BackupsName,
+                SourceFileAddress = backup.Source,
+                DestinationFileAddress = backup.Target,
+                FileSize = 0,
+                TransferTime = temp
+            };
+
+            WriteData(ObjectToJson(log), pathJson + @"\Logs.json");
         }
     }
 }

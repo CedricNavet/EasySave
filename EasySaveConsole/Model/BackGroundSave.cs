@@ -25,7 +25,7 @@ namespace EasySaveConsole.Model
 
         private void SaveCheck()
         {
-            
+
             while (true)
             {
                 if (false)
@@ -35,33 +35,23 @@ namespace EasySaveConsole.Model
 
                 foreach (Backups backup in backups)
                 {
-                    if (Tools.SequentialBackup(DateTime.Now, backup.TimeToSave))
+                    
+                    if (backup.BackupType == BackupType.mirror)
                     {
-                        DateTime startsave = DateTime.Now;
-                        if(backup.BackupType == BackupType.mirror)
-                        {
-                            Tools.backUp(backup, path);
-                        }
-                        else
-                        {
-
-                        }
-
-                        TimeSpan temp = DateTime.Now - startsave;
-                        Logs log = new Logs()
-                        {
-                            Timestamp = DateTime.Now,
-                            TaskName = backup.BackupsName,
-                            SourceFileAddress = backup.Source,
-                            DestinationFileAddress = backup.Target,
-                            FileSize = 0, TransferTime = temp
-                        };
+                        Tools.backUp(backup, path);
                     }
+                    else if(backup.BackupType == BackupType.differential)
+                    {
+
+                    }
+
+                    
+
                 }
 
 
             }
-            
+
         }
     }
 }

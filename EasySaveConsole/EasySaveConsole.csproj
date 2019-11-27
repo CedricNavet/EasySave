@@ -122,7 +122,7 @@
       <DependentUpon>EntityModels.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
-    <None Include="SaveState\Backups.json" />
+    <None Include="SaveState\Logs.json" />
     <None Include="SaveState\InMemorySave.json" />
     <None Include="SaveState\SaveProgession.json" />
   </ItemGroup>
