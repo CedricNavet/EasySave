@@ -90,7 +90,7 @@ namespace EasySaveConsole.View
            Console.WriteLine(nameToSave);
 
             BackGroundSave groundSave = new BackGroundSave();
-            groundSave.StartSave(pathJson, BackGroundSave.SaveType.unique);
+            groundSave.StartSave(pathJson, BackGroundSave.SaveType.unique, nameToSave);
         }
 
     }

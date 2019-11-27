@@ -96,7 +96,7 @@ namespace EasySaveConsole.Model
                                 DateTime startsave = DateTime.Now;
                                 SaveProgression(Directory.GetFiles(backups.Source, "*", SearchOption.AllDirectories), pathJson, oldPath, backups);
                                 File.Copy(oldPath, oldPath.Replace(backups.Source, backups.Target), true);
-                                WriteLogs(backups, pathJson, startsave);
+                                WriteLogs(backups, pathJson, startsave, oldPath);
                             }
                         }
 
@@ -166,12 +166,12 @@ namespace EasySaveConsole.Model
                 {
                     foreach (string dirPath in Directory.GetDirectories(backups.Source, "*", SearchOption.AllDirectories))
                         Directory.CreateDirectory(dirPath.Replace(backups.Source, backups.Target));
-                    foreach (string newPath in Directory.GetFiles(backups.Source, "*.*", SearchOption.AllDirectories))
+                    foreach (string oldPath in Directory.GetFiles(backups.Source, "*.*", SearchOption.AllDirectories))
                     {
                         DateTime startsave = DateTime.Now;
-                        SaveProgression(Directory.GetFiles(backups.Source, "*", SearchOption.AllDirectories), pathJson, newPath, backups);
-                        File.Copy(newPath, newPath.Replace(backups.Source, backups.Target), true);
-                        WriteLogs(backups, pathJson, startsave);
+                        SaveProgression(Directory.GetFiles(backups.Source, "*", SearchOption.AllDirectories), pathJson, oldPath, backups);
+                        File.Copy(oldPath, oldPath.Replace(backups.Source, backups.Target), true);
+                        WriteLogs(backups, pathJson, startsave, oldPath);
 
                     }
 
@@ -245,16 +245,16 @@ namespace EasySaveConsole.Model
             Tools.WriteData(Tools.ObjectToJson(saveProgress), path + @"\SaveProgession.json");
         }
 
-        private static void WriteLogs(Backups backup, string pathJson, DateTime startSave)
+        private static void WriteLogs(Backups backup, string pathJson, DateTime startSave, string file)
         {
             TimeSpan temp = DateTime.Now - startSave;
             Logs log = new Logs()
             {
                 Timestamp = DateTime.Now,
                 TaskName = backup.BackupsName,
-                SourceFileAddress = backup.Source,
-                DestinationFileAddress = backup.Target,
-                FileSize = 0,
+                SourceFileAddress = file,
+                DestinationFileAddress = file.Replace(backup.Source, backup.Target),
+                FileSize = Tools.FileSize(file),
                 TransferTime = temp
             };
             string json = Tools.ReadData(pathJson + @"\Logs.json");
