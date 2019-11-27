@@ -10,48 +10,41 @@ namespace EasySaveConsole.Model
     public class BackGroundSave
     {
         private IList<Backups> backups = new List<Backups>();
-        private string jsonSave;
+        //private string jsonSave;
         private string path;
         public BackGroundSave()
         {
         }
 
-        public void StartSave(string jsonSave, string path)
+        public void StartSave(string path)
         {
-            this.jsonSave = jsonSave;
+            //this.jsonSave = jsonSave;
             this.path = path;
-            backups = Tools.JsonToObject<Backups>(jsonSave);
+            backups = Tools.JsonToObject<Backups>(Tools.ReadData(path));
             SaveCheck();
         }
 
         private void SaveCheck()
         {
 
-            while (true)
+            foreach (Backups backup in backups)
             {
-                if (false)
+
+                if (backup.BackupType == BackupType.mirror)
                 {
-
-                }//Check if a new save is add
-
-                foreach (Backups backup in backups)
+                    BackUp(backup, path);
+                }
+                else if (backup.BackupType == BackupType.differential)
                 {
-                    
-                    if (backup.BackupType == BackupType.mirror)
-                    {
-                        BackUp(backup, path);
-                    }
-                    else if(backup.BackupType == BackupType.differential)
-                    {
-
-                    }
-
-                    
 
                 }
 
 
+
             }
+
+
+
 
         }
 
