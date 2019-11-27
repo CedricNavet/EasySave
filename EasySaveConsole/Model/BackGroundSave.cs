@@ -242,7 +242,7 @@ namespace EasySaveConsole.Model
                 CurrentFileName = currentFile,
                 backup = backups,
             };
-            Tools.WriteData(Tools.ObjectToJson(saveProgress), path + @"\SaveProgession.json");
+            Tools.WriteData(Tools.ObjectToJson(saveProgress), path + @"\SaveProgression.json");
         }
 
         private static void WriteLogs(Backups backup, string pathJson, DateTime startSave, string file)

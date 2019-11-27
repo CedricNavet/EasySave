@@ -1,6 +1,7 @@
 ﻿using EasySaveConsole.Model;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -13,7 +14,7 @@ namespace EasySaveConsole.View
     public class View : Menu
     { 
         private string jsonSave;
-        private string path = @"..\..\..\EasySaveConsole\SaveState\InMemorySave.json";
+        private readonly string path = @"..\SaveState\InMemorySave.json";
         //private SequentialMenu sequentialMenu;
 
         List<MenuAction> menuAction = new List<MenuAction>() {
@@ -29,22 +30,14 @@ namespace EasySaveConsole.View
         public void Menu()
         {     
             Console.CursorVisible = false;
-
-            /*List<Backups> backups = new List<Backups>();
-            Backups backups1 = new Backups() { BackupsName = "Temp", BackupType = BackupType.mirror, Source = @"C:\Users\ccdu2\OneDrive - Association Cesi Viacesi mail\Mes fichiers\autres", Target = @"C:\Users\ccdu2\OneDrive - Association Cesi Viacesi mail\Mes fichiers\autres", TimeToSave = new DateTime(2019, 11, 30, 2, 2, 2) };
-            backups.Add(backups1);
-            Backups backups2 = new Backups() { BackupsName = "TrucDeux", BackupType = BackupType.mirror, Source = @"C:\Users\ccdu2\OneDrive - Association Cesi Viacesi mail\Mes fichiers\autres", Target = @"C:\Users\ccdu2\OneDrive - Association Cesi Viacesi mail\Mes fichiers\autres", TimeToSave = new DateTime(2019, 11, 30, 2, 2, 2) };
-            backups.Add(backups2);
-            string temp = Tools.ObjectToJson<List<Backups>>(backups);
-            Tools.WriteData(temp, @"..\..\..\EasySaveConsole\SaveState\InMemorySave.json");*/
-            //do
-            //{
-            //    Console.Clear();
-            //    /*Console.WriteLine("Give the folder where is InMemorySave.json");
-            //    path = Console.ReadLine();*/
-            //    string pathJson = path;
-            //    jsonSave = Tools.ReadData(path);
-            //} while (false);// Check if is json is correct
+            if (!Directory.Exists(@"..\SaveState"))
+            {
+                Directory.CreateDirectory(@"..\SaveState");
+                File.Create(@"..\SaveState\InMemorySave.json").Close();
+                File.Create(@"..\SaveState\Logs.json").Close();
+                File.Create(@"..\SaveState\SaveProgression.json").Close();
+            }
+            Thread.Sleep(1000);
             jsonSave = Tools.ReadData(path);
             Tools.IsValidJson<Backups>(jsonSave);
 
