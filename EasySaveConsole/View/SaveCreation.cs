@@ -9,6 +9,7 @@ namespace EasySaveConsole.View
 {
     public class SaveCreation : Menu
     {
+        string temp;
         private bool isFinish = false;
         private string stringAddingToDisplay;
         List<MenuAction> menuAction = new List<MenuAction>() {
@@ -79,10 +80,17 @@ namespace EasySaveConsole.View
             }
             save.BackupType = (BackupType) typeEnum;
             save.TimeToSave = DateTime.Now;
-            //string temp = Tools.ObjectToJson<Backups>(save);
             var jsonFile = JsonConvert.DeserializeObject<List<Backups>>(Tools.ReadData(@"..\..\..\EasySaveConsole\SaveState\InMemorySave.json"));
-            jsonFile.Add(save);
-            var temp = Tools.ObjectToJson<List<Backups>>(jsonFile);
+            if (jsonFile == null)
+            {
+                temp = Tools.ObjectToJson<Backups>(save);
+            }
+            else
+            {
+                jsonFile.Add(save);
+                temp = Tools.ObjectToJson<List<Backups>>(jsonFile);
+            }
+            
             /*
              * Dans temp = 
              * Rajouter le vrai sytème de BackUp

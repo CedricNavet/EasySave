@@ -55,17 +55,36 @@ namespace EasySaveConsole.Model
         public static void WriteData(string jsonString, string filepath)
         {
             TextWriter writer;
-            try
+            if (IsValidJson<string>(jsonString))
             {
-                writer = new StreamWriter(filepath);
-                writer.Write(jsonString);
-                writer.Close();
-            }
+                try
+                {
+                    writer = new StreamWriter(filepath);
+                    writer.Write(jsonString);
+                    writer.Close();
+                }
 
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
+                catch (Exception e)
+                {
+                    throw new Exception(e.Message);
+                }
             }
+            else
+            {
+                string jsonFile = "[" + jsonString + "]";
+                    try
+                    {
+                        writer = new StreamWriter(filepath);
+                        writer.Write(jsonFile);
+                        writer.Close();
+                    }
+                    catch (Exception e)
+                    {
+                        throw new Exception(e.Message);
+                    }
+             }
+            
+            
         }
 
         public static string ReadData(string filepath)
@@ -157,12 +176,10 @@ namespace EasySaveConsole.Model
         public static bool IsValidJson<T>(string strInput)
         {
             strInput = strInput.Trim();
-            if ((strInput.StartsWith("{") && strInput.EndsWith("}")) || //For object
-                (strInput.StartsWith("[") && strInput.EndsWith("]"))) //For array
+            if ((strInput.StartsWith("[") && strInput.EndsWith("]"))) //For array
             {
                 try
                 {
-                    var obj = JsonConvert.DeserializeObject<T>(strInput);
                     return true;
                 }
                 catch // not valid
