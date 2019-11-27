@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 namespace EasySaveConsole.View
@@ -48,10 +49,15 @@ namespace EasySaveConsole.View
             Backups save = new Backups();
             Console.WriteLine("Choissisez le nom de votre Save :");
             save.BackupsName = Console.ReadLine();
-            Console.WriteLine("Choissisez votre Dossier Source");
-            save.Source = Console.ReadLine();
-            Console.WriteLine("Choissisez votre Dossier de destination");
-            save.Target = Console.ReadLine();
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("Choissisez votre Dossier Source");
+                save.Source = Console.ReadLine();
+                Console.WriteLine("Choissisez votre Dossier de destination");
+                save.Target = Console.ReadLine();
+            } while (!(Directory.Exists(save.Source) && Directory.Exists(save.Target)));
+            
             Console.WriteLine("Choissisez le type de sauvegarde (differential ou mirror) :");
             var list = new string[] { "mirror", "differential" };
             string type = Console.ReadLine();

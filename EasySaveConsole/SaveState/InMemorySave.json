@@ -5,5 +5,12 @@
     "Target": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier",
     "BackupType": 0,
     "TimeToSave": "2019-11-27T08:57:31.6338969+01:00"
+  },
+  {
+    "BackupsName": "pourtest",
+    "Source": "C:\\Users\\ccdu2\\OneDrive\\Bureau\\Inventory-Tutorial-Series-master\\InventorySeries\\Assets\\Animations",
+    "Target": "C:\\Users\\ccdu2\\OneDrive\\Bureau\\temp",
+    "BackupType": 1,
+    "TimeToSave": "2019-11-27T14:43:05.2100303+01:00"
   }
 ]

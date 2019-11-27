@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 
 namespace EasySaveConsole.Model
@@ -21,18 +22,41 @@ namespace EasySaveConsole.Model
         {
         }
 
-        public void StartSave(string path, SaveType saveType)
+        public void StartSave(string path, SaveType saveType, string SaveName = null)
         {
             //this.jsonSave = jsonSave;
-            this.path = path.Replace("InMemorySave.json","");     
-            SaveCheck();
+            this.path = path.Replace("InMemorySave.json", "");
+            SaveCheck(saveType, SaveName);
         }
 
-        private void SaveCheck()
+        private void SaveCheck(SaveType saveType, string SaveName)
         {
-            backups = Tools.JsonToObject<Backups>(Tools.ReadData(this.path+@"InMemorySave.json"));
-            foreach (Backups backup in backups)
+            backups = Tools.JsonToObject<Backups>(Tools.ReadData(this.path + @"InMemorySave.json"));
+            if(saveType == SaveType.sequential)
             {
+                foreach (Backups backup in backups)
+                {
+                    if (backup.BackupType == BackupType.mirror)
+                    {
+                        BackUp(backup, path);
+                    }
+                    else if (backup.BackupType == BackupType.differential)
+                    {
+                        DifferentialBackUp(backup, path);
+                    }
+                }
+            }
+            else if(saveType == SaveType.unique)
+            {
+                Backups backup = null;
+                foreach (Backups item in backups)
+                {
+                    if(item.BackupsName == SaveName)
+                    {
+                        backup = item;
+                        break;
+                    }
+                }
 
                 if (backup.BackupType == BackupType.mirror)
                 {
@@ -40,16 +64,92 @@ namespace EasySaveConsole.Model
                 }
                 else if (backup.BackupType == BackupType.differential)
                 {
+                    DifferentialBackUp(backup, path);
+                }
+            }
+            
+
+        }
+
+        private void DifferentialBackUp(Backups backups, string pathJson)
+        {
+            try
+            {
+                if (Directory.Exists(backups.Source) && Directory.Exists(backups.Target))
+                {
+                    foreach (string dirPath in Directory.GetDirectories(backups.Source, "*", SearchOption.AllDirectories))
+                        Directory.CreateDirectory(dirPath.Replace(backups.Source, backups.Target));
+
+                    foreach (string oldPath in Directory.GetFiles(backups.Source, "*.*", SearchOption.AllDirectories))
+                    {
+                        using (MD5 md5Hash = MD5.Create())
+                        {
+                            string hash = GetMd5Hash(md5Hash, Tools.ReadData(oldPath.Replace(backups.Source, backups.Target)));
+
+                            if (VerifyMd5Hash(md5Hash, oldPath, hash))
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                                //Console.WriteLine("The hashes are not same.");
+                                DateTime startsave = DateTime.Now;
+                                SaveProgression(Directory.GetFiles(backups.Source, "*", SearchOption.AllDirectories), pathJson, oldPath, backups);
+                                File.Copy(oldPath, oldPath.Replace(backups.Source, backups.Target), true);
+                                WriteLogs(backups, pathJson, startsave);
+                            }
+                        }
+
+
+                    }
 
                 }
+            }
+            catch (Exception)
+            {
 
-
-
+                throw;
             }
 
+        }
 
+        static string GetMd5Hash(MD5 md5Hash, string input)
+        {
 
+            // Convert the input string to a byte array and compute the hash.
+            byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
 
+            // Create a new Stringbuilder to collect the bytes
+            // and create a string.
+            StringBuilder sBuilder = new StringBuilder();
+
+            // Loop through each byte of the hashed data 
+            // and format each one as a hexadecimal string.
+            for (int i = 0; i < data.Length; i++)
+            {
+                sBuilder.Append(data[i].ToString("x2"));
+            }
+
+            // Return the hexadecimal string.
+            return sBuilder.ToString();
+        }
+
+        static bool VerifyMd5Hash(MD5 md5Hash, string input, string hash)
+        {
+            // Hash the input.
+            string hashOfInput = GetMd5Hash(md5Hash, Tools.ReadData(input));
+
+            // Create a StringComparer an compare the hashes.
+            StringComparer comparer = StringComparer.OrdinalIgnoreCase;
+
+            if (0 == comparer.Compare(hashOfInput, hash))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public static void BackUp(Backups backups, string pathJson)
