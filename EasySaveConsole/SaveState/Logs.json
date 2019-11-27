@@ -1,8 +1,74 @@
-{
-  "Timestamp": "2019-11-27T08:57:31.9350925+01:00",
-  "TaskName": "lol",
-  "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres",
-  "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier",
-  "FileSize": 0,
-  "TransferTime": "00:00:00.0079790"
-}
+[
+  {
+    "Timestamp": "2019-11-27T13:46:48.3720235+01:00",
+    "TaskName": "lol",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier",
+    "FileSize": 0,
+    "TransferTime": "00:00:00.0059844"
+  },
+  {
+    "Timestamp": "2019-11-27T13:59:49.5852661+01:00",
+    "TaskName": "lol",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier",
+    "FileSize": 0,
+    "TransferTime": "00:00:00.0568478"
+  },
+  {
+    "Timestamp": "2019-11-27T13:59:52.5778938+01:00",
+    "TaskName": "lol",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier",
+    "FileSize": 0,
+    "TransferTime": "00:00:00.0119681"
+  },
+  {
+    "Timestamp": "2019-11-27T13:59:52.5958462+01:00",
+    "TaskName": "lol",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier",
+    "FileSize": 0,
+    "TransferTime": "00:00:00.0129663"
+  },
+  {
+    "Timestamp": "2019-11-27T13:59:52.6127995+01:00",
+    "TaskName": "lol",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier",
+    "FileSize": 0,
+    "TransferTime": "00:00:00.0099714"
+  },
+  {
+    "Timestamp": "2019-11-27T13:59:52.6297544+01:00",
+    "TaskName": "lol",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier",
+    "FileSize": 0,
+    "TransferTime": "00:00:00.0099732"
+  },
+  {
+    "Timestamp": "2019-11-27T13:59:52.6437179+01:00",
+    "TaskName": "lol",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier",
+    "FileSize": 0,
+    "TransferTime": "00:00:00.0079792"
+  },
+  {
+    "Timestamp": "2019-11-27T13:59:52.6566824+01:00",
+    "TaskName": "lol",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier",
+    "FileSize": 0,
+    "TransferTime": "00:00:00.0079791"
+  },
+  {
+    "Timestamp": "2019-11-27T13:59:52.6726401+01:00",
+    "TaskName": "lol",
+    "SourceFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\autres",
+    "DestinationFileAddress": "C:\\Users\\ccdu2\\OneDrive - Association Cesi Viacesi mail\\Mes fichiers\\Nouveau dossier",
+    "FileSize": 0,
+    "TransferTime": "00:00:00.0099737"
+  }
+]
