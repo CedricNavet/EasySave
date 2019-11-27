@@ -19,14 +19,13 @@ namespace EasySaveConsole.Model
         public void StartSave(string path)
         {
             //this.jsonSave = jsonSave;
-            this.path = path;
-            backups = Tools.JsonToObject<Backups>(Tools.ReadData(path));
+            this.path = path.Replace("InMemorySave.json","");     
             SaveCheck();
         }
 
         private void SaveCheck()
         {
-
+            backups = Tools.JsonToObject<Backups>(Tools.ReadData(this.path+@"InMemorySave.json"));
             foreach (Backups backup in backups)
             {
 
@@ -65,7 +64,7 @@ namespace EasySaveConsole.Model
                     foreach (string newPath in Directory.GetFiles(backups.Source, "*.*", SearchOption.AllDirectories))
                     {
                         DateTime startsave = DateTime.Now;
-                        SaveProgression(Directory.GetFiles(backups.Source, "*", SearchOption.AllDirectories), pathJson, newPath);
+                        SaveProgression(Directory.GetFiles(backups.Source, "*", SearchOption.AllDirectories), pathJson, newPath, backups);
                         File.Copy(newPath, newPath.Replace(backups.Source, backups.Target), true);
                         WriteLogs(backups, pathJson, startsave);
 
@@ -107,7 +106,7 @@ namespace EasySaveConsole.Model
             }
         }
 
-        private static void SaveProgression(string[] directoryFile, string path, string currentFile)
+        private static void SaveProgression(string[] directoryFile, string path, string currentFile, Backups backups)
         {
             long TotalFileSize = 0;
             int numberRemainFiles = 0;
@@ -136,11 +135,12 @@ namespace EasySaveConsole.Model
                 NumberRemainFiles = numberRemainFiles,
                 RemainFileSize = RemainFileSize,
                 CurrentFileName = currentFile,
+                backup = backups,
             };
-            StreamWriter stream = File.CreateText(path + @"\SaveProgression");
-            stream.Flush();
-            stream.Close();
-            Tools.WriteData(Tools.ObjectToJson(saveProgress), path + @"\SaveProgression");
+            //StreamWriter stream = File.CreateText(path + @"\SaveProgression");
+            //stream.Flush();
+            //stream.Close();
+            Tools.WriteData(Tools.ObjectToJson(saveProgress), path + @"\SaveProgession.json");
         }
 
         private static void WriteLogs(Backups backup, string pathJson, DateTime startSave)

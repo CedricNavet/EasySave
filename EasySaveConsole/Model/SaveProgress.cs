@@ -14,5 +14,6 @@ namespace EasySaveConsole.Model
         public int NumberRemainFiles { get; set; } //Nb fichier restant
         public long RemainFileSize { get; set; } //Taille fichier restant
         public String CurrentFileName { get; set; } //Nom du fichier en cours
+        public Backups backup { get; set; }
     }
 }
