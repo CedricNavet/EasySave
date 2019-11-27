@@ -18,7 +18,7 @@ namespace EasySaveConsole.View
 
     public class Menu : IDisposable
     {
-        protected bool IsFinsih = false;
+        protected bool IsFinish = false;
         protected ArrowPosition arrowPosition;
 
         protected void DrawMenu(List<MenuAction> menuAction, string stringAddingToDisplay)
@@ -104,7 +104,7 @@ namespace EasySaveConsole.View
 
         protected virtual void FunctionLastPosition()
         {
-            IsFinsih = true;
+            IsFinish = true;
             Dispose();
         }
 

@@ -10,7 +10,6 @@ namespace EasySaveConsole.View
     public class DisplaySave : Menu
     {
 
-        private bool isFinish = false;
         private string stringAddingToDisplay;
         List<MenuAction> menuAction = new List<MenuAction>() {
             new MenuAction("Sequential Save", ArrowPosition.Top),
@@ -28,7 +27,7 @@ namespace EasySaveConsole.View
 
         private void ShowMenu()
         {
-            while (!isFinish)
+            while (!IsFinish)
             {
                 SequentialDisplay();
                 DrawMenu(menuAction, stringAddingToDisplay);
@@ -48,24 +47,13 @@ namespace EasySaveConsole.View
                 Console.WriteLine("BackupName : {0}, Source : {1}, Target : {2}, LastSavedOn : {3}, SaveType : {4}", savedData[i].BackupsName, savedData[i].Source, savedData[i].Target, savedData[i].TimeToSave, savedData[i].BackupType);
                 Console.WriteLine("                                -----------------------------------------------------------------------------                           ");
             }
-            //display = Console.ReadLine();
-            //} while ((Tools.IsValidJson<Logs>(display))==true); //tester si la string est ok, vérifier que c'est un .JSON
-
-            //IList<Logs> temp = Tools.JsonToObject<Logs>(display); //retourne une liste
-            ////print la liste dans la console avec un foreach
-            //int count = 0;
-            //foreach (Logs element in temp)
-            //{
-            //    count++;
-            //    Console.WriteLine($"{count}:{element}");
-            //}
-            //Console.WriteLine($"Nombre d'élément {count}");
         }
 
         protected override void FunctionFirstPosition()
         {
             BackGroundSave groundSave = new BackGroundSave();
             groundSave.StartSave(pathJson, BackGroundSave.SaveType.sequential);
+            groundSave.Dispose();
         }
 
         protected override void FunctionSecondPosition()
@@ -90,7 +78,8 @@ namespace EasySaveConsole.View
            Console.WriteLine(nameToSave);
 
             BackGroundSave groundSave = new BackGroundSave();
-            groundSave.StartSave(pathJson, BackGroundSave.SaveType.unique);
+            groundSave.StartSave(pathJson, BackGroundSave.SaveType.unique, nameToSave);
+            groundSave.Dispose();
         }
 
     }
