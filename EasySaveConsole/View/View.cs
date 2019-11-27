@@ -47,7 +47,8 @@ namespace EasySaveConsole.View
             //    string pathJson = path;
             //    jsonSave = Tools.ReadData(path);
             //} while (false);// Check if is json is correct
-                        
+            jsonSave = Tools.ReadData(path);
+            Tools.IsValidJson<Backups>(jsonSave);
 
             Console.Clear();
 
