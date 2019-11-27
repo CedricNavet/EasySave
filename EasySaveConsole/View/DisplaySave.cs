@@ -64,13 +64,14 @@ namespace EasySaveConsole.View
 
         protected override void FunctionFirstPosition()
         {
-            
+            BackGroundSave groundSave = new BackGroundSave();
+            groundSave.StartSave(pathJson, BackGroundSave.SaveType.sequential);
         }
 
         protected override void FunctionSecondPosition()
         {
             BackGroundSave groundSave = new BackGroundSave();
-            groundSave.StartSave(pathJson);
+            groundSave.StartSave(pathJson, BackGroundSave.SaveType.unique);
         }
 
     }

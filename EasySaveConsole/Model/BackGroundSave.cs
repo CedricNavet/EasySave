@@ -12,11 +12,16 @@ namespace EasySaveConsole.Model
         private IList<Backups> backups = new List<Backups>();
         //private string jsonSave;
         private string path;
+        public enum SaveType
+        {
+            sequential,
+            unique
+        }
         public BackGroundSave()
         {
         }
 
-        public void StartSave(string path)
+        public void StartSave(string path, SaveType saveType)
         {
             //this.jsonSave = jsonSave;
             this.path = path.Replace("InMemorySave.json","");     
@@ -137,9 +142,6 @@ namespace EasySaveConsole.Model
                 CurrentFileName = currentFile,
                 backup = backups,
             };
-            //StreamWriter stream = File.CreateText(path + @"\SaveProgression");
-            //stream.Flush();
-            //stream.Close();
             Tools.WriteData(Tools.ObjectToJson(saveProgress), path + @"\SaveProgession.json");
         }
 
@@ -155,9 +157,10 @@ namespace EasySaveConsole.Model
                 FileSize = 0,
                 TransferTime = temp
             };
-            pathJson = Tools.ReadData(@"\Logs.json");
-            Tools.IsValidJson<Logs>(pathJson);
-            Tools.WriteData(Tools.ObjectToJson(log), pathJson + @"\Logs.json");
+            string json = Tools.ReadData(pathJson + @"\Logs.json");
+            IList<Logs> tempList = Tools.JsonToObject<Logs>(json);
+            tempList.Add(log);
+            Tools.WriteData(Tools.ObjectToJson(tempList), pathJson + @"\Logs.json");
         }
     }
 }
