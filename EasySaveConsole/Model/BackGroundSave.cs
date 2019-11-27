@@ -155,7 +155,8 @@ namespace EasySaveConsole.Model
                 FileSize = 0,
                 TransferTime = temp
             };
-
+            pathJson = Tools.ReadData(@"\Logs.json");
+            Tools.IsValidJson<Logs>(pathJson);
             Tools.WriteData(Tools.ObjectToJson(log), pathJson + @"\Logs.json");
         }
     }
