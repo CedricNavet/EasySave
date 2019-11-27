@@ -16,7 +16,7 @@ namespace EasySaveConsole.Model
         {
             try
             {
-                return JsonConvert.SerializeObject(objetToSerialize);
+                return JsonConvert.SerializeObject(objetToSerialize, Formatting.Indented);
             }
             catch (Exception e)
             {
@@ -52,13 +52,13 @@ namespace EasySaveConsole.Model
             }
         }
 
-        public static void WriteData(string text, string filepath)
+        public static void WriteData(string jsonString, string filepath)
         {
-            TextWriter writer = null;
+            TextWriter writer;
             try
             {
                 writer = new StreamWriter(filepath);
-                writer.Write(text);
+                writer.Write(jsonString);
                 writer.Close();
             }
 
