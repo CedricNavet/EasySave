@@ -106,10 +106,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\DisplaySave.cs" />
     <Compile Include="View\Menu.cs" />
     <Compile Include="View\MenuAction.cs" />
     <Compile Include="View\OneSaveMenu.cs" />
-    <Compile Include="View\SequentialMenu.cs" />
+    <Compile Include="View\SaveCreation.cs" />
     <Compile Include="View\View.cs" />
   </ItemGroup>
   <ItemGroup>

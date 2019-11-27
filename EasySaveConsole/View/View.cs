@@ -10,17 +10,17 @@ namespace EasySaveConsole.View
 {
 
     
-    public class View
+    public class View : Menu
     { 
         private readonly Model.Model model;
         private string jsonSave;
         private string path = @"..\..\..\EasySaveConsole\SaveState\InMemorySave.json";
-        private SequentialMenu sequentialMenu;
+        //private SequentialMenu sequentialMenu;
 
         List<MenuAction> menuAction = new List<MenuAction>() {
-            new MenuAction("Occasional Save", ArrowPosition.Top, typeof(OneSaveMenu)),
-            new MenuAction("Sequential Save", ArrowPosition.Middle, typeof(Model.Logs)),
-            new MenuAction("Quitter", ArrowPosition.Down),
+            new MenuAction("Display Saves", ArrowPosition.Top, typeof(DisplaySave)),
+            new MenuAction("Save Creation", ArrowPosition.Middle, typeof(SaveCreation)),
+            new MenuAction("Exit", ArrowPosition.Down),
         };
 
         public View(Model.Model model)
@@ -39,24 +39,31 @@ namespace EasySaveConsole.View
             backups.Add(backups2);
             string temp = Tools.ObjectToJson<List<Backups>>(backups);
             Tools.WriteData(temp, @"..\..\..\EasySaveConsole\SaveState\InMemorySave.json");*/
-            do
-            {
-                Console.Clear();
-                /*Console.WriteLine("Give the folder where is InMemorySave.json");
-                path = Console.ReadLine();*/
-                string pathJson = path;
-                jsonSave = Tools.ReadData(path);
-            } while (false);// Check if is json is correct
+            //do
+            //{
+            //    Console.Clear();
+            //    /*Console.WriteLine("Give the folder where is InMemorySave.json");
+            //    path = Console.ReadLine();*/
+            //    string pathJson = path;
+            //    jsonSave = Tools.ReadData(path);
+            //} while (false);// Check if is json is correct
                         
 
             Console.Clear();
 
-            SequentialMenu sequentialMenu = new SequentialMenu(path);
-            //while (!IsFinsih)
-            //{
-            //    DrawMenu(menuAction);
-            //}
-            //Savethread.Suspend();
+            while (!IsFinsih)
+            {
+                DrawMenu(menuAction, "");
+            }
+        }
+
+        protected override void FunctionFirstPosition()
+        {
+            menuAction[0].Instanciate(path);
+        }
+        protected override void FunctionSecondPosition()
+        {
+            menuAction[1].Instanciate(path);
         }
     }
 
