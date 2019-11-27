@@ -12,7 +12,6 @@ namespace EasySaveConsole.View
     
     public class View : Menu
     { 
-        private readonly Model.Model model;
         private string jsonSave;
         private string path = @"..\..\..\EasySaveConsole\SaveState\InMemorySave.json";
         //private SequentialMenu sequentialMenu;
@@ -23,9 +22,8 @@ namespace EasySaveConsole.View
             new MenuAction("Exit", ArrowPosition.Down),
         };
 
-        public View(Model.Model model)
+        public View()
         {
-            this.model = model;
         }
 
         public void Menu()
@@ -52,7 +50,7 @@ namespace EasySaveConsole.View
 
             Console.Clear();
 
-            while (!IsFinsih)
+            while (!IsFinish)
             {
                 DrawMenu(menuAction, "");
             }
