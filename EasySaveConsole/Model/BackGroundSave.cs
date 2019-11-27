@@ -107,7 +107,7 @@ namespace EasySaveConsole.Model
             }
             catch (Exception e)
             {
-                Console.Write("Une erreur a été levé {0}", e);
+                Console.Write(e.Message);
             }
         }
 

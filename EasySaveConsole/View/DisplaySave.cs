@@ -70,6 +70,25 @@ namespace EasySaveConsole.View
 
         protected override void FunctionSecondPosition()
         {
+            string nameToSave;
+            IList<string> allName = new List<string>();
+            Console.WriteLine("TRAVAUX DE SAUVEGARDES ENREGISTRÉS");
+            IList<Backups> savedData = Tools.JsonToObject<Backups>(Tools.ReadData(pathJson));
+
+            for (int i = 0; i < savedData.Count; i++)
+            {
+                Console.WriteLine("Fichier n°{0} : {1}", i, savedData[i].BackupsName);
+                allName.Add(savedData[i].BackupsName);
+            }
+
+            do
+            {
+                Console.WriteLine("Veuillez entrer le nom de votre Fichier à sauvegarder :");
+                nameToSave = Console.ReadLine();
+            } while (!allName.Contains(nameToSave));
+
+           Console.WriteLine(nameToSave);
+
             BackGroundSave groundSave = new BackGroundSave();
             groundSave.StartSave(pathJson, BackGroundSave.SaveType.unique);
         }

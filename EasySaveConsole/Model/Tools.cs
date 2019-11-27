@@ -175,7 +175,6 @@ namespace EasySaveConsole.Model
         /// <returns></returns>
         public static bool IsValidJson<T>(string strInput)
         {
-            Console.WriteLine(strInput);
             strInput = strInput.Trim();
             if ((strInput.StartsWith("[") && strInput.EndsWith("]"))) //For array
             {
