@@ -26,24 +26,24 @@ namespace EasySaveConsole.View
         private void SequentialCreation()
         {
             Backups save = new Backups();
-            Console.WriteLine("Choissisez le nom de votre Save :");
+            Console.WriteLine("Choose the name of your Save :");
             save.BackupsName = Console.ReadLine();
             do
             {
                 Console.Clear();
-                Console.WriteLine("Choissisez votre Dossier Source");
+                Console.WriteLine("Choose the Source Directory :");
                 save.Source = Console.ReadLine();
-                Console.WriteLine("Choissisez votre Dossier de destination");
+                Console.WriteLine("Choose the destination Directory : ");
                 save.Target = Console.ReadLine();
             } while (!(Directory.Exists(save.Source) && Directory.Exists(save.Target)));
             
-            Console.WriteLine("Choissisez le type de sauvegarde (differential ou mirror) :");
+            Console.WriteLine("Choose yout type of save (differential ou mirror) :");
             var list = new string[] { "mirror", "differential" };
             string type = Console.ReadLine();
 
             while (!list.Contains(type))
             {
-                Console.WriteLine("Choissisez le type de sauvegarde (differential ou mirror) :");
+                Console.WriteLine("Choose yout type of save (differential ou mirror) :");
                 type = Console.ReadLine();
             }
             int typeEnum = 50;
