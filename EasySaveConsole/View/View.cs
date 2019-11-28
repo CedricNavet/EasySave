@@ -37,7 +37,6 @@ namespace EasySaveConsole.View
                 File.Create(@"..\SaveState\Logs.json").Close();
                 File.Create(@"..\SaveState\SaveProgression.json").Close();
             }
-            Thread.Sleep(1000);
             jsonSave = Tools.ReadData(path);
             Tools.IsValidJson<Backups>(jsonSave);
 

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace EasySaveConsole.Model
 {
@@ -31,6 +32,7 @@ namespace EasySaveConsole.Model
 
         private void SaveCheck(SaveType saveType, string SaveName)
         {
+            Console.Clear();
             backups = Tools.JsonToObject<Backups>(Tools.ReadData(this.path + @"InMemorySave.json"));
             if(saveType == SaveType.sequential)
             {
@@ -44,7 +46,10 @@ namespace EasySaveConsole.Model
                     {
                         DifferentialBackUp(backup, path);
                     }
+                    Console.WriteLine("Save named : {0} .....Done" + backup.BackupsName);
                 }
+                Console.WriteLine("All Done");
+                Thread.Sleep(1000);
             }
             else if(saveType == SaveType.unique)
             {
@@ -66,6 +71,8 @@ namespace EasySaveConsole.Model
                 {
                     DifferentialBackUp(backup, path);
                 }
+                Console.WriteLine("Save named : {0} .....Done" + backup.BackupsName);
+                Thread.Sleep(1000);
             }
             
 

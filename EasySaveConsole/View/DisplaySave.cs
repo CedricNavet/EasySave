@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace EasySaveConsole.View
@@ -62,6 +63,12 @@ namespace EasySaveConsole.View
             IList<string> allName = new List<string>();
             Console.WriteLine("TRAVAUX DE SAUVEGARDES ENREGISTRÉS");
             IList<Backups> savedData = Tools.JsonToObject<Backups>(Tools.ReadData(pathJson));
+            if(savedData.Count == 0)
+            {
+                Console.WriteLine("No Save In Memory");
+                Thread.Sleep(1000);
+                return;
+            }
 
             for (int i = 0; i < savedData.Count; i++)
             {
