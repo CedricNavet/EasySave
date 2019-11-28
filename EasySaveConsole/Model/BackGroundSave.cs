@@ -46,7 +46,7 @@ namespace EasySaveConsole.Model
                     {
                         DifferentialBackUp(backup, path);
                     }
-                    Console.WriteLine("Save named : {0} .....Done" + backup.BackupsName);
+                    Console.WriteLine("Save named : " + backup.BackupsName + " .....Done");
                 }
                 Console.WriteLine("All Done");
                 Thread.Sleep(1000);
@@ -71,7 +71,7 @@ namespace EasySaveConsole.Model
                 {
                     DifferentialBackUp(backup, path);
                 }
-                Console.WriteLine("Save named : {0} .....Done" + backup.BackupsName);
+                Console.WriteLine("Save named : "+backup.BackupsName+" .....Done");
                 Thread.Sleep(1000);
             }
             
