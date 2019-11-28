@@ -91,20 +91,31 @@ namespace EasySaveConsole.Model
                     {
                         using (MD5 md5Hash = MD5.Create())
                         {
-                            string hash = GetMd5Hash(md5Hash, Tools.ReadData(oldPath.Replace(backups.Source, backups.Target)));
-
-                            if (VerifyMd5Hash(md5Hash, oldPath, hash))
+                            if(!File.Exists(oldPath.Replace(backups.Source, backups.Target)))
                             {
-                                continue;
+                                DateTime startsave = DateTime.Now;
+                                File.Copy(oldPath, oldPath.Replace(backups.Source, backups.Target), true);
+                                WriteLogs(backups, pathJson, startsave, oldPath);
+                                SaveProgression(Directory.GetFiles(backups.Source, "*", SearchOption.AllDirectories), pathJson, oldPath, backups);
                             }
                             else
                             {
-                                //Console.WriteLine("The hashes are not same.");
-                                DateTime startsave = DateTime.Now;
-                                SaveProgression(Directory.GetFiles(backups.Source, "*", SearchOption.AllDirectories), pathJson, oldPath, backups);
-                                File.Copy(oldPath, oldPath.Replace(backups.Source, backups.Target), true);
-                                WriteLogs(backups, pathJson, startsave, oldPath);
+                                string hash = GetMd5Hash(md5Hash, Tools.ReadData(oldPath.Replace(backups.Source, backups.Target)));
+
+                                if (VerifyMd5Hash(md5Hash, oldPath, hash))
+                                {
+                                    continue;
+                                }
+                                else
+                                {
+                                    //Console.WriteLine("The hashes are not same.");
+                                    DateTime startsave = DateTime.Now;
+                                    File.Copy(oldPath, oldPath.Replace(backups.Source, backups.Target), true);
+                                    WriteLogs(backups, pathJson, startsave, oldPath);
+                                    SaveProgression(Directory.GetFiles(backups.Source, "*", SearchOption.AllDirectories), pathJson, oldPath, backups);
+                                }
                             }
+                            
                         }
 
 
@@ -175,10 +186,10 @@ namespace EasySaveConsole.Model
                         Directory.CreateDirectory(dirPath.Replace(backups.Source, backups.Target));
                     foreach (string oldPath in Directory.GetFiles(backups.Source, "*.*", SearchOption.AllDirectories))
                     {
-                        DateTime startsave = DateTime.Now;
-                        SaveProgression(Directory.GetFiles(backups.Source, "*", SearchOption.AllDirectories), pathJson, oldPath, backups);
+                        DateTime startsave = DateTime.Now;                      
                         File.Copy(oldPath, oldPath.Replace(backups.Source, backups.Target), true);
                         WriteLogs(backups, pathJson, startsave, oldPath);
+                        SaveProgression(Directory.GetFiles(backups.Source, "*", SearchOption.AllDirectories), pathJson, oldPath, backups);
 
                     }
 

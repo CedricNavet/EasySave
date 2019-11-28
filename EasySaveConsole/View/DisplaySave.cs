@@ -52,6 +52,13 @@ namespace EasySaveConsole.View
 
         protected override void FunctionFirstPosition()
         {
+            IList<Backups> savedData = Tools.JsonToObject<Backups>(Tools.ReadData(pathJson));
+            if (savedData.Count == 0)
+            {
+                Console.WriteLine("No Save In Memory");
+                Thread.Sleep(1000);
+                return;
+            }
             BackGroundSave groundSave = new BackGroundSave();
             groundSave.StartSave(pathJson, BackGroundSave.SaveType.sequential);
             groundSave.Dispose();
@@ -61,7 +68,7 @@ namespace EasySaveConsole.View
         {
             string nameToSave;
             IList<string> allName = new List<string>();
-            Console.WriteLine("SAVED WORK");
+            Console.Clear();
             IList<Backups> savedData = Tools.JsonToObject<Backups>(Tools.ReadData(pathJson));
             if(savedData.Count == 0)
             {
@@ -69,7 +76,7 @@ namespace EasySaveConsole.View
                 Thread.Sleep(1000);
                 return;
             }
-
+            Console.WriteLine("SAVED WORK");
             for (int i = 0; i < savedData.Count; i++)
             {
                 Console.WriteLine("Work n°{0} : {1}", i, savedData[i].BackupsName);

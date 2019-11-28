@@ -7,40 +7,18 @@ using System.Linq;
 
 namespace EasySaveConsole.View
 {
-    public class SaveCreation : Menu
+    public class SaveCreation
     {
         string temp;
-        private bool isFinish = false;
-        private string stringAddingToDisplay;
-        List<MenuAction> menuAction = new List<MenuAction>() {
-            new MenuAction("Display Sequence", ArrowPosition.Top),
-            new MenuAction("Create Sequence", ArrowPosition.Middle),
-            new MenuAction("Return", ArrowPosition.Down),
-        };
         private string pathJson;
 
         public SaveCreation(string pathJson)
         {
             this.pathJson = pathJson;
-            stringAddingToDisplay = "";
             ShowMenu();
         }
 
         private void ShowMenu()
-        {
-            SequentialCreation();
-            //while (!isFinish)
-            //{
-            //    //SequentialDisplay();
-            //    //DrawMenu(menuAction, stringAddingToDisplay);
-            //}
-        }
-
-        protected override void FunctionFirstPosition()
-        {
-            //SequentialDisplay();
-        }
-        protected override void FunctionSecondPosition()
         {
             SequentialCreation();
         }
@@ -80,7 +58,7 @@ namespace EasySaveConsole.View
             }
             save.BackupType = (BackupType) typeEnum;
             save.TimeToSave = DateTime.Now;
-            var jsonFile = JsonConvert.DeserializeObject<List<Backups>>(Tools.ReadData(@"..\..\..\EasySaveConsole\SaveState\InMemorySave.json"));
+            var jsonFile = JsonConvert.DeserializeObject<List<Backups>>(Tools.ReadData(pathJson));
             if (jsonFile == null)
             {
                 temp = Tools.ObjectToJson<Backups>(save);
@@ -91,14 +69,7 @@ namespace EasySaveConsole.View
                 temp = Tools.ObjectToJson<List<Backups>>(jsonFile);
             }
             
-            /*
-             * Dans temp = 
-             * Rajouter le vrai sytème de BackUp
-             * 
-             * 
-             */
-            //Tools.backUp(save, @"..\..\..\EasySaveConsole\SaveState\");
-            Tools.WriteData(temp, @"..\..\..\EasySaveConsole\SaveState\InMemorySave.json");
+            Tools.WriteData(temp, pathJson);
         }
 
         
