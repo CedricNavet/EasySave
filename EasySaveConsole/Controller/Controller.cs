@@ -9,20 +9,14 @@ namespace EasySaveConsole.Controller
 {
     public class Controller
     {
-        private Model.Model model;
         private View.View view;
 
         View.Menu menu = new View.Menu();
 
-        public Controller(Model.Model model, View.View view)
+        public Controller(View.View view)
         {
             this.view = view;
-            this.model = model;
-            //menu.Test();
-            //menu.SizeBytes();
             view.Menu();
-            
-            
         }
 
        

@@ -13,5 +13,6 @@ namespace EasySaveConsole.Model
         public String Source { get; set; }// Source
         public String Target { get; set; } // Destination
         public BackupType BackupType { get; set; } // Type de sauvegarde
+        public DateTime TimeToSave { get; set; }//Heure de la sauvegarde
     }
 }

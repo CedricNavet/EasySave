@@ -1,8 +1,10 @@
 ﻿using EasySaveConsole.Model;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace EasySaveConsole.View
@@ -10,49 +12,50 @@ namespace EasySaveConsole.View
 
     
     public class View : Menu
-    {
-        private readonly Model.Model model;
+    { 
+        private string jsonSave;
+        private readonly string path = @"..\SaveState\InMemorySave.json";
+        //private SequentialMenu sequentialMenu;
 
         List<MenuAction> menuAction = new List<MenuAction>() {
-            new MenuAction("Occasional Save", ArrowPosition.Top, typeof(OneSaveMenu)),
-            new MenuAction("Action 2", ArrowPosition.Middle, typeof(Model.Logs)),
-            new MenuAction("Action 3", ArrowPosition.Down),
+            new MenuAction("Display Saves", ArrowPosition.Top, typeof(DisplaySave)),
+            new MenuAction("Save Creation", ArrowPosition.Middle, typeof(SaveCreation)),
+            new MenuAction("Exit", ArrowPosition.Down),
         };
 
-        public View(Model.Model model)
+        public View()
         {
-            this.model = model;
         }
 
         public void Menu()
-        {
-            ////List<Model.Travail> temp = .Request("Select * from travail");
-            //Travail travail = new Travail();
-            //travail.Id = 2;
-            //travail.Name = "t";
-            //model.AddTravail(travail);
-            //List<Travail> l = new List<Travail>();
-            //l.Add(travail);
-            //string temp = Tools.ObjectToJson<List<Travail>>(l);
-            //Console.WriteLine(temp);
-            //List <Travail> temp2 = (List<Travail>)model.GetAllTravail();
-            //Console.WriteLine(temp2.Count);
-
-            //System.Timers.Timer timer = new System.Timers.Timer();
-            //timer.Elapsed += CheckKey;
-            //timer.Interval = 10;
-            //timer.Enabled = true;
-            
+        {     
             Console.CursorVisible = false;
-            Console.WriteLine("Hello");
-
-            while (!IsFinsih)
+            if (!Directory.Exists(@"..\SaveState"))
             {
-                DrawMenu(menuAction);
+                Directory.CreateDirectory(@"..\SaveState");
+                File.Create(@"..\SaveState\InMemorySave.json").Close();
+                File.Create(@"..\SaveState\Logs.json").Close();
+                File.Create(@"..\SaveState\SaveProgression.json").Close();
+            }
+            jsonSave = Tools.ReadData(path);
+            Tools.IsValidJson<Backups>(jsonSave);
+
+            Console.Clear();
+
+            while (!IsFinish)
+            {
+                DrawMenu(menuAction, "");
             }
         }
 
-        
+        protected override void FunctionFirstPosition()
+        {
+            menuAction[0].Instanciate(path);
+        }
+        protected override void FunctionSecondPosition()
+        {
+            menuAction[1].Instanciate(path);
+        }
     }
 
     

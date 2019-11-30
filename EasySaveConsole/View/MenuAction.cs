@@ -20,24 +20,14 @@ namespace EasySaveConsole.View
             this.ClassName = ClassName;
         }
 
-        public object Instanciate()
+        public object Instanciate(string path)
         {
             if(ClassName == null)
             {
                 return new Exception("No ClassName");
             }
             else
-                return (object)Activator.CreateInstance(ClassName);
-        }
-
-        public void SaveFile()
-        {
-
-        }
-
-        public void SaveFolder()
-        {
-
+                return (object)Activator.CreateInstance(ClassName, path);
         }
     }
 }

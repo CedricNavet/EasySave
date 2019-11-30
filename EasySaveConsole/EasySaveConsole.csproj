@@ -16,7 +16,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>publish\</PublishUrl>
+    <PublishUrl>C:\Users\ccdu2\OneDrive - Association Cesi Viacesi mail\Mes Devoirs\Autres\C#\Test\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -26,9 +26,10 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationRevision>10</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -50,6 +51,18 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>CE6DEAB12089EE84E800A20B1B20244333C6E7E7</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>EasySaveConsole_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.dll</HintPath>
@@ -63,8 +76,10 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -74,6 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\Controller.cs" />
+    <Compile Include="Model\BackGroundSave.cs" />
     <Compile Include="Model\Tools.cs" />
     <Compile Include="Model\AllRepository.cs" />
     <Compile Include="Model\Backups.cs" />
@@ -92,9 +108,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EntityModels.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Model\IModel.cs" />
     <Compile Include="Model\Logs.cs" />
-    <Compile Include="Model\Model.cs" />
     <Compile Include="Model\Repository\GenericDataRepository.cs" />
     <Compile Include="Model\Repository\IGenericDataRepository.cs" />
     <Compile Include="Model\SaveProgress.cs" />
@@ -103,10 +117,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\DisplaySave.cs" />
     <Compile Include="View\Menu.cs" />
     <Compile Include="View\MenuAction.cs" />
-    <Compile Include="View\OneSaveMenu.cs" />
-    <Compile Include="View\SequentialMenu.cs" />
+    <Compile Include="View\SaveCreation.cs" />
     <Compile Include="View\View.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -115,6 +129,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>EntityModels.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="EasySaveConsole_TemporaryKey.pfx" />
     <None Include="Model\EntityModels.edmx.diagram">
       <DependentUpon>EntityModels.edmx</DependentUpon>
     </None>
@@ -153,6 +168,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SaveState\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
