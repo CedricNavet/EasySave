@@ -59,11 +59,18 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="BackGroundSave.cs" />
+    <Compile Include="MainMenu.xaml.cs">
+      <DependentUpon>MainMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model\Backups.cs" />
     <Compile Include="Model\Logs.cs" />
     <Compile Include="Model\SaveProgress.cs" />
     <Compile Include="Tools.cs" />
-    <Page Include="MainWindow.xaml">
+    <Page Include="MainMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TitleScreen.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -71,8 +78,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="TitleScreen.xaml.cs">
+      <DependentUpon>TitleScreen.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

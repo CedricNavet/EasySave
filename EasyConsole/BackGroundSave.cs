@@ -26,7 +26,6 @@ namespace EasySave
 
         public void StartSave(string path, SaveType saveType, string SaveName = null)
         {
-            //this.jsonSave = jsonSave;
             this.path = path.Replace("InMemorySave.json", "");
             SaveCheck(saveType, SaveName);
         }

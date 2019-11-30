@@ -193,6 +193,20 @@ namespace EasySave
             }
         }
 
+        public static void FileCreations(string path = @"..\SaveState\")
+        {
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+                if(!File.Exists(path + @"InMemorySave.json"))
+                    File.Create(path + @"InMemorySave.json").Close();
+                if (!File.Exists(path + @"Logs.json"))
+                    File.Create(path + @"Logs.json").Close();
+                if (!File.Exists(path + @"SaveProgression.json"))
+                    File.Create(path + @"SaveProgression.json").Close();
+            }
+        }
+
         
     }
 }

@@ -24,5 +24,12 @@ namespace EasyConsole
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MainMenu mainMenu = new MainMenu();
+            mainMenu.Show();
+            this.Close();
+        }
     }
 }
