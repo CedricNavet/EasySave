@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EasySaveConsole.Model
+namespace EasySave.Model
 {
     public enum BackupType { mirror, differential };
     public class Backups
@@ -13,5 +13,6 @@ namespace EasySaveConsole.Model
         public String Source { get; set; }// Source
         public String Target { get; set; } // Destination
         public BackupType BackupType { get; set; } // Type de sauvegarde
+        public DateTime TimeToSave { get; set; }//Heure de la sauvegarde
     }
 }
