@@ -5,14 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EasyConsole"
         mc:Ignorable="d"
-        Title="MainMenu" Height="450" Width="800">
+        Title="EasySave" Height="500" Width="800" ResizeMode="NoResize">
     <Grid>
-        <TabControl HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="792">
-            <TabItem x:Name="Display_Save" Header="Display_Save">
-                <Grid Background="#FFE5E5E5"/>
+        <TabControl HorizontalAlignment="Left" Height="469" VerticalAlignment="Top" Width="790">
+            <TabItem x:Name="Display_Save" Header="Display_Save" Loaded="Display_Save_Loaded" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Grid Background="#FFE5E5E5" Margin="0,-1,-6,-4" Width="790" RenderTransformOrigin="0.497,0.611" Height="446" VerticalAlignment="Top" HorizontalAlignment="Center">
+                    <ListView x:Name="ListView" HorizontalAlignment="Left" Height="371" Margin="10,10,0,0" VerticalAlignment="Top" Width="766">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Save Name" Width="100" DisplayMemberBinding="{Binding BackupName}" />
+                                <GridViewColumn Header="Source" Width="100" DisplayMemberBinding="{Binding Source}" />
+                                <GridViewColumn Header="Destination" Width="100" DisplayMemberBinding="{Binding Target}" />
+                                <GridViewColumn Header="Type of BackUp" Width="100" DisplayMemberBinding="{Binding BackupType}" />
+                                <GridViewColumn Header="Last backup completion" Width="150" DisplayMemberBinding="{Binding LastBackupCompletion}" />
+                                <GridViewColumn  Width="100" Header="Mono Save">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Content="Start Save" VerticalAlignment="Center" Click="Button_Click_MonoSave"  Margin="0"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn  Width="100" Header="Sequential Save">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <!--<Button Content="Modify" VerticalAlignment="Center" Click="Button_Click_SequentialSave" Margin="0"/>-->
+                                            <CheckBox IsChecked="False" HorizontalAlignment="Center" VerticalAlignment="Center" Click="CheckBox_Click"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <Button Content="Sequential Save" Margin="275,386,275,0" VerticalAlignment="Top" Height="50" Click="Button_Click_SequentialSave"/>
+                </Grid>
             </TabItem>
             <TabItem x:Name="Manage_Save" Header="Save Management">
-                <Grid Background="#FFE5E5E5">
+                <Grid Background="#FFE5E5E5" VerticalAlignment="Center" HorizontalAlignment="Center">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="329*"/>
                     </Grid.RowDefinitions>

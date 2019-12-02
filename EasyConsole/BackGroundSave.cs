@@ -12,7 +12,7 @@ namespace EasySave
 {
     public class BackGroundSave : IDisposable
     {
-        private IList<Backups> backups = new List<Backups>();
+        private IList<Backup> backups = new List<Backup>();
         //private string jsonSave;
         private string path;
         public enum SaveType
@@ -33,10 +33,10 @@ namespace EasySave
         private void SaveCheck(SaveType saveType, string SaveName)
         {
             Console.Clear();
-            backups = Tools.JsonToObject<Backups>(Tools.ReadData(this.path + @"InMemorySave.json"));
+            backups = Tools.JsonToObject<Backup>(Tools.ReadData(this.path + @"InMemorySave.json"));
             if(saveType == SaveType.sequential)
             {
-                foreach (Backups backup in backups)
+                foreach (Backup backup in backups)
                 {
                     if (backup.BackupType == BackupType.mirror)
                     {
@@ -46,17 +46,17 @@ namespace EasySave
                     {
                         DifferentialBackUp(backup, path);
                     }
-                    Console.WriteLine("Save named : " + backup.BackupsName + " .....Done");
+                    Console.WriteLine("Save named : " + backup.BackupName + " .....Done");
                 }
                 Console.WriteLine("All Done");
                 Thread.Sleep(1000);
             }
             else if(saveType == SaveType.unique)
             {
-                Backups backup = null;
-                foreach (Backups item in backups)
+                Backup backup = null;
+                foreach (Backup item in backups)
                 {
-                    if(item.BackupsName == SaveName)
+                    if(item.BackupName == SaveName)
                     {
                         backup = item;
                         break;
@@ -71,14 +71,14 @@ namespace EasySave
                 {
                     DifferentialBackUp(backup, path);
                 }
-                Console.WriteLine("Save named : "+backup.BackupsName+" .....Done");
+                Console.WriteLine("Save named : "+backup.BackupName + " .....Done");
                 Thread.Sleep(1000);
             }
             
 
         }
 
-        private void DifferentialBackUp(Backups backups, string pathJson)
+        private void DifferentialBackUp(Backup backups, string pathJson)
         {
             try
             {
@@ -170,7 +170,7 @@ namespace EasySave
             }
         }
 
-        public static void BackUp(Backups backups, string pathJson)
+        public static void BackUp(Backup backups, string pathJson)
         {
             try
             {
@@ -229,7 +229,7 @@ namespace EasySave
             }
         }
 
-        private static void SaveProgression(string[] directoryFile, string path, string currentFile, Backups backups)
+        private static void SaveProgression(string[] directoryFile, string path, string currentFile, Backup backups)
         {
             long TotalFileSize = 0;
             int numberRemainFiles = 0;
@@ -263,13 +263,13 @@ namespace EasySave
             Tools.WriteData(Tools.ObjectToJson(saveProgress), path + @"\SaveProgression.json");
         }
 
-        private static void WriteLogs(Backups backup, string pathJson, DateTime startSave, string file)
+        private static void WriteLogs(Backup backup, string pathJson, DateTime startSave, string file)
         {
             TimeSpan temp = DateTime.Now - startSave;
             Logs log = new Logs()
             {
                 Timestamp = DateTime.Now,
-                TaskName = backup.BackupsName,
+                TaskName = backup.BackupName,
                 SourceFileAddress = file,
                 DestinationFileAddress = file.Replace(backup.Source, backup.Target),
                 FileSize = Tools.FileSize(file),

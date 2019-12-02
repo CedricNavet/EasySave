@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 namespace EasySave.Model
 {
     public enum BackupType { mirror, differential };
-    public class Backups
+    public class Backup
     {
-        public String BackupsName { get; set; } // Nom de sauvegarde
+        public String BackupName { get; set; } // Nom de sauvegarde
         public String Source { get; set; }// Source
         public String Target { get; set; } // Destination
         public BackupType BackupType { get; set; } // Type de sauvegarde
-        public DateTime TimeToSave { get; set; }//Heure de la sauvegarde
+        public DateTime LastBackupCompletion { get; set; }//Heure de la sauvegarde
     }
 }
