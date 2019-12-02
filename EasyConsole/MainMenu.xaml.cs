@@ -45,7 +45,6 @@ namespace EasyConsole
                 IsProcessusActive = true;
 
             }
-
             // Button btn = (Button)sender;
         }
 
