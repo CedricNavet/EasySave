@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO.Pipes;
 
 namespace CryptoSoft
 {
@@ -23,6 +24,17 @@ namespace CryptoSoft
         public MainWindow()
         {
             InitializeComponent();
+            //Console.WriteLine("Bouloulou");
+        }
+
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }
