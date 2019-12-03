@@ -26,10 +26,12 @@ namespace EasyConsole
         private string path;
         private IList<Backup> backups = new List<Backup>();
         private bool IsProcessusActive = false;
+        private BackGroundSave SaveClass;
 
         public MainMenu(string path = @"..\SaveState\")
         {
             this.path = path;
+            SaveClass = new BackGroundSave(path);
             InitializeComponent();
             Tools.FileCreations(path);
             System.Timers.Timer timer = new System.Timers.Timer(10);
@@ -81,6 +83,9 @@ namespace EasyConsole
         private void Button_Click_MonoSave(object sender, RoutedEventArgs e)
         {
 
+            var item = (sender as FrameworkElement).DataContext;
+            int index = ListView.Items.IndexOf(item);
+            SaveClass.StartMonoSave((Backup)ListView.Items[index]);
         }
 
         private void Button_Click_SequentialSave(object sender, RoutedEventArgs e)

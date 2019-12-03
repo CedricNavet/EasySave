@@ -7,34 +7,68 @@ using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Threading;
 using EasySave.Model;
+using System.Threading;
+using System.Collections;
 
 namespace EasySave
 {
     public class BackGroundSave : IDisposable
     {
         private IList<Backup> backups = new List<Backup>();
-        //private string jsonSave;
+        private static Mutex mutex = new Mutex();
         private string path;
         public enum SaveType
         {
             sequential,
             unique
         }
-        public BackGroundSave()
+        public BackGroundSave(string path)
         {
+            this.path = path;
         }
 
-        public void StartSave(string path, SaveType saveType, string SaveName = null)
+        public void StartMonoSave(Backup backup)
         {
-            this.path = path.Replace("InMemorySave.json", "");
-            SaveCheck(saveType, SaveName);
+            if (backup.BackupType == BackupType.mirror)
+            {
+                BackUpMirror(backup, path);
+            }
+            else if (backup.BackupType == BackupType.differential)
+            {
+                DifferentialBackUp(backup, path);
+            }
+            Console.WriteLine("Save named : " + backup.BackupName + " .....Done");
+            //Thread.Sleep(1000);
         }
 
-        private void SaveCheck(SaveType saveType, string SaveName)
+        public void StartSequentialSaves(List<Backup> backups)
+        {
+            foreach (Backup backup in backups)
+            {
+                if (backup.BackupType == BackupType.mirror)
+                {
+                    BackUpMirror(backup, path);
+                }
+                else if (backup.BackupType == BackupType.differential)
+                {
+                    DifferentialBackUp(backup, path);
+                }
+                Console.WriteLine("Save named : " + backup.BackupName + " .....Done");
+            }
+            Console.WriteLine("All Done");
+            //Thread.Sleep(1000);
+        }
+        //public void StartSave(string path, SaveType saveType, string SaveName = null)
+        //{
+        //    this.path = path.Replace("InMemorySave.json", "");
+        //    SaveCheck(saveType, SaveName);
+        //}
+
+        /*private void SaveCheck(SaveType saveType, string SaveName)
         {
             Console.Clear();
             backups = Tools.JsonToObject<Backup>(Tools.ReadData(this.path + @"InMemorySave.json"));
-            if(saveType == SaveType.sequential)
+            if (saveType == SaveType.sequential)
             {
                 foreach (Backup backup in backups)
                 {
@@ -51,12 +85,12 @@ namespace EasySave
                 Console.WriteLine("All Done");
                 Thread.Sleep(1000);
             }
-            else if(saveType == SaveType.unique)
+            else if (saveType == SaveType.unique)
             {
                 Backup backup = null;
                 foreach (Backup item in backups)
                 {
-                    if(item.BackupName == SaveName)
+                    if (item.BackupName == SaveName)
                     {
                         backup = item;
                         break;
@@ -71,56 +105,29 @@ namespace EasySave
                 {
                     DifferentialBackUp(backup, path);
                 }
-                Console.WriteLine("Save named : "+backup.BackupName + " .....Done");
+                Console.WriteLine("Save named : " + backup.BackupName + " .....Done");
                 Thread.Sleep(1000);
             }
-            
 
-        }
 
-        private void DifferentialBackUp(Backup backups, string pathJson)
+        }*/
+
+
+        private void DifferentialBackUp(Backup backup, string pathJson)
         {
             try
             {
-                if (Directory.Exists(backups.Source) && Directory.Exists(backups.Target))
+                if (Directory.Exists(backup.Source) && Directory.Exists(backup.Target))
                 {
-                    foreach (string dirPath in Directory.GetDirectories(backups.Source, "*", SearchOption.AllDirectories))
-                        Directory.CreateDirectory(dirPath.Replace(backups.Source, backups.Target));
+                    foreach (string dirPath in Directory.GetDirectories(backup.Source, "*", SearchOption.AllDirectories))
+                        Directory.CreateDirectory(dirPath.Replace(backup.Source, backup.Target));
 
-                    foreach (string oldPath in Directory.GetFiles(backups.Source, "*.*", SearchOption.AllDirectories))
+                    foreach (string oldPath in Directory.GetFiles(backup.Source, "*.*", SearchOption.AllDirectories))
                     {
-                        using (MD5 md5Hash = MD5.Create())
-                        {
-                            if(!File.Exists(oldPath.Replace(backups.Source, backups.Target)))
-                            {
-                                DateTime startsave = DateTime.Now;
-                                File.Copy(oldPath, oldPath.Replace(backups.Source, backups.Target), true);
-                                WriteLogs(backups, pathJson, startsave, oldPath);
-                                SaveProgression(Directory.GetFiles(backups.Source, "*", SearchOption.AllDirectories), pathJson, oldPath, backups);
-                            }
-                            else
-                            {
-                                string hash = GetMd5Hash(md5Hash, Tools.ReadData(oldPath.Replace(backups.Source, backups.Target)));
-
-                                if (VerifyMd5Hash(md5Hash, oldPath, hash))
-                                {
-                                    continue;
-                                }
-                                else
-                                {
-                                    //Console.WriteLine("The hashes are not same.");
-                                    DateTime startsave = DateTime.Now;
-                                    File.Copy(oldPath, oldPath.Replace(backups.Source, backups.Target), true);
-                                    WriteLogs(backups, pathJson, startsave, oldPath);
-                                    SaveProgression(Directory.GetFiles(backups.Source, "*", SearchOption.AllDirectories), pathJson, oldPath, backups);
-                                }
-                            }
-                            
-                        }
-
-
+                        object temp = new SaveArgs() { backup = backup, oldPath = oldPath };
+                        ThreadPool.QueueUserWorkItem(StartSaveFile, temp);
+                        //StartOneSave(backup, oldPath);
                     }
-
                 }
             }
             catch (Exception)
@@ -131,7 +138,82 @@ namespace EasySave
 
         }
 
-        static string GetMd5Hash(MD5 md5Hash, string input)
+        private void StartSaveFile(object mydata)
+        {
+            SaveArgs saveArgs = (SaveArgs)mydata;
+            using (MD5 md5Hash = MD5.Create())
+            {
+                if (!File.Exists(saveArgs.oldPath.Replace(saveArgs.backup.Source, saveArgs.backup.Target)))
+                {
+                    DateTime startsave = DateTime.Now;
+                    File.Copy(saveArgs.oldPath, saveArgs.oldPath.Replace(saveArgs.backup.Source, saveArgs.backup.Target), true);
+                    DateTime stopsave = DateTime.Now;
+                    TimeSpan timeSpan = stopsave - startsave;
+
+                    mutex.WaitOne();
+                    WriteLogs(saveArgs.backup, timeSpan, saveArgs.oldPath);
+                    SaveProgression(Directory.GetFiles(saveArgs.backup.Source, "*", SearchOption.AllDirectories), saveArgs.oldPath, saveArgs.backup);
+                    mutex.ReleaseMutex();
+                }
+                else
+                {
+                    string hash = GetMd5Hash(md5Hash, Tools.ReadData(saveArgs.oldPath.Replace(saveArgs.backup.Source, saveArgs.backup.Target)));
+
+                    if (!VerifyMd5Hash(md5Hash, saveArgs.oldPath, hash))
+                    {
+                        DateTime startsave = DateTime.Now;
+                        File.Copy(saveArgs.oldPath, saveArgs.oldPath.Replace(saveArgs.backup.Source, saveArgs.backup.Target), true);
+                        DateTime stopsave = DateTime.Now;
+                        TimeSpan timeSpan = stopsave - startsave;
+
+                        mutex.WaitOne();
+                        WriteLogs(saveArgs.backup, timeSpan, saveArgs.oldPath);
+                        SaveProgression(Directory.GetFiles(saveArgs.backup.Source, "*", SearchOption.AllDirectories), saveArgs.oldPath, saveArgs.backup);
+                        mutex.ReleaseMutex();
+                    }
+                }
+            }
+
+        }
+
+        private void BackUpMirror(Backup backups, string pathJson)
+        {
+            try
+            {
+
+                /*
+                 * if sourcePath & destPath are both Directories
+                 * @param SourcePath : Source path of the Directory to copy
+                 * Copy the entire Directory & Sub-Directory in a mirror-like manner in a new Selected Directory
+                 */
+                if (Directory.Exists(backups.Source) && Directory.Exists(backups.Target))
+                {
+                    foreach (string dirPath in Directory.GetDirectories(backups.Source, "*", SearchOption.AllDirectories))
+                        Directory.CreateDirectory(dirPath.Replace(backups.Source, backups.Target));
+                    foreach (string oldPath in Directory.GetFiles(backups.Source, "*.*", SearchOption.AllDirectories))
+                    {
+                        DateTime startsave = DateTime.Now;
+                        File.Copy(oldPath, oldPath.Replace(backups.Source, backups.Target), true);
+                        DateTime stopsave = DateTime.Now;
+                        TimeSpan timeSpan = stopsave - startsave;
+
+                        mutex.WaitOne();
+                        WriteLogs(backups, timeSpan, oldPath);
+                        SaveProgression(Directory.GetFiles(backups.Source, "*", SearchOption.AllDirectories), oldPath, backups);
+                        mutex.ReleaseMutex();
+
+                    }
+
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.Write(e.Message);
+            }
+        }
+
+        private string GetMd5Hash(MD5 md5Hash, string input)
         {
 
             // Convert the input string to a byte array and compute the hash.
@@ -152,7 +234,7 @@ namespace EasySave
             return sBuilder.ToString();
         }
 
-        static bool VerifyMd5Hash(MD5 md5Hash, string input, string hash)
+        private bool VerifyMd5Hash(MD5 md5Hash, string input, string hash)
         {
             // Hash the input.
             string hashOfInput = GetMd5Hash(md5Hash, Tools.ReadData(input));
@@ -168,75 +250,17 @@ namespace EasySave
             {
                 return false;
             }
-        }
+        }   
 
-        public static void BackUp(Backup backups, string pathJson)
-        {
-            try
-            {
-
-                /*
-                 * if sourcePath & destPath are both Directories
-                 * @param SourcePath : Source path of the Directory to copy
-                 * Copy the entire Directory & Sub-Directory in a mirror-like manner in a new Selected Directory
-                 */
-                if (Directory.Exists(backups.Source) && Directory.Exists(backups.Target))
-                {
-                    foreach (string dirPath in Directory.GetDirectories(backups.Source, "*", SearchOption.AllDirectories))
-                        Directory.CreateDirectory(dirPath.Replace(backups.Source, backups.Target));
-                    foreach (string oldPath in Directory.GetFiles(backups.Source, "*.*", SearchOption.AllDirectories))
-                    {
-                        DateTime startsave = DateTime.Now;                      
-                        File.Copy(oldPath, oldPath.Replace(backups.Source, backups.Target), true);
-                        WriteLogs(backups, pathJson, startsave, oldPath);
-                        SaveProgression(Directory.GetFiles(backups.Source, "*", SearchOption.AllDirectories), pathJson, oldPath, backups);
-
-                    }
-
-                }
-                /*
-                 * @param destPath : Destination of the file to be copied
-                 * If the sourcePath is a File & the destPath a Directory
-                 * Get the fileName of sourcePath and save it into the destPath
-                 */
-                else if (File.Exists(backups.Source) && Directory.Exists(backups.Target))
-                {
-                    string[] path = backups.Source.Split(@"\".ToCharArray());
-                    string file = path[path.Length - 1];
-                    String destFile = Path.Combine(backups.Target, file);
-                    File.Copy(backups.Source, backups.Source.Replace(backups.Source, destFile), true);
-                }
-                /*
-                 * If destPath & sourcePath are Files, copy the source to the Destination
-                 */
-                else if (File.Exists(backups.Source))
-                {
-                    File.Copy(backups.Source, backups.Source.Replace(backups.Source, backups.Target), true);
-
-                }
-                /*
-                 * If destPath & sourcePath are Files & Directory, nonono bad u
-                 */
-                else if (Directory.Exists(backups.Source) && File.Exists(backups.Target))
-                {
-                    Console.WriteLine("Nonono bad you no directory in file  T_T'");
-                }
-
-            }
-            catch (Exception e)
-            {
-                Console.Write(e.Message);
-            }
-        }
-
-        private static void SaveProgression(string[] directoryFile, string path, string currentFile, Backup backups)
+        private void SaveProgression(string[] directoryFile, string currentFile, Backup backups)
         {
             long TotalFileSize = 0;
             int numberRemainFiles = 0;
             long RemainFileSize = 0;
+            bool Isfind = false;
             foreach (string item in directoryFile)
             {
-                if (item == currentFile)
+                if (item == currentFile || Isfind == false)
                 {
                     numberRemainFiles++;
                     long temp = Tools.FileSize(item);
@@ -245,7 +269,10 @@ namespace EasySave
                 }
                 else
                 {
-                    TotalFileSize += Tools.FileSize(item);
+                    long temp = Tools.FileSize(item);
+                    TotalFileSize += temp;
+                    if(Isfind)
+                        RemainFileSize += temp;
                 }
 
             }
@@ -263,9 +290,8 @@ namespace EasySave
             Tools.WriteData(Tools.ObjectToJson(saveProgress), path + @"\SaveProgression.json");
         }
 
-        private static void WriteLogs(Backup backup, string pathJson, DateTime startSave, string file)
-        {
-            TimeSpan temp = DateTime.Now - startSave;
+        private void WriteLogs(Backup backup, TimeSpan timeSpan, string file)
+        {       
             Logs log = new Logs()
             {
                 Timestamp = DateTime.Now,
@@ -273,12 +299,18 @@ namespace EasySave
                 SourceFileAddress = file,
                 DestinationFileAddress = file.Replace(backup.Source, backup.Target),
                 FileSize = Tools.FileSize(file),
-                TransferTime = temp
+                TransferTime = timeSpan
             };
-            string json = Tools.ReadData(pathJson + @"\Logs.json");
+            string json = Tools.ReadData(path + @"\Logs.json");
             IList<Logs> tempList = Tools.JsonToObject<Logs>(json);
             tempList.Add(log);
-            Tools.WriteData(Tools.ObjectToJson(tempList), pathJson + @"\Logs.json");
+            Tools.WriteData(Tools.ObjectToJson(tempList), path + @"\Logs.json");
+        }
+
+        private class SaveArgs
+        {
+            public string oldPath { get; set; }
+            public Backup backup { get; set; }
         }
 
         #region IDisposable Support
