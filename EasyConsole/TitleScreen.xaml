@@ -22,8 +22,8 @@
         <StackPanel x:Name="chooseLanguage" Margin="10" Height="88">
             <Label x:Name="language" Content="Choose your language :" Foreground="White" FontFamily="Arial" FontSize="14"/>
             <WrapPanel Width="639">
-                <Button x:Name="english" Width="150" Background="Black" BorderBrush="Black">
-                    <Image Source="Ressources\english.png" Height="50" Width="50"/>
+                <Button x:Name="english" Width="150" BorderBrush="Black" ClickMode="Press" Click="english_Click" Background="Black" Foreground="Black" >
+                    <Image x:Name="IMGenglish" Source="Ressources\english.png" Height="50" Width="50" Opacity="0.78" />
                 </Button>
                 <Button x:Name="spainish" Width="150" Background="Black" BorderBrush="Black">
                     <Image Source="Ressources\spainish.png" Height="50" Width="50"/>

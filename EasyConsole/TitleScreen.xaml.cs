@@ -32,5 +32,9 @@ namespace EasyConsole
             this.Close();
         }
 
+        private void english_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

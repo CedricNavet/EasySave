@@ -118,5 +118,11 @@
     <Resource Include="Ressources\german.png" />
     <Resource Include="Ressources\spainish.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressources\BWenglish.png" />
+    <Resource Include="Ressources\BWfrench.png" />
+    <Resource Include="Ressources\BWgerman.png" />
+    <Resource Include="Ressources\BWspainish.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
