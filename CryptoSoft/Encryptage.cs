@@ -29,6 +29,8 @@ namespace CryptoSoft
             WriteData(temp, input);
             return new string(output);
         }
+
+
         public static string ReadData(string filepath)
         {
             TextReader reader = null;

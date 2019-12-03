@@ -62,6 +62,7 @@
     <Compile Include="MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\AnonymousServer.cs" />
     <Compile Include="Model\Backup.cs" />
     <Compile Include="Model\Logs.cs" />
     <Compile Include="Model\SaveProgress.cs" />
