@@ -37,7 +37,7 @@
             </WrapPanel>
         </StackPanel>
         <StackPanel x:Name="footer">
-            <Button Width="76" Height="31" Background="Black" BorderBrush="White" Foreground="White" FontFamily="Arial" FontWeight="Bold" FontSize="16" >START</Button>
+            <Button Width="76" Height="31" Background="Black" BorderBrush="White" Foreground="White" FontFamily="Arial" FontWeight="Bold" FontSize="16" Click="Button_Click" >START</Button>
         </StackPanel>
     </StackPanel>
 </Window>
