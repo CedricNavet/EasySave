@@ -21,13 +21,13 @@ namespace CryptoSoft
             {
                 output[i] = (char)(lo[i] ^ key[i % key.Length]);
             }
-            var temp = "";
+            string temp = "";
             foreach (char item in output)
             {
                 temp += item;
             }
             WriteData(temp, input);
-            return new string(output);
+            return temp;
         }
 
 

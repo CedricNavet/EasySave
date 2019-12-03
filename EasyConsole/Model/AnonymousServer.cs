@@ -25,7 +25,7 @@ namespace EasyConsole.Model
             {
                 using (AnonymousPipeServerStream pipeServer = new AnonymousPipeServerStream(PipeDirection.Out, HandleInheritability.Inheritable))
                 {
-                    Console.WriteLine("[SERVER] Current TransmissionMode : {0}." , pipeServer.TransmissionMode); //A retirer pour l'interface graphique
+
                     pipeClient.StartInfo.Arguments = pipeServer.GetClientHandleAsString();
                     pipeClient.StartInfo.UseShellExecute = false;
                     pipeClient.Start();
