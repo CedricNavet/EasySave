@@ -30,6 +30,7 @@ namespace EasyConsole
         public MainMenu(string path = @"..\SaveState\")
         {
             this.path = path;
+            this.DataContext = backups;
             InitializeComponent();
             Tools.FileCreations(path);
             System.Timers.Timer timer = new System.Timers.Timer(10);
@@ -50,6 +51,7 @@ namespace EasyConsole
 
         private void Display_Save_Loaded(object sender, RoutedEventArgs e)
         {
+            ListView.Items.Clear();
             backups = Tools.JsonToObject<Backup>(Tools.ReadData(path + @"InMemorySave.json"));
             foreach (var item in backups)
             {
@@ -75,7 +77,10 @@ namespace EasyConsole
 
         private void Button_Click_Modify(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            Button btn = (Button)sender;
+            ModifySave winModif = new ModifySave((Backup)btn.DataContext,backups.IndexOf((Backup)btn.DataContext));
+            winModif.Show();
+            winModif.MyEvent += Display_Save_Loaded;
         }
 
         private void Button_Click_MonoSave(object sender, RoutedEventArgs e)
@@ -92,6 +97,5 @@ namespace EasyConsole
         {
 
         }
-
     }
 }

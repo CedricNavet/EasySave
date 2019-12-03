@@ -65,8 +65,15 @@
     <Compile Include="Model\Backup.cs" />
     <Compile Include="Model\Logs.cs" />
     <Compile Include="Model\SaveProgress.cs" />
+    <Compile Include="ModifySave.xaml.cs">
+      <DependentUpon>ModifySave.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Tools.cs" />
     <Page Include="MainMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ModifySave.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
