@@ -31,5 +31,6 @@ namespace EasyConsole
             mainMenu.Show();
             this.Close();
         }
+
     }
 }
