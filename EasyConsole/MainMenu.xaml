@@ -34,7 +34,7 @@
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <!--<Button Content="Modify" VerticalAlignment="Center" Click="Button_Click_SequentialSave" Margin="0"/>-->
-                                <CheckBox IsChecked="False" HorizontalAlignment="Center" VerticalAlignment="Center" Click="CheckBox_Click"/>
+                                <CheckBox IsChecked="{Binding Mode=TwoWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListViewItem}}, Path=IsSelected}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

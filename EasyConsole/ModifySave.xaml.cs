@@ -12,30 +12,30 @@ namespace EasyConsole
         public event RoutedEventHandler MyEvent;
         private IList<Backup> backups = new List<Backup>();
         string path = @"..\SaveState\";
-        Backup temp;
+        Backup Backup;
         private int indexPrivate = -1;
 
         public ModifySave(Backup backup, int index)
         {
             this.indexPrivate = index;
-            this.temp = backup;
+            this.Backup = backup;
             this.DataContext = backup;
             InitializeComponent();
             this.MenuSaveType.Text = backup.BackupType.ToString();
         }
 
         public ModifySave()
-        {           
-            temp = new Backup();
-            this.DataContext = temp;
+        {
+            Backup = new Backup();
+            this.DataContext = Backup;
             InitializeComponent();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            temp.BackupType = (BackupType)MenuSaveType.SelectedValue;
+            Backup.BackupType = (BackupType)MenuSaveType.SelectedValue;
 
-            IndexAndBackup backup1 = new IndexAndBackup() { backup = temp, index = indexPrivate };
+            IndexAndBackup backup1 = new IndexAndBackup() { backup = Backup, index = indexPrivate };
             MyEvent?.Invoke(backup1, null);
             this.Close();
         }
@@ -46,6 +46,7 @@ namespace EasyConsole
             {
                 System.Windows.Forms.DialogResult result = dialog.ShowDialog();
                 Source.Text = dialog.SelectedPath;
+                Backup.Source = Source.Text;
             }
         }
 
@@ -55,6 +56,7 @@ namespace EasyConsole
             {
                 System.Windows.Forms.DialogResult result = dialog.ShowDialog();
                 Target.Text = dialog.SelectedPath;
+                Backup.Target = Target.Text;
             }
         }
     }
