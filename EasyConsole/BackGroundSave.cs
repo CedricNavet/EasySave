@@ -7,16 +7,15 @@ using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Threading;
 using EasySave.Model;
-using System.Threading;
-using System.Collections;
 
 namespace EasySave
 {
     public class BackGroundSave : IDisposable
     {
-        private IList<Backup> backups = new List<Backup>();
+        //private IList<Backup> backups = new List<Backup>();
         private static Mutex mutex = new Mutex();
         private string path;
+        //private int numberFileRemain;
         public enum SaveType
         {
             sequential,
@@ -58,60 +57,6 @@ namespace EasySave
             Console.WriteLine("All Done");
             //Thread.Sleep(1000);
         }
-        //public void StartSave(string path, SaveType saveType, string SaveName = null)
-        //{
-        //    this.path = path.Replace("InMemorySave.json", "");
-        //    SaveCheck(saveType, SaveName);
-        //}
-
-        /*private void SaveCheck(SaveType saveType, string SaveName)
-        {
-            Console.Clear();
-            backups = Tools.JsonToObject<Backup>(Tools.ReadData(this.path + @"InMemorySave.json"));
-            if (saveType == SaveType.sequential)
-            {
-                foreach (Backup backup in backups)
-                {
-                    if (backup.BackupType == BackupType.mirror)
-                    {
-                        BackUp(backup, path);
-                    }
-                    else if (backup.BackupType == BackupType.differential)
-                    {
-                        DifferentialBackUp(backup, path);
-                    }
-                    Console.WriteLine("Save named : " + backup.BackupName + " .....Done");
-                }
-                Console.WriteLine("All Done");
-                Thread.Sleep(1000);
-            }
-            else if (saveType == SaveType.unique)
-            {
-                Backup backup = null;
-                foreach (Backup item in backups)
-                {
-                    if (item.BackupName == SaveName)
-                    {
-                        backup = item;
-                        break;
-                    }
-                }
-
-                if (backup.BackupType == BackupType.mirror)
-                {
-                    BackUp(backup, path);
-                }
-                else if (backup.BackupType == BackupType.differential)
-                {
-                    DifferentialBackUp(backup, path);
-                }
-                Console.WriteLine("Save named : " + backup.BackupName + " .....Done");
-                Thread.Sleep(1000);
-            }
-
-
-        }*/
-
 
         private void DifferentialBackUp(Backup backup, string pathJson)
         {
@@ -125,20 +70,17 @@ namespace EasySave
                     foreach (string oldPath in Directory.GetFiles(backup.Source, "*.*", SearchOption.AllDirectories))
                     {
                         object temp = new SaveArgs() { backup = backup, oldPath = oldPath };
-                        ThreadPool.QueueUserWorkItem(StartSaveFile, temp);
-                        //StartOneSave(backup, oldPath);
+                        ThreadPool.QueueUserWorkItem(StartSaveFileDifferential, temp);
                     }
                 }
             }
             catch (Exception)
             {
-
                 throw;
             }
-
         }
 
-        private void StartSaveFile(object mydata)
+        private void StartSaveFileDifferential(object mydata)
         {
             SaveArgs saveArgs = (SaveArgs)mydata;
             using (MD5 md5Hash = MD5.Create())
@@ -150,10 +92,14 @@ namespace EasySave
                     DateTime stopsave = DateTime.Now;
                     TimeSpan timeSpan = stopsave - startsave;
 
+                    Console.WriteLine("{0} thread wait", Thread.CurrentThread.ManagedThreadId);
                     mutex.WaitOne();
+                    Console.WriteLine("{0} thread proceed", Thread.CurrentThread.ManagedThreadId);
                     WriteLogs(saveArgs.backup, timeSpan, saveArgs.oldPath);
                     SaveProgression(Directory.GetFiles(saveArgs.backup.Source, "*", SearchOption.AllDirectories), saveArgs.oldPath, saveArgs.backup);
                     mutex.ReleaseMutex();
+                    Console.WriteLine("{0} thread release", Thread.CurrentThread.ManagedThreadId);
+
                 }
                 else
                 {
@@ -166,51 +112,54 @@ namespace EasySave
                         DateTime stopsave = DateTime.Now;
                         TimeSpan timeSpan = stopsave - startsave;
 
+                        Console.WriteLine("{0} thread wait", Thread.CurrentThread.ManagedThreadId);
                         mutex.WaitOne();
+                        Console.WriteLine("{0} thread proceed", Thread.CurrentThread.ManagedThreadId);
                         WriteLogs(saveArgs.backup, timeSpan, saveArgs.oldPath);
                         SaveProgression(Directory.GetFiles(saveArgs.backup.Source, "*", SearchOption.AllDirectories), saveArgs.oldPath, saveArgs.backup);
                         mutex.ReleaseMutex();
+                        Console.WriteLine("{0} thread release", Thread.CurrentThread.ManagedThreadId);
                     }
                 }
             }
 
         }
 
-        private void BackUpMirror(Backup backups, string pathJson)
+        private void BackUpMirror(Backup backup, string pathJson)
         {
             try
             {
-
-                /*
-                 * if sourcePath & destPath are both Directories
-                 * @param SourcePath : Source path of the Directory to copy
-                 * Copy the entire Directory & Sub-Directory in a mirror-like manner in a new Selected Directory
-                 */
-                if (Directory.Exists(backups.Source) && Directory.Exists(backups.Target))
+                if (Directory.Exists(backup.Source) && Directory.Exists(backup.Target))
                 {
-                    foreach (string dirPath in Directory.GetDirectories(backups.Source, "*", SearchOption.AllDirectories))
-                        Directory.CreateDirectory(dirPath.Replace(backups.Source, backups.Target));
-                    foreach (string oldPath in Directory.GetFiles(backups.Source, "*.*", SearchOption.AllDirectories))
+                    foreach (string dirPath in Directory.GetDirectories(backup.Source, "*", SearchOption.AllDirectories))
+                        Directory.CreateDirectory(dirPath.Replace(backup.Source, backup.Target));
+                    foreach (string oldPath in Directory.GetFiles(backup.Source, "*.*", SearchOption.AllDirectories))
                     {
-                        DateTime startsave = DateTime.Now;
-                        File.Copy(oldPath, oldPath.Replace(backups.Source, backups.Target), true);
-                        DateTime stopsave = DateTime.Now;
-                        TimeSpan timeSpan = stopsave - startsave;
-
-                        mutex.WaitOne();
-                        WriteLogs(backups, timeSpan, oldPath);
-                        SaveProgression(Directory.GetFiles(backups.Source, "*", SearchOption.AllDirectories), oldPath, backups);
-                        mutex.ReleaseMutex();
-
+                        object temp = new SaveArgs() { backup = backup, oldPath = oldPath };
+                        ThreadPool.QueueUserWorkItem(StartSaveFileMirror, temp);
                     }
-
                 }
-
             }
             catch (Exception e)
             {
                 Console.Write(e.Message);
             }
+        }
+
+        private void StartSaveFileMirror(object state)
+        {
+            SaveArgs saveArgs = (SaveArgs)state;
+            DateTime startsave = DateTime.Now;
+            File.Copy(saveArgs.oldPath, saveArgs.oldPath.Replace(saveArgs.backup.Source, saveArgs.backup.Target), true);
+            DateTime stopsave = DateTime.Now;
+            TimeSpan timeSpan = stopsave - startsave;
+            Console.WriteLine("{0} thread wait", Thread.CurrentThread.ManagedThreadId);
+            mutex.WaitOne();
+            Console.WriteLine("{0} thread proceed", Thread.CurrentThread.ManagedThreadId);
+            WriteLogs(saveArgs.backup, timeSpan, saveArgs.oldPath);
+            SaveProgression(Directory.GetFiles(saveArgs.backup.Source, "*", SearchOption.AllDirectories), saveArgs.oldPath, saveArgs.backup);
+            mutex.ReleaseMutex();
+            Console.WriteLine("{0} thread release", Thread.CurrentThread.ManagedThreadId);
         }
 
         private string GetMd5Hash(MD5 md5Hash, string input)
@@ -299,7 +248,7 @@ namespace EasySave
                 SourceFileAddress = file,
                 DestinationFileAddress = file.Replace(backup.Source, backup.Target),
                 FileSize = Tools.FileSize(file),
-                TransferTime = timeSpan
+                TransferTime = timeSpan.TotalMilliseconds
             };
             string json = Tools.ReadData(path + @"\Logs.json");
             IList<Logs> tempList = Tools.JsonToObject<Logs>(json);

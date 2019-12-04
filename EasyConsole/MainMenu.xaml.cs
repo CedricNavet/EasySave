@@ -108,7 +108,6 @@ namespace EasyConsole
 
         private void Button_Click_MonoSave(object sender, RoutedEventArgs e)
         {
-
             var item = (sender as FrameworkElement).DataContext;
             int index = ListView.Items.IndexOf(item);
             SaveClass.StartMonoSave((Backup)ListView.Items[index]);
@@ -116,12 +115,12 @@ namespace EasyConsole
 
         private void Button_Click_SequentialSave(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void CheckBox_Click(object sender, RoutedEventArgs e)
-        {
-
+            List<Backup> backups = new List<Backup>();
+            foreach (var item in ListView.SelectedItems)
+            {
+                backups.Add((Backup)item);
+            }
+            SaveClass.StartSequentialSaves(backups);
         }
 
         private void Button_Click_CreateSave(object sender, RoutedEventArgs e)
