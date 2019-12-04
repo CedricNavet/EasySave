@@ -53,7 +53,7 @@ namespace EasyConsole
 
         private void Display_Save_Loaded(object sender, RoutedEventArgs e)
         {
-            ListView.Items.Clear();
+            //ListView.Items.Clear();
             backups = Tools.JsonToObject<Backup>(Tools.ReadData(path + @"InMemorySave.json"));
             foreach (var item in backups)
             {
@@ -82,7 +82,25 @@ namespace EasyConsole
             Button btn = (Button)sender;
             ModifySave winModif = new ModifySave((Backup)btn.DataContext,backups.IndexOf((Backup)btn.DataContext));
             winModif.Show();
-            winModif.MyEvent += Display_Save_Loaded;
+            winModif.MyEvent += ModifyList;
+        }
+
+        private void ModifyList(object sender, RoutedEventArgs e)
+        {
+            
+            IndexAndBackup indexAndBackup = (IndexAndBackup)sender;
+            if(indexAndBackup.index == -1)
+            {
+                backups.Add(indexAndBackup.backup);
+            }
+            else
+            {
+                backups[indexAndBackup.index] = indexAndBackup.backup;
+            }
+            
+            //var temp = (Backup)ListView.Items[indexAndBackup.index];
+            //temp.BackupType = indexAndBackup.backup.BackupType;
+            Tools.WriteData(Tools.ObjectToJson(backups), path + @"InMemorySave.json");
         }
 
         private void Button_Click_MonoSave(object sender, RoutedEventArgs e)
@@ -101,6 +119,13 @@ namespace EasyConsole
         private void CheckBox_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Button_Click_CreateSave(object sender, RoutedEventArgs e)
+        {
+            ModifySave modifySave = new ModifySave();
+            modifySave.Show();
+            modifySave.MyEvent += ModifyList;
         }
     }
 }

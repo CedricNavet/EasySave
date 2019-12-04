@@ -3,11 +3,19 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:EasyConsole"
+        xmlns:local="clr-namespace:EasySave.Model"
+        xmlns:System="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="EasySave" Height="500" Width="900" ResizeMode="NoResize" Loaded="Display_Save_Loaded">
+    <Window.Resources>
+        <ObjectDataProvider x:Key="enmPositions" MethodName="GetValues" ObjectType="{x:Type System:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="local:BackupType"></x:Type>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
     <StackPanel>
-        <ListView x:Name="ListView" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="880">
+        <ListView x:Name="ListView" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="870">
             <ListView.View>
                 <GridView x:Name="ItemGridView">
                     <GridViewColumn Header="Save Name" Width="125" DisplayMemberBinding="{Binding BackupName}" />
@@ -47,7 +55,12 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Margin="10,0,4,0" Height="60" Content="Start Sequential Save" VerticalAlignment="Center" HorizontalAlignment="Center" Width="200" Click="Button_Click_SequentialSave"/>
+        <Grid Height="63" Margin="10,0,4,0">
+            <Button Content="Create Save" Margin="440,0,10,0" Click="Button_Click_CreateSave"/>
+            <Button Margin="0,0,440,0" Height="63" Content="Start Sequential Save" VerticalAlignment="Center" HorizontalAlignment="Center" Width="440" Click="Button_Click_SequentialSave" RenderTransformOrigin="0.12,0.483"/>
+        </Grid>
+        <!--
+        -->
     </StackPanel>
 
 </Window>
