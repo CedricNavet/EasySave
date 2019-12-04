@@ -26,13 +26,13 @@
                     <Image x:Name="IMGenglish" Source="Ressources\english.png" Height="50" Width="50" Opacity="0.78" />
                 </Button>
                 <Button x:Name="spainish" Width="150" Background="Black" BorderBrush="Black">
-                    <Image Source="Ressources\spainish.png" Height="50" Width="50"/>
+                    <Image x:Name="IMGspanish" Source="Ressources\spainish.png" Height="50" Width="50"/>
                 </Button>
                 <Button x:Name="french" Width="150" Background="Black" BorderBrush="Black" >
-                    <Image Source="Ressources\french.png" Height="50" Width="50"/>
+                    <Image x:Name="IMGfrench" Source="Ressources\french.png" Height="50" Width="50"/>
                 </Button>
                 <Button x:Name="german" Width="150" Background="Black" BorderBrush="Black"  >
-                    <Image Source="Ressources\german.png" Height="50" Width="50"/>
+                    <Image x:Name="IMGgerman" Source="Ressources\german.png" Height="50" Width="50"/>
                 </Button>
             </WrapPanel>
         </StackPanel>
