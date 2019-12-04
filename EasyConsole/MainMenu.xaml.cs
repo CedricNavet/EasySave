@@ -92,10 +92,13 @@ namespace EasyConsole
             if(indexAndBackup.index == -1)
             {
                 backups.Add(indexAndBackup.backup);
+                ListView.Items.Add(indexAndBackup.backup);
             }
             else
             {
                 backups[indexAndBackup.index] = indexAndBackup.backup;
+                ListView.Items.Remove(indexAndBackup.backup);
+                ListView.Items.Insert(indexAndBackup.index, indexAndBackup.backup);
             }
             
             //var temp = (Backup)ListView.Items[indexAndBackup.index];
@@ -127,5 +130,6 @@ namespace EasyConsole
             modifySave.Show();
             modifySave.MyEvent += ModifyList;
         }
+
     }
 }
