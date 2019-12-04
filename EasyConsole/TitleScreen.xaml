@@ -31,7 +31,7 @@
                 <Button x:Name="french" Width="150" Background="Black" BorderBrush="Black" Click="french_Click" >
                     <Image x:Name="IMGfrench" Source="Ressources\french.png" Height="50" Width="50"/>
                 </Button>
-                <Button x:Name="german" Width="150" Background="Black" BorderBrush="Black"  >
+                <Button x:Name="german" Width="150" Background="Black" BorderBrush="Black" Click="german_Click"  >
                     <Image x:Name="IMGgerman" Source="Ressources\german.png" Height="50" Width="50"/>
                 </Button>
             </WrapPanel>

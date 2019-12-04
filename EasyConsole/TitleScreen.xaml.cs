@@ -61,5 +61,15 @@ namespace EasyConsole
             IMGgerman.Source = new BitmapImage(new Uri("Ressources/BWgerman.png", UriKind.Relative));
             start.Visibility = Visibility.Visible;
         }
+
+        private void german_Click(object sender, RoutedEventArgs e)
+        {
+            german.IsEnabled = true;
+            IMGenglish.Source = new BitmapImage(new Uri("Ressources/BWenglish.png", UriKind.Relative));
+            IMGspanish.Source = new BitmapImage(new Uri("Ressources/BWspainish.png", UriKind.Relative));
+            IMGfrench.Source = new BitmapImage(new Uri("Ressources/BWfrench.png", UriKind.Relative));
+            IMGgerman.Source = new BitmapImage(new Uri("Ressources/german.png", UriKind.Relative));
+            start.Visibility = Visibility.Visible;
+        }
     }
 }
