@@ -1,6 +1,4 @@
-﻿using EasySave;
-using EasySave.Model;
-using System;
+﻿using EasySave.Model;
 using System.Collections.Generic;
 using System.Windows;
 
@@ -72,6 +70,24 @@ namespace EasyConsole
             //Tools.WriteData(Tools.ObjectToJson(backups), path + @"InMemorySave.json");
             //MyEvent?.Invoke(this, null);
 
+        }
+
+        private void Button_Click_Browse_Source(object sender, RoutedEventArgs e)
+        {
+            using (var dialog = new System.Windows.Forms.FolderBrowserDialog())
+            {
+                System.Windows.Forms.DialogResult result = dialog.ShowDialog();
+                Source.Text = dialog.SelectedPath;
+            }
+        }
+
+        private void Button_Click_Browse_Target(object sender, RoutedEventArgs e)
+        {
+            using (var dialog = new System.Windows.Forms.FolderBrowserDialog())
+            {
+                System.Windows.Forms.DialogResult result = dialog.ShowDialog();
+                Target.Text = dialog.SelectedPath;
+            }
         }
     }
 
