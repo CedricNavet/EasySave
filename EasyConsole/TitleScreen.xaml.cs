@@ -34,6 +34,7 @@ namespace EasyConsole
 
         private void english_Click(object sender, RoutedEventArgs e)
         {
+            english.IsEnabled = false;
 
         }
     }
