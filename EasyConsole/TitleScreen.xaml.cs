@@ -71,5 +71,6 @@ namespace EasyConsole
             IMGgerman.Source = new BitmapImage(new Uri("Ressources/german.png", UriKind.Relative));
             start.Visibility = Visibility.Visible;
         }
+
     }
 }
