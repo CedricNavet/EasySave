@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EasyConsole"
         mc:Ignorable="d"
-        Title="EasySave" Height="500" Width="900" ResizeMode="NoResize">
+        Title="EasySave" Height="500" Width="900" ResizeMode="NoResize" Loaded="Display_Save_Loaded">
     <StackPanel>
         <ListView x:Name="ListView" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="880">
             <ListView.View>
-                <GridView>
+                <GridView x:Name="ItemGridView">
                     <GridViewColumn Header="Save Name" Width="125" DisplayMemberBinding="{Binding BackupName}" />
                     <GridViewColumn Header="Source" Width="100" DisplayMemberBinding="{Binding Source}" />
                     <GridViewColumn Header="Destination" Width="100" DisplayMemberBinding="{Binding Target}" />
@@ -34,6 +34,13 @@
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <Button Content="Delete" VerticalAlignment="Center" Click="Button_Click_Delete"  Margin="0"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn  Width="100" Header="Modify">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Modify" VerticalAlignment="Center" Click="Button_Click_Modify"  Margin="0"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
