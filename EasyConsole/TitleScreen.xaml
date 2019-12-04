@@ -25,10 +25,10 @@
                 <Button x:Name="english" Width="150" BorderBrush="Black" ClickMode="Press" Click="english_Click" Background="Black" Foreground="Black" >
                     <Image x:Name="IMGenglish" Source="Ressources\english.png" Height="50" Width="50" Opacity="0.78" />
                 </Button>
-                <Button x:Name="spainish" Width="150" Background="Black" BorderBrush="Black">
+                <Button x:Name="spainish" Width="150" Background="Black" BorderBrush="Black" Click="spainish_Click">
                     <Image x:Name="IMGspanish" Source="Ressources\spainish.png" Height="50" Width="50"/>
                 </Button>
-                <Button x:Name="french" Width="150" Background="Black" BorderBrush="Black" >
+                <Button x:Name="french" Width="150" Background="Black" BorderBrush="Black" Click="french_Click" >
                     <Image x:Name="IMGfrench" Source="Ressources\french.png" Height="50" Width="50"/>
                 </Button>
                 <Button x:Name="german" Width="150" Background="Black" BorderBrush="Black"  >
@@ -37,7 +37,7 @@
             </WrapPanel>
         </StackPanel>
         <StackPanel x:Name="footer">
-            <Button Width="76" Height="31" Background="Black" BorderBrush="White" Foreground="White" FontFamily="Arial" FontWeight="Bold" FontSize="16" Click="Button_Click" >START</Button>
+            <Button x:Name="start" Width="76" Height="31" Background="Black" BorderBrush="White" Foreground="White" FontFamily="Arial" FontWeight="Bold" FontSize="16" Click="Button_Click" Visibility="Hidden" >START</Button>
         </StackPanel>
     </StackPanel>
 </Window>
