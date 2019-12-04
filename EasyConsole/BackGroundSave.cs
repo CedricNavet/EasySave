@@ -149,10 +149,19 @@ namespace EasySave
         private void StartSaveFileMirror(object state)
         {
             SaveArgs saveArgs = (SaveArgs)state;
-            DateTime startsave = DateTime.Now;
-            File.Copy(saveArgs.oldPath, saveArgs.oldPath.Replace(saveArgs.backup.Source, saveArgs.backup.Target), true);
-            DateTime stopsave = DateTime.Now;
-            TimeSpan timeSpan = stopsave - startsave;
+            TimeSpan timeSpan = DateTime.Now - DateTime.Now;
+            if (Path.GetExtension(saveArgs.oldPath) == ".txt")
+            {
+
+            }
+            else
+            {
+                DateTime startsave = DateTime.Now;
+                File.Copy(saveArgs.oldPath, saveArgs.oldPath.Replace(saveArgs.backup.Source, saveArgs.backup.Target), true);
+                DateTime stopsave = DateTime.Now;
+                timeSpan = stopsave - startsave;
+            }
+            
             Console.WriteLine("{0} thread wait", Thread.CurrentThread.ManagedThreadId);
             mutex.WaitOne();
             Console.WriteLine("{0} thread proceed", Thread.CurrentThread.ManagedThreadId);
