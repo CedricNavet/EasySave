@@ -31,9 +31,10 @@ namespace EasyConsole
         }
 
         public ModifySave()
-        {
+        {           
             temp = new Backup();
             this.DataContext = temp;
+            InitializeComponent();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
