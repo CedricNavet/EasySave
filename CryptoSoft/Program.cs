@@ -69,6 +69,12 @@ namespace CryptoSoft
 
         static int Main(string[] args)
         {
+            Console.WriteLine(args.Length);
+            Console.ReadLine();
+            Console.WriteLine(args[0]);
+            Console.WriteLine(args[1]);
+            Console.WriteLine(args[2]);
+            Console.ReadLine();
             if (args.Length > 0)
             {
                 var temp = InterceptArgsEncrypt(args);

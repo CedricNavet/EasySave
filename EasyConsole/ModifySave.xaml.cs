@@ -1,4 +1,5 @@
 ﻿using EasySave.Model;
+using System;
 using System.Collections.Generic;
 using System.Windows;
 
@@ -34,7 +35,7 @@ namespace EasyConsole
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Backup.BackupType = (BackupType)MenuSaveType.SelectedValue;
-
+            Backup.LastBackupCompletion = DateTime.Now;
             IndexAndBackup backup1 = new IndexAndBackup() { backup = Backup, index = indexPrivate };
             MyEvent?.Invoke(backup1, null);
             this.Close();
