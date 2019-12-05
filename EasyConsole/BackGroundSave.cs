@@ -163,7 +163,7 @@ namespace EasySave
                 DateTime stopsave = DateTime.Now;
                 timeSpan = stopsave - startsave;
             }
-            
+
             Console.WriteLine("{0} thread wait", Thread.CurrentThread.ManagedThreadId);
             mutex.WaitOne();
             Console.WriteLine("{0} thread proceed", Thread.CurrentThread.ManagedThreadId);
@@ -210,7 +210,7 @@ namespace EasySave
             {
                 return false;
             }
-        }   
+        }
 
         private void SaveProgression(string[] directoryFile, string currentFile, Backup backups)
         {
@@ -231,7 +231,7 @@ namespace EasySave
                 {
                     long temp = Tools.FileSize(item);
                     TotalFileSize += temp;
-                    if(Isfind)
+                    if (Isfind)
                         RemainFileSize += temp;
                 }
 
@@ -251,7 +251,7 @@ namespace EasySave
         }
 
         private void WriteLogs(Backup backup, TimeSpan timeSpan, string file)
-        {       
+        {
             Logs log = new Logs()
             {
                 Timestamp = DateTime.Now,
@@ -273,14 +273,11 @@ namespace EasySave
             string pathDestination = backup.Target;
             string pathFileSource = oldPath;
             Process p = new Process();
-            p.StartInfo.FileName = @"C:\Users\ccdu2\Downloads\Crypto\Test_Le_Retour.exe";
-            p.StartInfo.Arguments = pathSource;
-            p.StartInfo.Arguments = pathDestination;
-            p.StartInfo.Arguments = pathFileSource;
+            p.StartInfo.FileName = @"C:\Users\ccdu2\OneDrive - Association Cesi Viacesi mail\Mes Devoirs\Autres\C#\EasySave\CryptoSoft\bin\Release\netcoreapp2.1\win-x64\CryptoSoft.exe";
+            p.StartInfo.Arguments = "\"" + backup.Source + "\"  \"" + backup.Target + "\"  \"" + oldPath + "\"";
             p.Start();
             p.WaitForExit();
             int result = p.ExitCode;
-            //Console.WriteLine(result);
             return result;
         }
 
