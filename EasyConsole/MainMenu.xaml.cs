@@ -25,7 +25,7 @@ namespace EasyConsole
     {
         private string path;
         private IList<Backup> backups = new List<Backup>();
-        private bool IsProcessusActive = false;
+        //private bool IsProcessusActive = false;
         private BackGroundSave SaveClass;
 
         public MainMenu(string path = @"..\SaveState\")
@@ -35,9 +35,6 @@ namespace EasyConsole
             this.DataContext = backups;
             InitializeComponent();
             Tools.FileCreations(path);
-            System.Timers.Timer timer = new System.Timers.Timer(10);
-            timer.Elapsed += ProcessusCkeck;
-            timer.Start();
         }
 
         private void ProcessusCkeck(object sender, System.Timers.ElapsedEventArgs e)
@@ -45,7 +42,7 @@ namespace EasyConsole
             Process[] name = Process.GetProcessesByName("");
             if (name.Length != 0)
             {
-                IsProcessusActive = true;
+                //IsProcessusActive = true;
 
             }
             // Button btn = (Button)sender;
@@ -80,16 +77,15 @@ namespace EasyConsole
         private void Button_Click_Modify(object sender, RoutedEventArgs e)
         {
             Button btn = (Button)sender;
-            ModifySave winModif = new ModifySave((Backup)btn.DataContext,backups.IndexOf((Backup)btn.DataContext));
+            ModifySave winModif = new ModifySave((Backup)btn.DataContext, backups.IndexOf((Backup)btn.DataContext));
             winModif.Show();
             winModif.MyEvent += ModifyList;
         }
 
         private void ModifyList(object sender, RoutedEventArgs e)
         {
-            
             IndexAndBackup indexAndBackup = (IndexAndBackup)sender;
-            if(indexAndBackup.index == -1)
+            if (indexAndBackup.index == -1)
             {
                 backups.Add(indexAndBackup.backup);
                 ListView.Items.Add(indexAndBackup.backup);
@@ -100,27 +96,42 @@ namespace EasyConsole
                 ListView.Items.Remove(indexAndBackup.backup);
                 ListView.Items.Insert(indexAndBackup.index, indexAndBackup.backup);
             }
-            
-            //var temp = (Backup)ListView.Items[indexAndBackup.index];
-            //temp.BackupType = indexAndBackup.backup.BackupType;
             Tools.WriteData(Tools.ObjectToJson(backups), path + @"InMemorySave.json");
         }
 
         private void Button_Click_MonoSave(object sender, RoutedEventArgs e)
         {
-            var item = (sender as FrameworkElement).DataContext;
-            int index = ListView.Items.IndexOf(item);
-            SaveClass.StartMonoSave((Backup)ListView.Items[index]);
+            Process[] name = Process.GetProcessesByName("Calculator");
+            if (name.Length != 0)
+            {
+                MessageBoxResult messageBox = MessageBox.Show("The business software is launched you cannot start a backup", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                //Console.WriteLine("No Process found");
+                var item = (sender as FrameworkElement).DataContext;
+                int index = ListView.Items.IndexOf(item);
+                SaveClass.StartMonoSave((Backup)ListView.Items[index]);
+            }
+
         }
 
         private void Button_Click_SequentialSave(object sender, RoutedEventArgs e)
         {
-            List<Backup> backups = new List<Backup>();
-            foreach (var item in ListView.SelectedItems)
+            Process[] name = Process.GetProcessesByName("Calculator");
+            if (name.Length != 0)
             {
-                backups.Add((Backup)item);
+                MessageBoxResult messageBox = MessageBox.Show("The business software is launched you cannot start a backup", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            SaveClass.StartSequentialSaves(backups);
+            else
+            {
+                List<Backup> backups = new List<Backup>();
+                foreach (var item in ListView.SelectedItems)
+                    backups.Add((Backup)item);
+                
+                SaveClass.StartSequentialSaves(backups);
+            }
+            
         }
 
         private void Button_Click_CreateSave(object sender, RoutedEventArgs e)

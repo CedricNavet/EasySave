@@ -7,20 +7,20 @@ using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Threading;
 using EasySave.Model;
+using System.Diagnostics;
 
 namespace EasySave
 {
     public class BackGroundSave : IDisposable
     {
-        //private IList<Backup> backups = new List<Backup>();
         private static Mutex mutex = new Mutex();
         private string path;
-        //private int numberFileRemain;
         public enum SaveType
         {
             sequential,
             unique
         }
+
         public BackGroundSave(string path)
         {
             this.path = path;
@@ -152,7 +152,9 @@ namespace EasySave
             TimeSpan timeSpan = DateTime.Now - DateTime.Now;
             if (Path.GetExtension(saveArgs.oldPath) == ".txt")
             {
-
+                Console.WriteLine(saveArgs.oldPath);
+                int temp = SendArgs(saveArgs.backup, saveArgs.oldPath);
+                Console.WriteLine("Retour " + temp);
             }
             else
             {
@@ -263,6 +265,23 @@ namespace EasySave
             IList<Logs> tempList = Tools.JsonToObject<Logs>(json);
             tempList.Add(log);
             Tools.WriteData(Tools.ObjectToJson(tempList), path + @"\Logs.json");
+        }
+
+        public int SendArgs(Backup backup, string oldPath)
+        {
+            string pathSource = backup.Source;
+            string pathDestination = backup.Target;
+            string pathFileSource = oldPath;
+            Process p = new Process();
+            p.StartInfo.FileName = @"C:\Users\ccdu2\Downloads\Crypto\Test_Le_Retour.exe";
+            p.StartInfo.Arguments = pathSource;
+            p.StartInfo.Arguments = pathDestination;
+            p.StartInfo.Arguments = pathFileSource;
+            p.Start();
+            p.WaitForExit();
+            int result = p.ExitCode;
+            //Console.WriteLine(result);
+            return result;
         }
 
         private class SaveArgs
