@@ -118,54 +118,51 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="BackupCompletion" xml:space="preserve">
-    <value>Last Backup completion</value>
+    <value>Letzte Sicherung abgeschlossen</value>
   </data>
   <data name="BackupType" xml:space="preserve">
-    <value>Type of Backup</value>
+    <value>Art der Sicherung</value>
   </data>
   <data name="CreateSaveButton" xml:space="preserve">
-    <value>Create Save</value>
+    <value>Erstellen Sie Speichern</value>
   </data>
   <data name="Delete" xml:space="preserve">
-    <value>Delete</value>
+    <value>Löschen</value>
   </data>
   <data name="Destination" xml:space="preserve">
-    <value>Destination</value>
+    <value>Ziel</value>
   </data>
   <data name="LanguageOption" xml:space="preserve">
-    <value>Choose your language</value>
+    <value>Wähle deine Sprache</value>
   </data>
   <data name="Modify" xml:space="preserve">
-    <value>Modify</value>
+    <value>Ändern</value>
   </data>
   <data name="MonoSaveRow" xml:space="preserve">
-    <value>Mono Save</value>
+    <value>Einzigartiges Speichern</value>
   </data>
   <data name="SaveName" xml:space="preserve">
-    <value>Save Name</value>
+    <value>Name speichern</value>
   </data>
   <data name="SequentialSaveRow" xml:space="preserve">
-    <value>Sequential Save</value>
+    <value>Sequentielles Speichern</value>
   </data>
   <data name="Source" xml:space="preserve">
-    <value>Source</value>
+    <value>Ursprung</value>
   </data>
   <data name="StartButton" xml:space="preserve">
     <value>START</value>
   </data>
   <data name="StartSaveButton" xml:space="preserve">
-    <value>Start Save</value>
+    <value>Starten Sie Speichern</value>
   </data>
   <data name="StartSequentialSaveButton" xml:space="preserve">
-    <value>Start Sequential Save</value>
+    <value>Starten Sie das sequentielle Speichern</value>
   </data>
   <data name="TitleSave" xml:space="preserve">
-    <value>Add / Modify your element</value>
+    <value>Hinzufügen / Ändern Sie Ihr Element</value>
   </data>
   <data name="WelcomeMessage" xml:space="preserve">
-    <value>hey</value>
-  </data>
-  <data name="WelcomeMessage1" xml:space="preserve">
-    <value>Welcome to our backup software</value>
+    <value>Willkommen zu unserer Backup-Software</value>
   </data>
 </root>

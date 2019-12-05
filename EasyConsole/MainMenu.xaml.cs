@@ -1,20 +1,9 @@
 ﻿using EasySave;
 using EasySave.Model;
-using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace EasyConsole
 {
@@ -46,7 +35,6 @@ namespace EasyConsole
             if (name.Length != 0)
             {
                 IsProcessusActive = true;
-
             }
             // Button btn = (Button)sender;
         }
@@ -59,7 +47,6 @@ namespace EasyConsole
             {
                 ListView.Items.Add(item);
             }
-
         }
 
         private void Button_Click_Delete(object sender, RoutedEventArgs e)
@@ -80,16 +67,15 @@ namespace EasyConsole
         private void Button_Click_Modify(object sender, RoutedEventArgs e)
         {
             Button btn = (Button)sender;
-            ModifySave winModif = new ModifySave((Backup)btn.DataContext,backups.IndexOf((Backup)btn.DataContext));
+            ModifySave winModif = new ModifySave((Backup)btn.DataContext, backups.IndexOf((Backup)btn.DataContext));
             winModif.Show();
             winModif.MyEvent += ModifyList;
         }
 
         private void ModifyList(object sender, RoutedEventArgs e)
         {
-            
             IndexAndBackup indexAndBackup = (IndexAndBackup)sender;
-            if(indexAndBackup.index == -1)
+            if (indexAndBackup.index == -1)
             {
                 backups.Add(indexAndBackup.backup);
                 ListView.Items.Add(indexAndBackup.backup);
@@ -100,7 +86,7 @@ namespace EasyConsole
                 ListView.Items.Remove(indexAndBackup.backup);
                 ListView.Items.Insert(indexAndBackup.index, indexAndBackup.backup);
             }
-            
+
             //var temp = (Backup)ListView.Items[indexAndBackup.index];
             //temp.BackupType = indexAndBackup.backup.BackupType;
             Tools.WriteData(Tools.ObjectToJson(backups), path + @"InMemorySave.json");
@@ -129,6 +115,5 @@ namespace EasyConsole
             modifySave.Show();
             modifySave.MyEvent += ModifyList;
         }
-
     }
 }

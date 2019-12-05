@@ -4,35 +4,36 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EasyConsole"
+        xmlns:p="clr-namespace:EasyConsole.Properties"
         mc:Ignorable="d"
         Title="EASYSAVE" Height="450" Width="800" Background="White" Foreground="White">
     <StackPanel x:Name="border" HorizontalAlignment="Center" VerticalAlignment="Center" Height="385" Background="Black" Width="737">
-        <Label x:Name="welcome" Content="Welcome to our backup software" Background="{x:Null}" Foreground="White" RenderTransformOrigin="0.513,0.496" HorizontalAlignment="Center" FontFamily="Arial" FontSize="22" FontWeight="Bold"/>
+        <Label x:Name="welcome" Content="{x:Static p:Resources.WelcomeMessage}" Background="{x:Null}" Foreground="White" RenderTransformOrigin="0.513,0.496" HorizontalAlignment="Center" FontFamily="Arial" FontSize="22" FontWeight="Bold" />
         <Label x:Name="nothing" Content=" " Background="{x:Null}" Foreground="White" RenderTransformOrigin="0.513,0.496" HorizontalAlignment="Center" FontFamily="Arial" FontSize="36" FontWeight="Bold" Height="6">
             <Label.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleX="0" AngleY="0"/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
+                    <ScaleTransform />
+                    <SkewTransform AngleX="0" AngleY="0" />
+                    <RotateTransform />
+                    <TranslateTransform />
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Image Source="Ressources\easysave.png" Height="189" Width="400"/>
+        <Image Source="Ressources\easysave.png" Height="189" Width="400" />
         <StackPanel x:Name="chooseLanguage" Margin="10" Height="88">
-            <Label x:Name="language" Content="Choose your language :" Foreground="White" FontFamily="Arial" FontSize="14"/>
+            <Label x:Name="language" Content="{x:Static p:Resources.LanguageOption}" Foreground="White" FontFamily="Arial" FontSize="14" />
             <WrapPanel Width="639">
-                <Button x:Name="english" Width="150" BorderBrush="Black" ClickMode="Press" Click="english_Click" Background="Black" Foreground="Black" >
+                <Button x:Name="english" Width="150" BorderBrush="Black" ClickMode="Press" Click="english_Click" Background="Black" Foreground="Black">
                     <Image x:Name="IMGenglish" Source="Ressources\english.png" Height="50" Width="50" Opacity="0.78" />
                 </Button>
                 <Button x:Name="spainish" Width="150" Background="Black" BorderBrush="Black" Click="spainish_Click">
-                    <Image x:Name="IMGspanish" Source="Ressources\spainish.png" Height="50" Width="50"/>
+                    <Image x:Name="IMGspanish" Source="Ressources\spainish.png" Height="50" Width="50" />
                 </Button>
-                <Button x:Name="french" Width="150" Background="Black" BorderBrush="Black" Click="french_Click" >
-                    <Image x:Name="IMGfrench" Source="Ressources\french.png" Height="50" Width="50"/>
+                <Button x:Name="french" Width="150" Background="Black" BorderBrush="Black" Click="french_Click">
+                    <Image x:Name="IMGfrench" Source="Ressources\french.png" Height="50" Width="50" />
                 </Button>
-                <Button x:Name="german" Width="150" Background="Black" BorderBrush="Black" Click="german_Click"  >
-                    <Image x:Name="IMGgerman" Source="Ressources\german.png" Height="50" Width="50"/>
+                <Button x:Name="german" Width="150" Background="Black" BorderBrush="Black" Click="german_Click">
+                    <Image x:Name="IMGgerman" Source="Ressources\german.png" Height="50" Width="50" />
                 </Button>
             </WrapPanel>
         </StackPanel>
@@ -41,4 +42,3 @@
         </StackPanel>
     </StackPanel>
 </Window>
-

@@ -118,54 +118,51 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="BackupCompletion" xml:space="preserve">
-    <value>Last Backup completion</value>
+    <value>Última copia de seguridad completada</value>
   </data>
   <data name="BackupType" xml:space="preserve">
-    <value>Type of Backup</value>
+    <value>Tipo de copia de seguridad</value>
   </data>
   <data name="CreateSaveButton" xml:space="preserve">
-    <value>Create Save</value>
+    <value>Crear Guardar</value>
   </data>
   <data name="Delete" xml:space="preserve">
-    <value>Delete</value>
+    <value>Borrar</value>
   </data>
   <data name="Destination" xml:space="preserve">
-    <value>Destination</value>
+    <value>Destino</value>
   </data>
   <data name="LanguageOption" xml:space="preserve">
-    <value>Choose your language</value>
+    <value>Elige tu idioma</value>
   </data>
   <data name="Modify" xml:space="preserve">
-    <value>Modify</value>
+    <value>Modificar</value>
   </data>
   <data name="MonoSaveRow" xml:space="preserve">
-    <value>Mono Save</value>
+    <value>Copia de seguridad individual</value>
   </data>
   <data name="SaveName" xml:space="preserve">
-    <value>Save Name</value>
+    <value>nombre de copia de seguridad</value>
   </data>
   <data name="SequentialSaveRow" xml:space="preserve">
-    <value>Sequential Save</value>
+    <value>Copia de seguridad secuencial</value>
   </data>
   <data name="Source" xml:space="preserve">
-    <value>Source</value>
+    <value>Origen</value>
   </data>
   <data name="StartButton" xml:space="preserve">
-    <value>START</value>
+    <value>Comienzo</value>
   </data>
   <data name="StartSaveButton" xml:space="preserve">
-    <value>Start Save</value>
+    <value>Comience a guardar</value>
   </data>
   <data name="StartSequentialSaveButton" xml:space="preserve">
-    <value>Start Sequential Save</value>
+    <value>Iniciar guardado secuencial</value>
   </data>
   <data name="TitleSave" xml:space="preserve">
-    <value>Add / Modify your element</value>
+    <value>Agregar / modificar su elemento</value>
   </data>
   <data name="WelcomeMessage" xml:space="preserve">
-    <value>hey</value>
-  </data>
-  <data name="WelcomeMessage1" xml:space="preserve">
-    <value>Welcome to our backup software</value>
+    <value>Bienvenido a nuestro software de respaldo</value>
   </data>
 </root>

@@ -163,9 +163,6 @@
     <value>Add / Modify your element</value>
   </data>
   <data name="WelcomeMessage" xml:space="preserve">
-    <value>hey</value>
-  </data>
-  <data name="WelcomeMessage1" xml:space="preserve">
     <value>Welcome to our backup software</value>
   </data>
 </root>
