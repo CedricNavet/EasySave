@@ -23,9 +23,9 @@
         <TextBlock HorizontalAlignment="Left" Margin="0,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="27" Text="{x:Static p:Resources.BackupType}" Width="487" FontSize="18" TextAlignment="Center"/>
         <TextBlock HorizontalAlignment="Center" Margin="0,107,0.2,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="{x:Static p:Resources.Source}" FontSize="18" Width="487" TextAlignment="Center"/>
         <TextBlock HorizontalAlignment="Center" Margin="0,158,0.2,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="{x:Static p:Resources.Destination}" FontSize="18" Width="487" TextAlignment="Center"/>
-        <TextBox x:Name="BackupName" HorizontalAlignment="Left" Height="23" Margin="14,81,0,0" TextWrapping="Wrap" Text="{Binding BackupName}" VerticalAlignment="Top" Width="453"/>
-        <TextBox x:Name="Source" HorizontalAlignment="Left" Height="23" Margin="14,130,0,0" TextWrapping="Wrap" Text="{Binding Source}" VerticalAlignment="Top" Width="400"/>
-        <TextBox x:Name="Target" HorizontalAlignment="Left" Height="23" Margin="14,179,0,0" TextWrapping="Wrap" Text="{Binding Target}" VerticalAlignment="Top" Width="400" RenderTransformOrigin="0.559,1.388"/>
+        <TextBox x:Name="BackupName" HorizontalAlignment="Left" Height="23" Margin="14,81,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="453"/>
+        <TextBox x:Name="Source" HorizontalAlignment="Left" Height="23" Margin="14,130,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="400"/>
+        <TextBox x:Name="Target" HorizontalAlignment="Left" Height="23" Margin="14,179,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="400" RenderTransformOrigin="0.559,1.388"/>
         <Button Content="{x:Static p:Resources.Modify}" HorizontalAlignment="Left" Margin="205,272,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
         <ComboBox x:Name="MenuSaveType" Text="" HorizontalAlignment="Left" Margin="179,240,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding Source={StaticResource enmPositions}}"/>
         <Button Content="..." HorizontalAlignment="Left" Margin="419,130,0,0" VerticalAlignment="Top" Width="57" RenderTransformOrigin="0.324,0.717" Height="23" Click="Button_Click_Browse_Source"/>
