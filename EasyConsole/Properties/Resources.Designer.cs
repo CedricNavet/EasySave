@@ -79,6 +79,24 @@ namespace EasyConsole.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Do you want to delete this save?.
+        /// </summary>
+        public static string checkDelete {
+            get {
+                return ResourceManager.GetString("checkDelete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Confirmation.
+        /// </summary>
+        public static string Confirmation {
+            get {
+                return ResourceManager.GetString("Confirmation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Create Save.
         /// </summary>
         public static string CreateSaveButton {
@@ -106,6 +124,15 @@ namespace EasyConsole.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Error.
+        /// </summary>
+        public static string error {
+            get {
+                return ResourceManager.GetString("error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Choose your language.
         /// </summary>
         public static string LanguageOption {
@@ -129,6 +156,15 @@ namespace EasyConsole.Properties {
         public static string MonoSaveRow {
             get {
                 return ResourceManager.GetString("MonoSaveRow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à The business software is launched you cannot start a backup.
+        /// </summary>
+        public static string processRunning {
+            get {
+                return ResourceManager.GetString("processRunning", resourceCulture);
             }
         }
         

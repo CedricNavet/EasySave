@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
+using System.Resources;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -16,6 +18,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Resources;
 
 namespace EasyConsole
 {
@@ -62,17 +65,18 @@ namespace EasyConsole
 
         private void Button_Click_Delete(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Do you want to delete this save?",
-                                          "Confirmation",
+            
+                MessageBoxResult result = MessageBox.Show(Properties.Resources.checkDelete,
+                                          Properties.Resources.Confirmation,
                                           MessageBoxButton.YesNo,
                                           MessageBoxImage.Question);
-            if (result == MessageBoxResult.Yes)
-            {
-                Button btn = (Button)sender;
-                backups.Remove((Backup)btn.DataContext);
-                ListView.Items.Remove((Backup)btn.DataContext);
-                Tools.WriteData(Tools.ObjectToJson(backups), path + @"InMemorySave.json");
-            }
+                if (result == MessageBoxResult.Yes)
+                {
+                    Button btn = (Button)sender;
+                    backups.Remove((Backup)btn.DataContext);
+                    ListView.Items.Remove((Backup)btn.DataContext);
+                    Tools.WriteData(Tools.ObjectToJson(backups), path + @"InMemorySave.json");
+                }   
         }
 
         private void Button_Click_Modify(object sender, RoutedEventArgs e)
@@ -99,13 +103,13 @@ namespace EasyConsole
             }
             Tools.WriteData(Tools.ObjectToJson(backups), path + @"InMemorySave.json");
         }
-
+        
         private void Button_Click_MonoSave(object sender, RoutedEventArgs e)
         {
             Process[] name = Process.GetProcessesByName("Calculator");
             if (name.Length != 0)
             {
-                MessageBoxResult messageBox = MessageBox.Show("The business software is launched you cannot start a backup", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBoxResult messageBox = MessageBox.Show(Properties.Resources.processRunning, Properties.Resources.error, MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {
@@ -127,7 +131,7 @@ namespace EasyConsole
             Process[] name = Process.GetProcessesByName("Calculator");
             if (name.Length != 0)
             {
-                MessageBoxResult messageBox = MessageBox.Show("The business software is launched you cannot start a backup", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBoxResult messageBox = MessageBox.Show(Properties.Resources.processRunning, Properties.Resources.error, MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {

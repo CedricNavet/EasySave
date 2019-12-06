@@ -79,6 +79,15 @@ namespace EasyConsole.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Bestätigung.
+        /// </summary>
+        public static string Confirmation {
+            get {
+                return ResourceManager.GetString("Confirmation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Erstellen Sie Speichern.
         /// </summary>
         public static string CreateSaveButton {
@@ -106,6 +115,15 @@ namespace EasyConsole.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Error.
+        /// </summary>
+        public static string error {
+            get {
+                return ResourceManager.GetString("error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Wähle deine Sprache.
         /// </summary>
         public static string LanguageOption {
@@ -129,6 +147,15 @@ namespace EasyConsole.Properties {
         public static string MonoSaveRow {
             get {
                 return ResourceManager.GetString("MonoSaveRow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Die Business-Software wird gestartet. Sie können keine Sicherung starten.
+        /// </summary>
+        public static string processRunning {
+            get {
+                return ResourceManager.GetString("processRunning", resourceCulture);
             }
         }
         
