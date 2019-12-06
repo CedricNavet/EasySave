@@ -37,6 +37,7 @@ namespace EasyConsole
             Backup.BackupType = (BackupType)MenuSaveType.SelectedValue;
             Backup.LastBackupCompletion = DateTime.Now;
             IndexAndBackup backup1 = new IndexAndBackup() { backup = Backup, index = indexPrivate };
+            if()
             MyEvent?.Invoke(backup1, null);
             this.Close();
         }

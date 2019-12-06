@@ -2,6 +2,7 @@
 using EasySave.Model;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -112,6 +113,11 @@ namespace EasyConsole
                 var item = (sender as FrameworkElement).DataContext;
                 int index = ListView.Items.IndexOf(item);
                 SaveClass.StartMonoSave((Backup)ListView.Items[index]);
+                backups[index] = (Backup)ListView.Items[index];
+                //ListView.ref
+                //ListView.Items.Remove(indexAndBackup.backup);
+                //ListView.Items.Insert(indexAndBackup.index, indexAndBackup.backup);
+                Tools.WriteData(Tools.ObjectToJson(backups), path + @"InMemorySave.json");
             }
 
         }
@@ -126,10 +132,15 @@ namespace EasyConsole
             else
             {
                 List<Backup> backups = new List<Backup>();
+                List<int> indexs = new List<int>();
                 foreach (var item in ListView.SelectedItems)
+                {
                     backups.Add((Backup)item);
-                
+                    indexs.Add(ListView.Items.IndexOf(item));
+                }
+                    
                 SaveClass.StartSequentialSaves(backups);
+                Tools.WriteData(Tools.ObjectToJson(this.backups), path + @"InMemorySave.json");
             }
             
         }
