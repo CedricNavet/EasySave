@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EasySave.Model"
         xmlns:System="clr-namespace:System;assembly=mscorlib"
+        xmlns:p="clr-namespace:EasyConsole.Properties"
         mc:Ignorable="d"
         Title="EasySave" Height="500" Width="900" ResizeMode="NoResize" Loaded="Display_Save_Loaded">
     <Window.Resources>
@@ -18,19 +19,19 @@
         <ListView x:Name="ListView" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="870">
             <ListView.View>
                 <GridView x:Name="ItemGridView">
-                    <GridViewColumn Header="Save Name" Width="125" DisplayMemberBinding="{Binding BackupName}" />
-                    <GridViewColumn Header="Source" Width="100" DisplayMemberBinding="{Binding Source}" />
-                    <GridViewColumn Header="Destination" Width="100" DisplayMemberBinding="{Binding Target}" />
-                    <GridViewColumn Header="Type of BackUp" Width="100" DisplayMemberBinding="{Binding BackupType}" />
-                    <GridViewColumn Header="Last backup completion" Width="150" DisplayMemberBinding="{Binding LastBackupCompletion}" />
-                    <GridViewColumn  Width="100" Header="Mono Save">
+                    <GridViewColumn Header="{x:Static p:Resources.SaveName}" Width="125" DisplayMemberBinding="{Binding BackupName}" />
+                    <GridViewColumn Header="{x:Static p:Resources.Source}" Width="100" DisplayMemberBinding="{Binding Source}" />
+                    <GridViewColumn Header="{x:Static p:Resources.Destination}" Width="100" DisplayMemberBinding="{Binding Target}" />
+                    <GridViewColumn Header="{x:Static p:Resources.BackupType}" Width="100" DisplayMemberBinding="{Binding BackupType}" />
+                    <GridViewColumn Header="{x:Static p:Resources.BackupCompletion}" Width="150" DisplayMemberBinding="{Binding LastBackupCompletion}" />
+                    <GridViewColumn  Width="100" Header="{x:Static p:Resources.MonoSaveRow}">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Start Save" VerticalAlignment="Center" Click="Button_Click_MonoSave"  Margin="0"/>
+                                <Button Content="{x:Static p:Resources.StartSaveButton}" VerticalAlignment="Center" Click="Button_Click_MonoSave"  Margin="0"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn  Width="100" Header="Sequential Save">
+                    <GridViewColumn  Width="100" Header="{x:Static p:Resources.SequentialSaveRow}">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <!--<Button Content="Modify" VerticalAlignment="Center" Click="Button_Click_SequentialSave" Margin="0"/>-->
@@ -38,17 +39,17 @@
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn  Width="100" Header="Delete">
+                    <GridViewColumn  Width="100" Header="{x:Static p:Resources.Delete}">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Delete" VerticalAlignment="Center" Click="Button_Click_Delete"  Margin="0"/>
+                                <Button Content="{x:Static p:Resources.Delete}" VerticalAlignment="Center" Click="Button_Click_Delete"  Margin="0"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn  Width="100" Header="Modify">
+                    <GridViewColumn  Width="100" Header="{x:Static p:Resources.Modify}">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Modify" VerticalAlignment="Center" Click="Button_Click_Modify"  Margin="0"/>
+                                <Button Content="{x:Static p:Resources.Modify}" VerticalAlignment="Center" Click="Button_Click_Modify"  Margin="0"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -56,8 +57,8 @@
             </ListView.View>
         </ListView>
         <Grid Height="63" Margin="10,0,4,0">
-            <Button Content="Create Save" Margin="440,0,10,0" Click="Button_Click_CreateSave"/>
-            <Button Margin="0,0,440,0" Height="63" Content="Start Sequential Save" VerticalAlignment="Center" HorizontalAlignment="Center" Width="440" Click="Button_Click_SequentialSave" RenderTransformOrigin="0.12,0.483"/>
+            <Button Content="{x:Static p:Resources.CreateSaveButton}" Margin="440,0,10,0" Click="Button_Click_CreateSave"/>
+            <Button Margin="0,0,440,0" Height="63" Content="{x:Static p:Resources.StartSequentialSaveButton}" VerticalAlignment="Center" HorizontalAlignment="Center" Width="440" Click="Button_Click_SequentialSave" RenderTransformOrigin="0.12,0.483"/>
         </Grid>
         <!--
         -->

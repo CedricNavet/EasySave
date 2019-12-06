@@ -14,5 +14,6 @@ namespace EasySave.Model
         public String DestinationFileAddress { get; set; } //adress fichier de destination
         public long FileSize { get; set; } //taille fichier
         public double TransferTime { get; set; } //temps de transfert
+        public int Encryptiontime { get; set; }
     }
 }

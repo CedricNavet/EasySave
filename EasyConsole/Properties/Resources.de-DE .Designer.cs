@@ -22,14 +22,14 @@ namespace EasyConsole.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Resources {
+    public class Resources_de_DE_ {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources() {
+        internal Resources_de_DE_() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace EasyConsole.Properties {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("EasyConsole.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("EasyConsole.Properties.Resources.de-DE ", typeof(Resources_de_DE_).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,7 +61,7 @@ namespace EasyConsole.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Last Backup completion.
+        ///   Recherche une chaîne localisée semblable à Letzte Sicherung abgeschlossen.
         /// </summary>
         public static string BackupCompletion {
             get {
@@ -70,7 +70,7 @@ namespace EasyConsole.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Type of Backup.
+        ///   Recherche une chaîne localisée semblable à Art der Sicherung.
         /// </summary>
         public static string BackupType {
             get {
@@ -79,16 +79,7 @@ namespace EasyConsole.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Do you want to delete this save?.
-        /// </summary>
-        public static string checkDelete {
-            get {
-                return ResourceManager.GetString("checkDelete", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Confirmation.
+        ///   Recherche une chaîne localisée semblable à Bestätigung.
         /// </summary>
         public static string Confirmation {
             get {
@@ -97,7 +88,7 @@ namespace EasyConsole.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Create Save.
+        ///   Recherche une chaîne localisée semblable à Erstellen Sie Speichern.
         /// </summary>
         public static string CreateSaveButton {
             get {
@@ -106,7 +97,7 @@ namespace EasyConsole.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Delete.
+        ///   Recherche une chaîne localisée semblable à Löschen.
         /// </summary>
         public static string Delete {
             get {
@@ -115,7 +106,7 @@ namespace EasyConsole.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Destination.
+        ///   Recherche une chaîne localisée semblable à Ziel.
         /// </summary>
         public static string Destination {
             get {
@@ -133,7 +124,7 @@ namespace EasyConsole.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Choose your language.
+        ///   Recherche une chaîne localisée semblable à Wähle deine Sprache.
         /// </summary>
         public static string LanguageOption {
             get {
@@ -142,7 +133,7 @@ namespace EasyConsole.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Modify.
+        ///   Recherche une chaîne localisée semblable à Ändern.
         /// </summary>
         public static string Modify {
             get {
@@ -151,7 +142,7 @@ namespace EasyConsole.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Mono Save.
+        ///   Recherche une chaîne localisée semblable à Einzigartiges Speichern.
         /// </summary>
         public static string MonoSaveRow {
             get {
@@ -160,7 +151,7 @@ namespace EasyConsole.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à The business software is launched you cannot start a backup.
+        ///   Recherche une chaîne localisée semblable à Die Business-Software wird gestartet. Sie können keine Sicherung starten.
         /// </summary>
         public static string processRunning {
             get {
@@ -169,7 +160,7 @@ namespace EasyConsole.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Save Name.
+        ///   Recherche une chaîne localisée semblable à Name speichern.
         /// </summary>
         public static string SaveName {
             get {
@@ -178,7 +169,7 @@ namespace EasyConsole.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Sequential Save.
+        ///   Recherche une chaîne localisée semblable à Sequentielles Speichern.
         /// </summary>
         public static string SequentialSaveRow {
             get {
@@ -187,7 +178,7 @@ namespace EasyConsole.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Source.
+        ///   Recherche une chaîne localisée semblable à Ursprung.
         /// </summary>
         public static string Source {
             get {
@@ -205,7 +196,7 @@ namespace EasyConsole.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Start Save.
+        ///   Recherche une chaîne localisée semblable à Starten Sie Speichern.
         /// </summary>
         public static string StartSaveButton {
             get {
@@ -214,7 +205,7 @@ namespace EasyConsole.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Start Sequential Save.
+        ///   Recherche une chaîne localisée semblable à Starten Sie das sequentielle Speichern.
         /// </summary>
         public static string StartSequentialSaveButton {
             get {
@@ -223,7 +214,7 @@ namespace EasyConsole.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Add / Modify your element.
+        ///   Recherche une chaîne localisée semblable à Hinzufügen / Ändern Sie Ihr Element.
         /// </summary>
         public static string TitleSave {
             get {
@@ -232,20 +223,11 @@ namespace EasyConsole.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à hey.
+        ///   Recherche une chaîne localisée semblable à Willkommen zu unserer Backup-Software.
         /// </summary>
         public static string WelcomeMessage {
             get {
                 return ResourceManager.GetString("WelcomeMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Welcome to our backup software.
-        /// </summary>
-        public static string WelcomeMessage1 {
-            get {
-                return ResourceManager.GetString("WelcomeMessage1", resourceCulture);
             }
         }
     }

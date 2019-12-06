@@ -7,20 +7,20 @@ using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Threading;
 using EasySave.Model;
+using System.Diagnostics;
 
 namespace EasySave
 {
     public class BackGroundSave : IDisposable
     {
-        //private IList<Backup> backups = new List<Backup>();
         private static Mutex mutex = new Mutex();
         private string path;
-        //private int numberFileRemain;
         public enum SaveType
         {
             sequential,
             unique
         }
+
         public BackGroundSave(string path)
         {
             this.path = path;
@@ -34,8 +34,9 @@ namespace EasySave
             }
             else if (backup.BackupType == BackupType.differential)
             {
-                DifferentialBackUp(backup, path);
+                DifferentialBackUp(backup, path);              
             }
+            backup.LastBackupCompletion = DateTime.Now;
             Console.WriteLine("Save named : " + backup.BackupName + " .....Done");
             //Thread.Sleep(1000);
         }
@@ -52,6 +53,7 @@ namespace EasySave
                 {
                     DifferentialBackUp(backup, path);
                 }
+                backup.LastBackupCompletion = DateTime.Now;
                 Console.WriteLine("Save named : " + backup.BackupName + " .....Done");
             }
             Console.WriteLine("All Done");
@@ -82,20 +84,37 @@ namespace EasySave
 
         private void StartSaveFileDifferential(object mydata)
         {
+            
             SaveArgs saveArgs = (SaveArgs)mydata;
             using (MD5 md5Hash = MD5.Create())
             {
+                bool IsTxt = false;
+                int encrypTime = 0;
                 if (!File.Exists(saveArgs.oldPath.Replace(saveArgs.backup.Source, saveArgs.backup.Target)))
                 {
-                    DateTime startsave = DateTime.Now;
-                    File.Copy(saveArgs.oldPath, saveArgs.oldPath.Replace(saveArgs.backup.Source, saveArgs.backup.Target), true);
-                    DateTime stopsave = DateTime.Now;
-                    TimeSpan timeSpan = stopsave - startsave;
+                    TimeSpan timeSpan = DateTime.Now - DateTime.Now;
+                    if (Path.GetExtension(saveArgs.oldPath) == ".txt")
+                    {
+                        IsTxt = true;
+                        encrypTime = SendArgs(saveArgs.backup, saveArgs.oldPath);
+                    }
+                    else
+                    {
+                        DateTime startsave = DateTime.Now;
+                        File.Copy(saveArgs.oldPath, saveArgs.oldPath.Replace(saveArgs.backup.Source, saveArgs.backup.Target), true);
+                        DateTime stopsave = DateTime.Now;
+                        timeSpan = stopsave - startsave;
+                    }
+                    
 
                     Console.WriteLine("{0} thread wait", Thread.CurrentThread.ManagedThreadId);
                     mutex.WaitOne();
                     Console.WriteLine("{0} thread proceed", Thread.CurrentThread.ManagedThreadId);
-                    WriteLogs(saveArgs.backup, timeSpan, saveArgs.oldPath);
+                    if (IsTxt)
+                        WriteLogs(saveArgs.backup, timeSpan, saveArgs.oldPath, encrypTime);
+                    else
+                        WriteLogs(saveArgs.backup, timeSpan, saveArgs.oldPath);
+
                     SaveProgression(Directory.GetFiles(saveArgs.backup.Source, "*", SearchOption.AllDirectories), saveArgs.oldPath, saveArgs.backup);
                     mutex.ReleaseMutex();
                     Console.WriteLine("{0} thread release", Thread.CurrentThread.ManagedThreadId);
@@ -107,15 +126,28 @@ namespace EasySave
 
                     if (!VerifyMd5Hash(md5Hash, saveArgs.oldPath, hash))
                     {
-                        DateTime startsave = DateTime.Now;
-                        File.Copy(saveArgs.oldPath, saveArgs.oldPath.Replace(saveArgs.backup.Source, saveArgs.backup.Target), true);
-                        DateTime stopsave = DateTime.Now;
-                        TimeSpan timeSpan = stopsave - startsave;
+                        TimeSpan timeSpan = DateTime.Now - DateTime.Now;
+                        if (Path.GetExtension(saveArgs.oldPath) == ".txt")
+                        {
+                            IsTxt = true;
+                            encrypTime = SendArgs(saveArgs.backup, saveArgs.oldPath);
+                        }
+                        else
+                        {
+                            DateTime startsave = DateTime.Now;
+                            File.Copy(saveArgs.oldPath, saveArgs.oldPath.Replace(saveArgs.backup.Source, saveArgs.backup.Target), true);
+                            DateTime stopsave = DateTime.Now;
+                            timeSpan = stopsave - startsave;
+                        }
 
                         Console.WriteLine("{0} thread wait", Thread.CurrentThread.ManagedThreadId);
                         mutex.WaitOne();
                         Console.WriteLine("{0} thread proceed", Thread.CurrentThread.ManagedThreadId);
-                        WriteLogs(saveArgs.backup, timeSpan, saveArgs.oldPath);
+                        if (IsTxt)
+                            WriteLogs(saveArgs.backup, timeSpan, saveArgs.oldPath, encrypTime);
+                        else
+                            WriteLogs(saveArgs.backup, timeSpan, saveArgs.oldPath);
+
                         SaveProgression(Directory.GetFiles(saveArgs.backup.Source, "*", SearchOption.AllDirectories), saveArgs.oldPath, saveArgs.backup);
                         mutex.ReleaseMutex();
                         Console.WriteLine("{0} thread release", Thread.CurrentThread.ManagedThreadId);
@@ -148,20 +180,39 @@ namespace EasySave
 
         private void StartSaveFileMirror(object state)
         {
+            bool IsTxt = false;
+            int encrypTime = 0;
             SaveArgs saveArgs = (SaveArgs)state;
-            DateTime startsave = DateTime.Now;
-            File.Copy(saveArgs.oldPath, saveArgs.oldPath.Replace(saveArgs.backup.Source, saveArgs.backup.Target), true);
-            DateTime stopsave = DateTime.Now;
-            TimeSpan timeSpan = stopsave - startsave;
+            TimeSpan timeSpan = DateTime.Now - DateTime.Now;
+            if (Path.GetExtension(saveArgs.oldPath) == ".txt")
+            {
+                IsTxt = true;
+                //Console.WriteLine(saveArgs.oldPath);
+                encrypTime = SendArgs(saveArgs.backup, saveArgs.oldPath);
+                //Console.WriteLine("Retour " + temp);
+            }
+            else
+            {
+                DateTime startsave = DateTime.Now;
+                File.Copy(saveArgs.oldPath, saveArgs.oldPath.Replace(saveArgs.backup.Source, saveArgs.backup.Target), true);
+                DateTime stopsave = DateTime.Now;
+                timeSpan = stopsave - startsave;
+            }
+
             Console.WriteLine("{0} thread wait", Thread.CurrentThread.ManagedThreadId);
             mutex.WaitOne();
             Console.WriteLine("{0} thread proceed", Thread.CurrentThread.ManagedThreadId);
-            WriteLogs(saveArgs.backup, timeSpan, saveArgs.oldPath);
+            if(IsTxt)
+                WriteLogs(saveArgs.backup, timeSpan, saveArgs.oldPath, encrypTime);
+            else
+                WriteLogs(saveArgs.backup, timeSpan, saveArgs.oldPath);
+
             SaveProgression(Directory.GetFiles(saveArgs.backup.Source, "*", SearchOption.AllDirectories), saveArgs.oldPath, saveArgs.backup);
             mutex.ReleaseMutex();
             Console.WriteLine("{0} thread release", Thread.CurrentThread.ManagedThreadId);
         }
 
+        #region MD5
         private string GetMd5Hash(MD5 md5Hash, string input)
         {
 
@@ -199,9 +250,11 @@ namespace EasySave
             {
                 return false;
             }
-        }   
+        }
 
-        private void SaveProgression(string[] directoryFile, string currentFile, Backup backups)
+        #endregion
+
+        private void SaveProgression(string[] directoryFile, string currentFile, Backup backup)
         {
             long TotalFileSize = 0;
             int numberRemainFiles = 0;
@@ -220,7 +273,7 @@ namespace EasySave
                 {
                     long temp = Tools.FileSize(item);
                     TotalFileSize += temp;
-                    if(Isfind)
+                    if (Isfind)
                         RemainFileSize += temp;
                 }
 
@@ -234,13 +287,13 @@ namespace EasySave
                 NumberRemainFiles = numberRemainFiles,
                 RemainFileSize = RemainFileSize,
                 CurrentFileName = currentFile,
-                backup = backups,
+                backup = backup,
             };
             Tools.WriteData(Tools.ObjectToJson(saveProgress), path + @"\SaveProgression.json");
         }
 
-        private void WriteLogs(Backup backup, TimeSpan timeSpan, string file)
-        {       
+        private void WriteLogs(Backup backup, TimeSpan timeSpan, string file, int encrypTime = 0)
+        {
             Logs log = new Logs()
             {
                 Timestamp = DateTime.Now,
@@ -248,12 +301,27 @@ namespace EasySave
                 SourceFileAddress = file,
                 DestinationFileAddress = file.Replace(backup.Source, backup.Target),
                 FileSize = Tools.FileSize(file),
-                TransferTime = timeSpan.TotalMilliseconds
+                TransferTime = timeSpan.TotalMilliseconds,
+                Encryptiontime = encrypTime
             };
             string json = Tools.ReadData(path + @"\Logs.json");
             IList<Logs> tempList = Tools.JsonToObject<Logs>(json);
             tempList.Add(log);
             Tools.WriteData(Tools.ObjectToJson(tempList), path + @"\Logs.json");
+        }
+
+        public int SendArgs(Backup backup, string oldPath)
+        {
+            string pathSource = backup.Source;
+            string pathDestination = backup.Target;
+            string pathFileSource = oldPath;
+            Process p = new Process();
+            p.StartInfo.FileName = @"C:\Users\ccdu2\OneDrive - Association Cesi Viacesi mail\Mes Devoirs\Autres\C#\EasySave\CryptoSoft\bin\Release\netcoreapp2.1\win-x64\CryptoSoft.exe";
+            p.StartInfo.Arguments = "\"" + backup.Source + "\"  \"" + backup.Target + "\"  \"" + oldPath + "\"";
+            p.Start();
+            p.WaitForExit();
+            int result = p.ExitCode;
+            return result;
         }
 
         private class SaveArgs

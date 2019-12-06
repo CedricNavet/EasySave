@@ -1,17 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Globalization;
+using System.Threading;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace EasyConsole
 {
@@ -22,6 +13,7 @@ namespace EasyConsole
     {
         public MainWindow()
         {
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
             InitializeComponent();
         }
 
@@ -39,7 +31,11 @@ namespace EasyConsole
             IMGspanish.Source = new BitmapImage(new Uri("Ressources/BWspainish.png", UriKind.Relative));
             IMGfrench.Source = new BitmapImage(new Uri("Ressources/BWfrench.png", UriKind.Relative));
             IMGgerman.Source = new BitmapImage(new Uri("Ressources/BWgerman.png", UriKind.Relative));
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
+            this.UpdateLayout();
+
             start.Visibility = Visibility.Visible;
+            
         }
 
         private void spainish_Click(object sender, RoutedEventArgs e)
@@ -49,6 +45,7 @@ namespace EasyConsole
             IMGspanish.Source = new BitmapImage(new Uri("Ressources/spainish.png", UriKind.Relative));
             IMGfrench.Source = new BitmapImage(new Uri("Ressources/BWfrench.png", UriKind.Relative));
             IMGgerman.Source = new BitmapImage(new Uri("Ressources/BWgerman.png", UriKind.Relative));
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("es-ES");
             start.Visibility = Visibility.Visible;
         }
 
@@ -59,6 +56,8 @@ namespace EasyConsole
             IMGspanish.Source = new BitmapImage(new Uri("Ressources/BWspainish.png", UriKind.Relative));
             IMGfrench.Source = new BitmapImage(new Uri("Ressources/french.png", UriKind.Relative));
             IMGgerman.Source = new BitmapImage(new Uri("Ressources/BWgerman.png", UriKind.Relative));
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("fr-FR");
+            this.UpdateLayout();
             start.Visibility = Visibility.Visible;
         }
 
@@ -69,8 +68,8 @@ namespace EasyConsole
             IMGspanish.Source = new BitmapImage(new Uri("Ressources/BWspainish.png", UriKind.Relative));
             IMGfrench.Source = new BitmapImage(new Uri("Ressources/BWfrench.png", UriKind.Relative));
             IMGgerman.Source = new BitmapImage(new Uri("Ressources/german.png", UriKind.Relative));
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("de-DE");
             start.Visibility = Visibility.Visible;
         }
-
     }
 }
