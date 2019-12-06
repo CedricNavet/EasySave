@@ -1,5 +1,7 @@
-﻿using System;
+﻿using EasySave;
+using System;
 using System.Globalization;
+using System.IO;
 using System.Threading;
 using System.Windows;
 using System.Windows.Media.Imaging;
@@ -15,11 +17,20 @@ namespace EasyConsole
         {
             Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
             InitializeComponent();
+            if (!File.Exists(@"..\SaveState\CrytoLink.txt"))
+            {
+                File.Create(@"..\SaveState\CrytoLink.txt").Close();
+            }
+            else
+            {
+                CryptoSoft.Text = Tools.ReadData(@"..\SaveState\CrytoLink.txt");
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MainMenu mainMenu = new MainMenu(FileExtension.Text, business_software.Text);
+            
+            MainMenu mainMenu = new MainMenu(FileExtension.Text, business_software.Text, CryptoSoft.Text);
             mainMenu.Show();
             this.Close();
         }
