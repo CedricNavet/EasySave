@@ -15,14 +15,16 @@ namespace EasySave
     {
         private static Mutex mutex = new Mutex();
         private string path;
+        private string fileExtension;
         public enum SaveType
         {
             sequential,
             unique
         }
 
-        public BackGroundSave(string path)
+        public BackGroundSave(string path, string fileExtension)
         {
+            this.fileExtension = fileExtension;
             this.path = path;
         }
 
@@ -93,7 +95,7 @@ namespace EasySave
                 if (!File.Exists(saveArgs.oldPath.Replace(saveArgs.backup.Source, saveArgs.backup.Target)))
                 {
                     TimeSpan timeSpan = DateTime.Now - DateTime.Now;
-                    if (Path.GetExtension(saveArgs.oldPath) == ".txt")
+                    if (Path.GetExtension(saveArgs.oldPath) == fileExtension)
                     {
                         IsTxt = true;
                         encrypTime = SendArgs(saveArgs.backup, saveArgs.oldPath);
@@ -127,7 +129,7 @@ namespace EasySave
                     if (!VerifyMd5Hash(md5Hash, saveArgs.oldPath, hash))
                     {
                         TimeSpan timeSpan = DateTime.Now - DateTime.Now;
-                        if (Path.GetExtension(saveArgs.oldPath) == ".txt")
+                        if (Path.GetExtension(saveArgs.oldPath) == fileExtension)
                         {
                             IsTxt = true;
                             encrypTime = SendArgs(saveArgs.backup, saveArgs.oldPath);
