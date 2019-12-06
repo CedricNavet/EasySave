@@ -118,6 +118,7 @@ namespace EasyConsole
                 int index = ListView.Items.IndexOf(item);
                 SaveClass.StartMonoSave((Backup)ListView.Items[index]);
                 backups[index] = (Backup)ListView.Items[index];
+                ListView.Items.Refresh();
                 //ListView.ref
                 //ListView.Items.Remove(indexAndBackup.backup);
                 //ListView.Items.Insert(indexAndBackup.index, indexAndBackup.backup);
