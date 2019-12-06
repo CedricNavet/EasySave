@@ -28,7 +28,7 @@ namespace EasyConsole
     public partial class MainMenu : Window
     {
         private string path;
-        private IList<Backup> backups = new List<Backup>();
+        //private IList<Backup> backups = new List<Backup>();
         //private bool IsProcessusActive = false;
         private BackGroundSave SaveClass;
 
@@ -36,53 +36,48 @@ namespace EasyConsole
         {
             this.path = path;
             SaveClass = new BackGroundSave(path);
-            this.DataContext = backups;
+            //this.DataContext = backups;
             InitializeComponent();
             Tools.FileCreations(path);
         }
 
-        private void ProcessusCkeck(object sender, System.Timers.ElapsedEventArgs e)
-        {
-            Process[] name = Process.GetProcessesByName("");
-            if (name.Length != 0)
-            {
-                //IsProcessusActive = true;
-
-            }
-            // Button btn = (Button)sender;
-        }
 
         private void Display_Save_Loaded(object sender, RoutedEventArgs e)
         {
             //ListView.Items.Clear();
-            backups = Tools.JsonToObject<Backup>(Tools.ReadData(path + @"InMemorySave.json"));
-            foreach (var item in backups)
+            foreach (var item in Tools.JsonToObject<Backup>(Tools.ReadData(path + @"InMemorySave.json")))
             {
                 ListView.Items.Add(item);
             }
-
+            ListView.Items.Refresh();
         }
 
         private void Button_Click_Delete(object sender, RoutedEventArgs e)
         {
-            
-                MessageBoxResult result = MessageBox.Show(Properties.Resources.checkDelete,
-                                          Properties.Resources.Confirmation,
-                                          MessageBoxButton.YesNo,
-                                          MessageBoxImage.Question);
-                if (result == MessageBoxResult.Yes)
+
+            MessageBoxResult result = MessageBox.Show(Properties.Resources.checkDelete,
+                                      Properties.Resources.Confirmation,
+                                      MessageBoxButton.YesNo,
+                                      MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                Button btn = (Button)sender;
+                //backups.Remove((Backup)btn.DataContext);
+                ListView.Items.Remove((Backup)btn.DataContext);
+                IList<Backup> backups = new List<Backup>();
+                foreach (var item in ListView.Items)
                 {
-                    Button btn = (Button)sender;
-                    backups.Remove((Backup)btn.DataContext);
-                    ListView.Items.Remove((Backup)btn.DataContext);
-                    Tools.WriteData(Tools.ObjectToJson(backups), path + @"InMemorySave.json");
-                }   
+                    backups.Add((Backup)item);
+                }
+                ListView.Items.Refresh();
+                Tools.WriteData(Tools.ObjectToJson(backups), path + @"InMemorySave.json");
+            }
         }
 
         private void Button_Click_Modify(object sender, RoutedEventArgs e)
         {
             Button btn = (Button)sender;
-            ModifySave winModif = new ModifySave((Backup)btn.DataContext, backups.IndexOf((Backup)btn.DataContext));
+            ModifySave winModif = new ModifySave((Backup)btn.DataContext, ListView.Items.IndexOf((Backup)btn.DataContext));
             winModif.Show();
             winModif.MyEvent += ModifyList;
         }
@@ -92,18 +87,24 @@ namespace EasyConsole
             IndexAndBackup indexAndBackup = (IndexAndBackup)sender;
             if (indexAndBackup.index == -1)
             {
-                backups.Add(indexAndBackup.backup);
+                //ListView.Items.Add(indexAndBackup.backup);
                 ListView.Items.Add(indexAndBackup.backup);
             }
             else
             {
-                backups[indexAndBackup.index] = indexAndBackup.backup;
+                //backups[indexAndBackup.index] = indexAndBackup.backup;
                 ListView.Items.Remove(indexAndBackup.backup);
                 ListView.Items.Insert(indexAndBackup.index, indexAndBackup.backup);
             }
+            IList<Backup> backups = new List<Backup>();
+            foreach (var item in ListView.Items)
+            {
+                backups.Add((Backup)item);
+            }
+            ListView.Items.Refresh();
             Tools.WriteData(Tools.ObjectToJson(backups), path + @"InMemorySave.json");
         }
-        
+
         private void Button_Click_MonoSave(object sender, RoutedEventArgs e)
         {
             Process[] name = Process.GetProcessesByName("Calculator");
@@ -117,11 +118,13 @@ namespace EasyConsole
                 var item = (sender as FrameworkElement).DataContext;
                 int index = ListView.Items.IndexOf(item);
                 SaveClass.StartMonoSave((Backup)ListView.Items[index]);
-                backups[index] = (Backup)ListView.Items[index];
                 ListView.Items.Refresh();
-                //ListView.ref
-                //ListView.Items.Remove(indexAndBackup.backup);
-                //ListView.Items.Insert(indexAndBackup.index, indexAndBackup.backup);
+                IList<Backup> backups = new List<Backup>();
+                foreach (var rouge in ListView.Items)
+                {
+                    backups.Add((Backup)rouge);
+                }
+                ListView.Items.Refresh();
                 Tools.WriteData(Tools.ObjectToJson(backups), path + @"InMemorySave.json");
             }
 
@@ -143,11 +146,17 @@ namespace EasyConsole
                     backups.Add((Backup)item);
                     indexs.Add(ListView.Items.IndexOf(item));
                 }
-                    
+
                 SaveClass.StartSequentialSaves(backups);
-                Tools.WriteData(Tools.ObjectToJson(this.backups), path + @"InMemorySave.json");
+                IList<Backup> backups2 = new List<Backup>();
+                foreach (var item in ListView.Items)
+                {
+                    backups2.Add((Backup)item);
+                }
+                ListView.Items.Refresh();
+                Tools.WriteData(Tools.ObjectToJson(backups2), path + @"InMemorySave.json");
             }
-            
+
         }
 
         private void Button_Click_CreateSave(object sender, RoutedEventArgs e)
