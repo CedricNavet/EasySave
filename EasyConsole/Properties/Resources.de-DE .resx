@@ -123,6 +123,9 @@
   <data name="BackupType" xml:space="preserve">
     <value>Art der Sicherung</value>
   </data>
+  <data name="Confirmation" xml:space="preserve">
+    <value>Bestätigung</value>
+  </data>
   <data name="CreateSaveButton" xml:space="preserve">
     <value>Erstellen Sie Speichern</value>
   </data>
@@ -132,6 +135,9 @@
   <data name="Destination" xml:space="preserve">
     <value>Ziel</value>
   </data>
+  <data name="error" xml:space="preserve">
+    <value>Error</value>
+  </data>
   <data name="LanguageOption" xml:space="preserve">
     <value>Wähle deine Sprache</value>
   </data>
@@ -140,6 +146,9 @@
   </data>
   <data name="MonoSaveRow" xml:space="preserve">
     <value>Einzigartiges Speichern</value>
+  </data>
+  <data name="processRunning" xml:space="preserve">
+    <value>Die Business-Software wird gestartet. Sie können keine Sicherung starten</value>
   </data>
   <data name="SaveName" xml:space="preserve">
     <value>Name speichern</value>

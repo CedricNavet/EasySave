@@ -123,6 +123,9 @@
   <data name="BackupType" xml:space="preserve">
     <value>Tipo de copia de seguridad</value>
   </data>
+  <data name="Confirmation" xml:space="preserve">
+    <value>Confirmación</value>
+  </data>
   <data name="CreateSaveButton" xml:space="preserve">
     <value>Crear Guardar</value>
   </data>
@@ -132,6 +135,9 @@
   <data name="Destination" xml:space="preserve">
     <value>Destino</value>
   </data>
+  <data name="error" xml:space="preserve">
+    <value>Error</value>
+  </data>
   <data name="LanguageOption" xml:space="preserve">
     <value>Elige tu idioma</value>
   </data>
@@ -140,6 +146,9 @@
   </data>
   <data name="MonoSaveRow" xml:space="preserve">
     <value>Copia de seguridad individual</value>
+  </data>
+  <data name="processRunning" xml:space="preserve">
+    <value>Se inicia el software empresarial, no puede iniciar una copia de seguridad</value>
   </data>
   <data name="SaveName" xml:space="preserve">
     <value>nombre de copia de seguridad</value>
