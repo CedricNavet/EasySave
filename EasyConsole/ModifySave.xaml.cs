@@ -34,15 +34,18 @@ namespace EasyConsole
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            if (BackupName.Text == "" || Source.Text == "" || Target.Text == "" || MenuSaveType.SelectedItem == null)
+            {
+                return;
+            }
+
             Backup.BackupType = (BackupType)MenuSaveType.SelectedValue;
             Backup.LastBackupCompletion = DateTime.Now;
             IndexAndBackup backup1 = new IndexAndBackup() { backup = Backup, index = indexPrivate };
-            if (BackupName.Text == null && Source.Text == null && Target.Text == null)
-            {
-                MyEvent?.Invoke(backup1, null);
-                this.Close();
-            }
             
+            MyEvent?.Invoke(backup1, null);
+            this.Close();
+
         }
 
         private void Button_Click_Browse_Source(object sender, RoutedEventArgs e)
