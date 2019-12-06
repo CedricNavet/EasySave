@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:EasyConsole"
         xmlns:p="clr-namespace:EasyConsole.Properties"
         mc:Ignorable="d"
-        Title="EASYSAVE" Height="450" Width="800" Background="White" Foreground="White">
-    <StackPanel x:Name="border" HorizontalAlignment="Center" VerticalAlignment="Center" Height="385" Background="Black" Width="737">
+        Title="EASYSAVE" Height="571.721" Width="800" Background="White" Foreground="White">
+    <StackPanel x:Name="border" HorizontalAlignment="Center" VerticalAlignment="Center" Height="449" Background="Black" Width="736" Margin="28,78,28,14">
         <Label x:Name="welcome" Content="{x:Static p:Resources.WelcomeMessage}" Background="{x:Null}" Foreground="White" RenderTransformOrigin="0.513,0.496" HorizontalAlignment="Center" FontFamily="Arial" FontSize="22" FontWeight="Bold" />
         <Label x:Name="nothing" Content=" " Background="{x:Null}" Foreground="White" RenderTransformOrigin="0.513,0.496" HorizontalAlignment="Center" FontFamily="Arial" FontSize="36" FontWeight="Bold" Height="6">
             <Label.RenderTransform>
@@ -37,8 +37,11 @@
                 </Button>
             </WrapPanel>
         </StackPanel>
-        <StackPanel x:Name="footer">
-            <Button x:Name="start" Width="76" Height="31" Background="Black" BorderBrush="White" Foreground="White" FontFamily="Arial" FontWeight="Bold" FontSize="16" Click="Button_Click" Visibility="Hidden" >START</Button>
+        <StackPanel x:Name="footer" Height="121">
+            <TextBox x:Name="FileExtension" Height="23" TextWrapping="Wrap" Text="FileExtension" RenderTransformOrigin="0.537,-0.882" Margin="560,0,0,0"/>
+            <TextBox x:Name="business_software" Height="29" TextWrapping="Wrap" Text="business_soft" Margin="644,0,0,0"/>
+            <Button x:Name="start" Background="#FFD82020" Margin="330,0,264,0" Click="Button_Click" Visibility="Hidden" Content="START"/>
+            <!--<Button x:Name="start" Width="76" Height="31" Background="Black" BorderBrush="White" Foreground="White" FontFamily="Arial" FontWeight="Bold" FontSize="16" Click="Button_Click" Visibility="Hidden" Content="START" />-->
         </StackPanel>
     </StackPanel>
 </Window>

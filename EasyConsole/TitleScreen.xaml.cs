@@ -19,7 +19,7 @@ namespace EasyConsole
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MainMenu mainMenu = new MainMenu();
+            MainMenu mainMenu = new MainMenu(FileExtension.Text, business_software.Text);
             mainMenu.Show();
             this.Close();
         }
