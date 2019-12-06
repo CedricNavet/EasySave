@@ -41,6 +41,7 @@
             <TextBox x:Name="FileExtension" Height="23" TextWrapping="Wrap" Text="FileExtension" RenderTransformOrigin="0.537,-0.882" Margin="560,0,0,0"/>
             <TextBox x:Name="business_software" Height="29" TextWrapping="Wrap" Text="business_soft" Margin="644,0,0,0"/>
             <Button x:Name="start" Background="#FFD82020" Margin="330,0,264,0" Click="Button_Click" Visibility="Hidden" Content="START"/>
+            <TextBox Height="23" TextWrapping="Wrap" Text="TextBox" Margin="625,0,0,0" x:Name="CryptoSoft"/>
             <!--<Button x:Name="start" Width="76" Height="31" Background="Black" BorderBrush="White" Foreground="White" FontFamily="Arial" FontWeight="Bold" FontSize="16" Click="Button_Click" Visibility="Hidden" Content="START" />-->
         </StackPanel>
     </StackPanel>

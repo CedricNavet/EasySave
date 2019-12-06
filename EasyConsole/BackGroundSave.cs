@@ -17,17 +17,19 @@ namespace EasySave
         private string path;
         private string fileExtension;
         private string business_soft;
+        private string CryptoSoft;
         public enum SaveType
         {
             sequential,
             unique
         }
 
-        public BackGroundSave(string path, string fileExtension, string business_soft)
+        public BackGroundSave(string path, string fileExtension, string business_soft, string CryptoSoft)
         {
             this.fileExtension = fileExtension;
             this.path = path;
             this.business_soft = business_soft;
+            this.CryptoSoft = CryptoSoft;
         }
 
         public void StartMonoSave(Backup backup)
@@ -339,7 +341,7 @@ namespace EasySave
             }
 
 
-            p.StartInfo.FileName = @"C:\Users\ccdu2\OneDrive - Association Cesi Viacesi mail\Mes Devoirs\Autres\C#\EasySave\CryptoSoft\bin\Release\netcoreapp2.1\win-x64\CryptoSoft.exe";
+            p.StartInfo.FileName = CryptoSoft;
             p.StartInfo.Arguments = "\"" + oldPath + "\"  \"" + destination + "\"";
             p.Start();
             p.WaitForExit();

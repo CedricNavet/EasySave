@@ -1,24 +1,9 @@
 ﻿using EasySave;
 using EasySave.Model;
-using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Diagnostics;
-using System.Linq;
-using System.Reflection;
-using System.Resources;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using System.Resources;
 
 namespace EasyConsole
 {
@@ -28,17 +13,14 @@ namespace EasyConsole
     public partial class MainMenu : Window
     {
         private string path;
-        //private IList<Backup> backups = new List<Backup>();
-        //private bool IsProcessusActive = false;
         private BackGroundSave SaveClass;
         private string business_soft;
 
-        public MainMenu(string fileExtension, string business_soft, string path = @"..\SaveState\")
+        public MainMenu(string fileExtension, string business_soft, string CryptoSoft, string path = @"..\SaveState\")
         {
             this.business_soft = business_soft;
             this.path = path;
-            SaveClass = new BackGroundSave(path, fileExtension);
-            //this.DataContext = backups;
+            SaveClass = new BackGroundSave(path, fileExtension, business_soft, CryptoSoft);
             InitializeComponent();
             Tools.FileCreations(path);
         }
