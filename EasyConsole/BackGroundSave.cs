@@ -318,7 +318,7 @@ namespace EasySave
             string pathDestination = backup.Target;
             string pathFileSource = oldPath;
             Process p = new Process();
-            p.StartInfo.FileName = @"C:\Users\ccdu2\OneDrive - Association Cesi Viacesi mail\Mes Devoirs\Autres\C#\EasySave\CryptoSoft\bin\Release\netcoreapp2.1\win-x64\CryptoSoft.exe";
+            p.StartInfo.FileName = @"C:\Users\LuffyZ\Source\Repos\EasySave\CryptoSoft\bin\Debug\CryptoSoft.exe";
             p.StartInfo.Arguments = "\"" + backup.Source + "\"  \"" + backup.Target + "\"  \"" + oldPath + "\"";
             p.Start();
             p.WaitForExit();

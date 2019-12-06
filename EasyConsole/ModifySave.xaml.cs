@@ -22,8 +22,10 @@ namespace EasyConsole
         {
             this.indexPrivate = index;
             this.Backup = backup;
-            this.DataContext = backup;
             InitializeComponent();
+            BackupName.Text = backup.BackupName;
+            Source.Text = backup.Source;
+            Target.Text = backup.Target;
             this.MenuSaveType.Text = backup.BackupType.ToString();
         }
 
@@ -40,12 +42,16 @@ namespace EasyConsole
             {
                 return;
             }
-            if (Directory.Exists(Source.Text) || Directory.Exists(Target.Text))
+            if (!Directory.Exists(Source.Text) || !Directory.Exists(Target.Text))
             {
                 return;
             }
+            Backup.BackupName = BackupName.Text;
+            Backup.Source = Source.Text;
+            Backup.Target = Target.Text;
             Backup.BackupType = (BackupType)MenuSaveType.SelectedValue;
             Backup.LastBackupCompletion = DateTime.Now;
+
             IndexAndBackup backup1 = new IndexAndBackup() { backup = Backup, index = indexPrivate };
             
             MyEvent?.Invoke(backup1, null);
