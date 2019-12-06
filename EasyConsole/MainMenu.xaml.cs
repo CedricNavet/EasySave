@@ -31,11 +31,13 @@ namespace EasyConsole
         //private IList<Backup> backups = new List<Backup>();
         //private bool IsProcessusActive = false;
         private BackGroundSave SaveClass;
+        private string business_soft;
 
-        public MainMenu(string path = @"..\SaveState\")
+        public MainMenu(string fileExtension, string business_soft, string path = @"..\SaveState\")
         {
+            this.business_soft = business_soft;
             this.path = path;
-            SaveClass = new BackGroundSave(path);
+            SaveClass = new BackGroundSave(path, fileExtension);
             //this.DataContext = backups;
             InitializeComponent();
             Tools.FileCreations(path);
@@ -107,7 +109,7 @@ namespace EasyConsole
 
         private void Button_Click_MonoSave(object sender, RoutedEventArgs e)
         {
-            Process[] name = Process.GetProcessesByName("Calculator");
+            Process[] name = Process.GetProcessesByName(business_soft);
             if (name.Length != 0)
             {
                 MessageBoxResult messageBox = MessageBox.Show(Properties.Resources.processRunning, Properties.Resources.error, MessageBoxButton.OK, MessageBoxImage.Error);
@@ -132,7 +134,7 @@ namespace EasyConsole
 
         private void Button_Click_SequentialSave(object sender, RoutedEventArgs e)
         {
-            Process[] name = Process.GetProcessesByName("Calculator");
+            Process[] name = Process.GetProcessesByName(business_soft);
             if (name.Length != 0)
             {
                 MessageBoxResult messageBox = MessageBox.Show(Properties.Resources.processRunning, Properties.Resources.error, MessageBoxButton.OK, MessageBoxImage.Error);
