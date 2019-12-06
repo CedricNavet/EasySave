@@ -1,6 +1,7 @@
 ﻿using EasySave.Model;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Windows;
 
 namespace EasyConsole
@@ -10,6 +11,7 @@ namespace EasyConsole
     /// </summary>
     public partial class ModifySave : Window
     {
+        
         public event RoutedEventHandler MyEvent;
         private IList<Backup> backups = new List<Backup>();
         string path = @"..\SaveState\";
@@ -38,7 +40,10 @@ namespace EasyConsole
             {
                 return;
             }
-
+            if (Directory.Exists(Source.Text) || Directory.Exists(Target.Text))
+            {
+                return;
+            }
             Backup.BackupType = (BackupType)MenuSaveType.SelectedValue;
             Backup.LastBackupCompletion = DateTime.Now;
             IndexAndBackup backup1 = new IndexAndBackup() { backup = Backup, index = indexPrivate };
@@ -67,7 +72,14 @@ namespace EasyConsole
                 Backup.Target = Target.Text;
             }
         }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+        }
     }
+
+
 
     public class IndexAndBackup
     {
