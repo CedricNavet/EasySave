@@ -16,16 +16,18 @@ namespace EasySave
         private static Mutex mutex = new Mutex();
         private string path;
         private string fileExtension;
+        private string business_soft;
         public enum SaveType
         {
             sequential,
             unique
         }
 
-        public BackGroundSave(string path, string fileExtension)
+        public BackGroundSave(string path, string fileExtension, string business_soft)
         {
             this.fileExtension = fileExtension;
             this.path = path;
+            this.business_soft = business_soft;
         }
 
         public void StartMonoSave(Backup backup)
@@ -36,7 +38,7 @@ namespace EasySave
             }
             else if (backup.BackupType == BackupType.differential)
             {
-                DifferentialBackUp(backup, path);              
+                DifferentialBackUp(backup, path);
             }
             backup.LastBackupCompletion = DateTime.Now;
             Console.WriteLine("Save named : " + backup.BackupName + " .....Done");
@@ -56,6 +58,10 @@ namespace EasySave
                     DifferentialBackUp(backup, path);
                 }
                 backup.LastBackupCompletion = DateTime.Now;
+                Process[] name = Process.GetProcessesByName(business_soft);
+                if (name.Length != 0)
+                    break;
+
                 Console.WriteLine("Save named : " + backup.BackupName + " .....Done");
             }
             Console.WriteLine("All Done");
@@ -86,7 +92,7 @@ namespace EasySave
 
         private void StartSaveFileDifferential(object mydata)
         {
-            
+
             SaveArgs saveArgs = (SaveArgs)mydata;
             using (MD5 md5Hash = MD5.Create())
             {
@@ -107,7 +113,7 @@ namespace EasySave
                         DateTime stopsave = DateTime.Now;
                         timeSpan = stopsave - startsave;
                     }
-                    
+
 
                     Console.WriteLine("{0} thread wait", Thread.CurrentThread.ManagedThreadId);
                     mutex.WaitOne();
@@ -204,7 +210,7 @@ namespace EasySave
             Console.WriteLine("{0} thread wait", Thread.CurrentThread.ManagedThreadId);
             mutex.WaitOne();
             Console.WriteLine("{0} thread proceed", Thread.CurrentThread.ManagedThreadId);
-            if(IsTxt)
+            if (IsTxt)
                 WriteLogs(saveArgs.backup, timeSpan, saveArgs.oldPath, encrypTime);
             else
                 WriteLogs(saveArgs.backup, timeSpan, saveArgs.oldPath);
@@ -318,12 +324,46 @@ namespace EasySave
             string pathDestination = backup.Target;
             string pathFileSource = oldPath;
             Process p = new Process();
+            string destination = oldPath.Replace(backup.Source, backup.Target);
+            if (backup.BackupType == BackupType.differential)
+            {
+                if (File.Exists(destination))
+                {
+                    using (MD5 md5Hash = MD5.Create())
+                    {
+                        string hash = GetMd5Hash(md5Hash, CryptCheck(oldPath));
+                        if (VerifyMd5Hash(md5Hash, destination, hash))
+                            return 0;
+                    }
+                }
+            }
+
+
             p.StartInfo.FileName = @"C:\Users\ccdu2\OneDrive - Association Cesi Viacesi mail\Mes Devoirs\Autres\C#\EasySave\CryptoSoft\bin\Release\netcoreapp2.1\win-x64\CryptoSoft.exe";
-            p.StartInfo.Arguments = "\"" + backup.Source + "\"  \"" + backup.Target + "\"  \"" + oldPath + "\"";
+            p.StartInfo.Arguments = "\"" + oldPath + "\"  \"" + destination + "\"";
             p.Start();
             p.WaitForExit();
             int result = p.ExitCode;
             return result;
+        }
+
+
+        private string CryptCheck(string destination)
+        {
+            string key = "xorencrypt";
+            string lo = Tools.ReadData(destination);
+            char[] output = new char[lo.Length];
+
+            for (int i = 0; i < lo.Length; i++)
+            {
+                output[i] = (char)(lo[i] ^ key[i % key.Length]);
+            }
+            var temp = "";
+            foreach (char item in output)
+            {
+                temp += item;
+            }
+            return temp;
         }
 
         private class SaveArgs

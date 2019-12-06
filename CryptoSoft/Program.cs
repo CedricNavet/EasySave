@@ -8,16 +8,10 @@ namespace CryptoSoft
         public static TimeSpan InterceptArgsEncrypt(string[] args)
         {
             string key = "xorencrypt";
-            if (!File.Exists(args[2]))
-                return new TimeSpan(-1);
-            Console.WriteLine(args[0]);
-            Console.WriteLine(args[1]);
-            Console.WriteLine(args[2]);
-            Console.WriteLine(args[0].Replace(args[0], args[1]));
 
-            File.Copy(args[2], args[2].Replace(args[0], args[1]), true);
+            File.Copy(args[0], args[1], true);
             DateTime StartSave = DateTime.Now;
-            string lo = ReadData(args[2].Replace(args[0], args[1]));
+            string lo = ReadData(args[1]);
             char[] output = new char[lo.Length];
 
             for (int i = 0; i < lo.Length; i++)
@@ -29,7 +23,7 @@ namespace CryptoSoft
             {
                 temp += item;
             }
-            WriteData(temp, args[2].Replace(args[0], args[1]));
+            WriteData(temp, args[1]);
             DateTime EndSave = DateTime.Now;
             return EndSave - StartSave;
         }
@@ -71,12 +65,12 @@ namespace CryptoSoft
         {
             Console.WriteLine(args.Length);
             Console.ReadLine();
-            Console.WriteLine(args[0]);
-            Console.WriteLine(args[1]);
-            Console.WriteLine(args[2]);
-            Console.ReadLine();
+            
             if (args.Length > 0)
             {
+                Console.WriteLine(args[0]);
+                Console.WriteLine(args[1]);
+                Console.ReadLine();
                 var temp = InterceptArgsEncrypt(args);
                 return (int)temp.TotalMilliseconds;
             }
