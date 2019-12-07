@@ -7,7 +7,7 @@
         xmlns:p="clr-namespace:EasyConsole.Properties"
         mc:Ignorable="d"
         Title="EASYSAVE" Height="571.721" Width="800" Background="White" Foreground="White">
-    <StackPanel x:Name="border" HorizontalAlignment="Center" VerticalAlignment="Center" Height="509" Background="#FF494646" Width="736" Margin="29,19,29,15">
+    <StackPanel x:Name="border" HorizontalAlignment="Center" VerticalAlignment="Center" Height="545" Background="#FF494646" Width="790" Margin="0,0,4,-2">
         <Label x:Name="welcome" Content="bienvenue" Background="{x:Null}" Foreground="White" RenderTransformOrigin="0.513,0.496" HorizontalAlignment="Center" FontFamily="Arial" FontSize="22" FontWeight="Bold" />
         <Label x:Name="nothing" Content=" " Background="{x:Null}" Foreground="White" RenderTransformOrigin="0.513,0.496" HorizontalAlignment="Center" FontFamily="Arial" FontSize="36" FontWeight="Bold" Height="6">
             <Label.RenderTransform>
@@ -38,11 +38,11 @@
             </WrapPanel>
         </StackPanel>
         <StackPanel x:Name="footer" Height="121">
-            <TextBox x:Name="FileExtension" Height="23" TextWrapping="Wrap" Text="FileExtension" RenderTransformOrigin="0.537,-0.882" Margin="560,0,0,0"/>
-            <TextBox x:Name="business_software" Height="29" TextWrapping="Wrap" Text="business_soft" Margin="644,0,0,0"/>
-            <Button x:Name="start" Background="#FFD82020" Margin="330,0,264,0" Click="Button_Click" Visibility="Hidden" Content="START"/>
-            <TextBox Height="23" TextWrapping="Wrap" Text="TextBox" Margin="625,0,0,0" x:Name="CryptoSoft"/>
-            <!--<Button x:Name="start" Width="76" Height="31" Background="Black" BorderBrush="White" Foreground="White" FontFamily="Arial" FontWeight="Bold" FontSize="16" Click="Button_Click" Visibility="Hidden" Content="START" />-->
+            <Label x:Name="EnterFileExtension" Content="Enter your file Extension :" Background="{x:Null}" Foreground="White" RenderTransformOrigin="0.513,0.496" HorizontalAlignment="Left" FontFamily="Arial" FontSize="16" FontWeight="Bold" />
+            <TextBox x:Name="FileExtension" Height="24" TextWrapping="Wrap" Text="FileExtension" RenderTransformOrigin="0.537,-0.882" Margin="250,0" Background="#FF888888" Foreground="White" BorderBrush="#FF494646" HorizontalAlignment="Center" VerticalAlignment="Center" Width="299" FontFamily="Arial" TextAlignment="Center"/>
+            <Label x:Name="EnterBusinessSoft" Content="Enter your Business soft :" Background="{x:Null}" Foreground="White" RenderTransformOrigin="0.513,0.496" HorizontalAlignment="Left" FontFamily="Arial" FontSize="16" FontWeight="Bold" />
+            <TextBox x:Name="business_software" Height="24" TextWrapping="Wrap" Text="Business_soft" RenderTransformOrigin="0.537,-0.882" Margin="250,0" Background="#FF888888" Foreground="White" BorderBrush="#FF494646" HorizontalAlignment="Center" VerticalAlignment="Center" Width="299" FontFamily="Arial" TextAlignment="Center"/>
         </StackPanel>
+        <Button x:Name="start" Background="#FF494646" Margin="330,0,264.4,0" Click="Button_Click" Visibility="Visible" Content="START" Height="50" BorderBrush="White" Foreground="White" FontFamily="Arial" FontSize="16" FontWeight="Bold"/>
     </StackPanel>
 </Window>
