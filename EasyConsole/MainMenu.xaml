@@ -58,7 +58,7 @@
         </ListView>
         <Grid Height="63" Margin="10,0,4,0">
             <Button Content="{x:Static p:Resources.CreateSaveButton}" Margin="440,0,10,0" Click="Button_Click_CreateSave"/>
-            <Button Margin="0,0,440,0" Height="63" Content="{x:Static p:Resources.StartSequentialSaveButton}" VerticalAlignment="Center" HorizontalAlignment="Center" Width="440" Click="Button_Click_SequentialSave" RenderTransformOrigin="0.12,0.483"/>
+            <Button Margin="0,0,440,0" Height="63" Content="{x:Static p:Resources.StartSequentialSaveButton}" VerticalAlignment="Top" HorizontalAlignment="Center" Width="440" Click="Button_Click_SequentialSave" RenderTransformOrigin="0.12,0.483"/>
         </Grid>
         <!--
         -->

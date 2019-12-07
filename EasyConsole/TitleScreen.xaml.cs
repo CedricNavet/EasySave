@@ -44,7 +44,6 @@ namespace EasyConsole
             IMGgerman.Source = new BitmapImage(new Uri("Ressources/BWgerman.png", UriKind.Relative));
             Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
             start.Visibility = Visibility.Visible;
-            
         }
 
         private void spainish_Click(object sender, RoutedEventArgs e)

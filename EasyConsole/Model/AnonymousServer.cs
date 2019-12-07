@@ -19,7 +19,7 @@ namespace EasyConsole.Model
             Process[] processes = Process.GetProcessesByName("CryptoSoft");
             if(processes.Length > 0)
             {
-
+                
             }
             else
             {
