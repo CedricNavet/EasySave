@@ -29,7 +29,11 @@ namespace EasyConsole
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
+            if (!File.Exists(CryptoSoft.Text))
+            {
+                MessageBoxResult messageBox = MessageBox.Show("The link need to be a file", Properties.Resources.error, MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             MainMenu mainMenu = new MainMenu(FileExtension.Text, business_software.Text, CryptoSoft.Text);
             mainMenu.Show();
             this.Close();

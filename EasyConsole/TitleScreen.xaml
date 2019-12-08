@@ -37,12 +37,14 @@
                 </Button>
             </WrapPanel>
         </StackPanel>
-        <StackPanel x:Name="footer" Height="121">
-            <Label x:Name="EnterFileExtension" Content="Enter your file Extension :" Background="{x:Null}" Foreground="White" RenderTransformOrigin="0.513,0.496" HorizontalAlignment="Left" FontFamily="Arial" FontSize="16" FontWeight="Bold" />
+        <StackPanel Height="159">
+            <Label  Content="Enter your file Extension :" Background="{x:Null}" Foreground="White" RenderTransformOrigin="0.513,0.496" HorizontalAlignment="Left" FontFamily="Arial" FontSize="16" FontWeight="Bold" />
             <TextBox x:Name="FileExtension" Height="24" TextWrapping="Wrap" Text="FileExtension" RenderTransformOrigin="0.537,-0.882" Margin="250,0" Background="#FF888888" Foreground="White" BorderBrush="#FF494646" HorizontalAlignment="Center" VerticalAlignment="Center" Width="299" FontFamily="Arial" TextAlignment="Center"/>
-            <Label x:Name="EnterBusinessSoft" Content="Enter your Business soft :" Background="{x:Null}" Foreground="White" RenderTransformOrigin="0.513,0.496" HorizontalAlignment="Left" FontFamily="Arial" FontSize="16" FontWeight="Bold" />
+            <Label Content="Enter your Business soft :" Background="{x:Null}" Foreground="White" RenderTransformOrigin="0.513,0.496" HorizontalAlignment="Left" FontFamily="Arial" FontSize="16" FontWeight="Bold" />
             <TextBox x:Name="business_software" Height="24" TextWrapping="Wrap" Text="Business_soft" RenderTransformOrigin="0.537,-0.882" Margin="250,0" Background="#FF888888" Foreground="White" BorderBrush="#FF494646" HorizontalAlignment="Center" VerticalAlignment="Center" Width="299" FontFamily="Arial" TextAlignment="Center"/>
+            <Label Content="Enter your CryptoSoft Link :" Background="{x:Null}" Foreground="White" RenderTransformOrigin="0.513,0.496" HorizontalAlignment="Left" FontFamily="Arial" FontSize="16" FontWeight="Bold" />
+            <TextBox x:Name="CryptoSoft" Height="24" TextWrapping="Wrap" Text="Business_soft" RenderTransformOrigin="0.537,-0.882" Margin="250,0" Background="#FF888888" Foreground="White" BorderBrush="#FF494646" HorizontalAlignment="Center" VerticalAlignment="Center" Width="299" FontFamily="Arial" TextAlignment="Center"/>
         </StackPanel>
-        <Button x:Name="start" Background="#FF494646" Margin="330,0,264.4,0" Click="Button_Click" Visibility="Visible" Content="START" Height="50" BorderBrush="White" Foreground="White" FontFamily="Arial" FontSize="16" FontWeight="Bold"/>
+        <Button x:Name="start" Background="#FF494646" Margin="330,0,0,0" Click="Button_Click" Visibility="Visible" Content="START" Height="50" BorderBrush="White" Foreground="White" FontFamily="Arial" FontSize="16" FontWeight="Bold" HorizontalAlignment="Left" Width="196" RenderTransformOrigin="0.007,0.948"/>
     </StackPanel>
 </Window>
