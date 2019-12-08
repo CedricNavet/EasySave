@@ -19,8 +19,10 @@ namespace EasySaveConsole.Model
             sequential,
             unique
         }
-        public BackGroundSave()
+        private string lang;
+        public BackGroundSave(string lang)
         {
+            this.lang = lang;
         }
 
         public void StartSave(string path, SaveType saveType, string SaveName = null)
@@ -46,9 +48,27 @@ namespace EasySaveConsole.Model
                     {
                         DifferentialBackUp(backup, path);
                     }
-                    Console.WriteLine("Save named : " + backup.BackupsName + " .....Done");
+                    switch(lang)
+                    {
+                        case "FR":
+                            Console.WriteLine("Sauvegarde nommée : " + backup.BackupsName + " .....Faite");
+                            break;
+                        case "EN":
+                            Console.WriteLine("Save named : " + backup.BackupsName + " .....Done");
+                            break;
+                    }
+                    
                 }
-                Console.WriteLine("All Done");
+                switch (lang)
+                {
+                    case "FR":
+                        Console.WriteLine("Finis");
+
+                        break;
+                    case "EN":
+                        Console.WriteLine("All Done");
+                        break;
+                }
                 Thread.Sleep(1000);
             }
             else if(saveType == SaveType.unique)
@@ -71,7 +91,15 @@ namespace EasySaveConsole.Model
                 {
                     DifferentialBackUp(backup, path);
                 }
-                Console.WriteLine("Save named : "+backup.BackupsName+" .....Done");
+                switch (lang)
+                {
+                    case "FR":
+                        Console.WriteLine("Sauvegarde nommée : " + backup.BackupsName + " .....Faite");
+                        break;
+                    case "EN":
+                        Console.WriteLine("Save named : " + backup.BackupsName + " .....Done");
+                        break;
+                }
                 Thread.Sleep(1000);
             }
             

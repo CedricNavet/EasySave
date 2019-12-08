@@ -15,20 +15,50 @@ namespace EasySaveConsole.View
     { 
         private string jsonSave;
         private readonly string path = @"..\SaveState\InMemorySave.json";
-        //private SequentialMenu sequentialMenu;
+        List<MenuAction> menuAction;
+        private string lang;
 
-        List<MenuAction> menuAction = new List<MenuAction>() {
-            new MenuAction("Display Saves", ArrowPosition.Top, typeof(DisplaySave)),
-            new MenuAction("Save Creation", ArrowPosition.Middle, typeof(SaveCreation)),
-            new MenuAction("Exit", ArrowPosition.Down),
-        };
 
         public View()
         {
         }
 
         public void Menu()
-        {     
+        {
+           
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("Choose your language (FR or EN):");
+                this.lang = Console.ReadLine();
+                Console.WriteLine(lang);
+                if (lang.Equals("FR") || lang.Equals("EN"))
+                    {
+                    break;
+                    }
+            } while (!lang.Equals("FR") || !lang.Equals("EN"));
+
+            switch(lang)
+            {
+                case "EN":
+                    menuAction = new List<MenuAction>() {
+                    new MenuAction("Display Saves", ArrowPosition.Top, typeof(DisplaySave)),
+                    new MenuAction("Save Creation", ArrowPosition.Middle, typeof(SaveCreation)),
+                    new MenuAction("Exit", ArrowPosition.Down),
+                    };
+                    break;
+                case "FR":
+                    menuAction = new List<MenuAction>() {
+                    new MenuAction("Montrer les sauvegardes", ArrowPosition.Top, typeof(DisplaySave)),
+                    new MenuAction("Créer un travail de sauvegarde", ArrowPosition.Middle, typeof(SaveCreation)),
+                    new MenuAction("Sortir", ArrowPosition.Down),
+                    };
+                    break;
+                default:
+                    Console.WriteLine("No");
+                    break;
+            }
+
             Console.CursorVisible = false;
             if (!Directory.Exists(@"..\SaveState"))
             {
@@ -50,11 +80,11 @@ namespace EasySaveConsole.View
 
         protected override void FunctionFirstPosition()
         {
-            menuAction[0].Instanciate(path);
+            menuAction[0].Instanciate(path, lang);
         }
         protected override void FunctionSecondPosition()
         {
-            menuAction[1].Instanciate(path);
+            menuAction[1].Instanciate(path, lang);
         }
     }
 

@@ -10,8 +10,8 @@ namespace EasySaveConsole
     {
         static void Main(string[] args)
         {
-            EasySaveConsole.View.View view = new View.View();
-            EasySaveConsole.Controller.Controller controller = new Controller.Controller(view);
+            View.View view = new View.View();
+            Controller.Controller controller = new Controller.Controller(view);
         }
     }
 }
