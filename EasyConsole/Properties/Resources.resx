@@ -144,6 +144,9 @@
   <data name="LanguageOption" xml:space="preserve">
     <value>Choose your language</value>
   </data>
+  <data name="linkFile" xml:space="preserve">
+    <value>The link needs to be a file</value>
+  </data>
   <data name="Modify" xml:space="preserve">
     <value>Modify</value>
   </data>
@@ -175,9 +178,6 @@
     <value>Add / Modify your element</value>
   </data>
   <data name="WelcomeMessage" xml:space="preserve">
-    <value>hey</value>
-  </data>
-  <data name="WelcomeMessage1" xml:space="preserve">
     <value>Welcome to our backup software</value>
   </data>
 </root>

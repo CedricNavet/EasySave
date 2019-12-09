@@ -142,6 +142,15 @@ namespace EasyConsole.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à The link needs to be a file.
+        /// </summary>
+        public static string linkFile {
+            get {
+                return ResourceManager.GetString("linkFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Modify.
         /// </summary>
         public static string Modify {
@@ -232,20 +241,11 @@ namespace EasyConsole.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à hey.
+        ///   Recherche une chaîne localisée semblable à Welcome to our backup software.
         /// </summary>
         public static string WelcomeMessage {
             get {
                 return ResourceManager.GetString("WelcomeMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Welcome to our backup software.
-        /// </summary>
-        public static string WelcomeMessage1 {
-            get {
-                return ResourceManager.GetString("WelcomeMessage1", resourceCulture);
             }
         }
     }

@@ -141,6 +141,9 @@
   <data name="LanguageOption" xml:space="preserve">
     <value>Wähle deine Sprache</value>
   </data>
+  <data name="linkFile" xml:space="preserve">
+    <value>Der Link muss eine Datei sein</value>
+  </data>
   <data name="Modify" xml:space="preserve">
     <value>Ändern</value>
   </data>
