@@ -51,6 +51,6 @@
                 <TextBox x:Name="CryptoSoft" Height="24" TextWrapping="Wrap" Text="" Background="#FF888888" Foreground="White" BorderBrush="#FF494646" HorizontalAlignment="Center" VerticalAlignment="Center" Width="299" FontFamily="Arial" TextAlignment="Center"/>
             </WrapPanel>
         </StackPanel>
-        <Button x:Name="start" Background="#FF494646" Margin="314,0,298,0" Click="Button_Click" Visibility="Visible" Content="START" Height="42" BorderBrush="White" Foreground="White" FontFamily="Arial" FontSize="16" FontWeight="Bold" RenderTransformOrigin="0.007,0.948"/>
+        <Button x:Name="start" Background="#FF494646" Margin="314,0,298,0" Click="Button_Click" Visibility="Hidden" Content="START" Height="42" BorderBrush="White" Foreground="White" FontFamily="Arial" FontSize="16" FontWeight="Bold" RenderTransformOrigin="0.007,0.948"/>
     </StackPanel>
 </Window>
