@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:EasyConsole"
         xmlns:p="clr-namespace:EasyConsole.Properties"
         mc:Ignorable="d"
-        Title="EASYSAVE" Height="585.721" Width="800" Background="White" Foreground="White">
+        Title="EASYSAVE" Height="585.721" Width="800" Background="White" Foreground="White" ResizeMode="NoResize">
     <StackPanel x:Name="border" HorizontalAlignment="Left" Background="#FF494646" Width="794" Margin="0,0,0,1">
         <Label x:Name="welcome" Content="{x:Static p:Resources.WelcomeMessage}" Background="{x:Null}" Foreground="White" RenderTransformOrigin="0.513,0.496" HorizontalAlignment="Center" FontFamily="Arial" FontSize="22" FontWeight="Bold" />
         <Label x:Name="nothing" Content=" " Background="{x:Null}" Foreground="White" RenderTransformOrigin="0.513,0.496" HorizontalAlignment="Center" FontFamily="Arial" FontSize="36" FontWeight="Bold" Height="6">
@@ -37,14 +37,20 @@
                 </Button>
             </WrapPanel>
         </StackPanel>
-        <StackPanel Height="159">
-            <Label  Content="Enter your file Extension :" Background="{x:Null}" Foreground="White" RenderTransformOrigin="0.513,0.496" HorizontalAlignment="Left" FontFamily="Arial" FontSize="16" FontWeight="Bold" />
-            <TextBox x:Name="FileExtension" Height="24" TextWrapping="Wrap" Text="" RenderTransformOrigin="0.537,-0.882" Margin="250,0" Background="#FF888888" Foreground="White" BorderBrush="#FF494646" HorizontalAlignment="Center" VerticalAlignment="Center" Width="299" FontFamily="Arial" TextAlignment="Center"/>
-            <Label Content="Enter your Business soft :" Background="{x:Null}" Foreground="White" RenderTransformOrigin="0.513,0.496" HorizontalAlignment="Left" FontFamily="Arial" FontSize="16" FontWeight="Bold" />
-            <TextBox x:Name="business_software" Height="24" TextWrapping="Wrap" Text="" RenderTransformOrigin="0.537,-0.882" Margin="250,0" Background="#FF888888" Foreground="White" BorderBrush="#FF494646" HorizontalAlignment="Center" VerticalAlignment="Center" Width="299" FontFamily="Arial" TextAlignment="Center"/>
-            <Label Content="Enter your CryptoSoft Link :" Background="{x:Null}" Foreground="White" RenderTransformOrigin="0.513,0.496" HorizontalAlignment="Left" FontFamily="Arial" FontSize="16" FontWeight="Bold" />
-            <TextBox x:Name="CryptoSoft" Height="24" TextWrapping="Wrap" Text="" RenderTransformOrigin="0.537,-0.882" Margin="250,0" Background="#FF888888" Foreground="White" BorderBrush="#FF494646" HorizontalAlignment="Center" VerticalAlignment="Center" Width="299" FontFamily="Arial" TextAlignment="Center"/>
+        <StackPanel Height="133">
+            <WrapPanel Height="41">
+                <Label  Content="Enter your file Extension :" Background="{x:Null}" Foreground="White" FontFamily="Arial" FontSize="16" FontWeight="Bold" VerticalAlignment="Top" Width="250" Height="30" HorizontalAlignment="Left" />
+                <TextBox x:Name="FileExtension" Height="24" TextWrapping="Wrap" Text="" Background="#FF888888" Foreground="White" BorderBrush="#FF494646" Width="298" FontFamily="Arial" TextAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.IsSharedSizeScope="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            </WrapPanel>
+            <WrapPanel Height="41">
+                <Label Content="Enter your Business soft :" Background="{x:Null}" Foreground="White" RenderTransformOrigin="0.513,0.496" HorizontalAlignment="Left" FontFamily="Arial" FontSize="16" FontWeight="Bold" Width="250" Height="30" />
+                <TextBox x:Name="business_software" Height="24" TextWrapping="Wrap" Text="" Background="#FF888888" Foreground="White" BorderBrush="#FF494646" HorizontalAlignment="Left" VerticalAlignment="Top" Width="298" FontFamily="Arial" TextAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            </WrapPanel>
+            <WrapPanel Height="42">
+                <Label Content="Enter your CryptoSoft Link :" Background="{x:Null}" Foreground="White" RenderTransformOrigin="0.513,0.496" HorizontalAlignment="Left" FontFamily="Arial" FontSize="16" FontWeight="Bold" Width="250" Height="30" />
+                <TextBox x:Name="CryptoSoft" Height="24" TextWrapping="Wrap" Text="" Background="#FF888888" Foreground="White" BorderBrush="#FF494646" HorizontalAlignment="Center" VerticalAlignment="Center" Width="299" FontFamily="Arial" TextAlignment="Center"/>
+            </WrapPanel>
         </StackPanel>
-        <Button x:Name="start" Background="#FF494646" Margin="296,0,298,0" Click="Button_Click" Visibility="Visible" Content="START" Height="50" BorderBrush="White" Foreground="White" FontFamily="Arial" FontSize="16" FontWeight="Bold" RenderTransformOrigin="0.007,0.948"/>
+        <Button x:Name="start" Background="#FF494646" Margin="314,0,298,0" Click="Button_Click" Visibility="Hidden" Content="START" Height="42" BorderBrush="White" Foreground="White" FontFamily="Arial" FontSize="16" FontWeight="Bold" RenderTransformOrigin="0.007,0.948"/>
     </StackPanel>
 </Window>
