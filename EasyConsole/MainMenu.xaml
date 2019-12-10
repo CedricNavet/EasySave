@@ -1,0 +1,67 @@
+﻿<Window x:Class="EasyConsole.MainMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EasySave.Model"
+        xmlns:System="clr-namespace:System;assembly=mscorlib"
+        xmlns:p="clr-namespace:EasyConsole.Properties"
+        mc:Ignorable="d"
+        Title="EasySave" Height="500" Width="900" ResizeMode="NoResize" Loaded="Display_Save_Loaded">
+    <Window.Resources>
+        <ObjectDataProvider x:Key="enmPositions" MethodName="GetValues" ObjectType="{x:Type System:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="local:BackupType"></x:Type>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
+    <StackPanel>
+        <ListView x:Name="ListView" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="870">
+            <ListView.View>
+                <GridView x:Name="ItemGridView">
+                    <GridViewColumn Header="{x:Static p:Resources.SaveName}" Width="125" DisplayMemberBinding="{Binding BackupName}" />
+                    <GridViewColumn Header="{x:Static p:Resources.Source}" Width="100" DisplayMemberBinding="{Binding Source}" />
+                    <GridViewColumn Header="{x:Static p:Resources.Destination}" Width="100" DisplayMemberBinding="{Binding Target}" />
+                    <GridViewColumn Header="{x:Static p:Resources.BackupType}" Width="100" DisplayMemberBinding="{Binding BackupType}" />
+                    <GridViewColumn Header="{x:Static p:Resources.BackupCompletion}" Width="150" DisplayMemberBinding="{Binding LastBackupCompletion}" />
+                    <GridViewColumn  Width="100" Header="{x:Static p:Resources.MonoSaveRow}">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="{x:Static p:Resources.StartSaveButton}" VerticalAlignment="Center" Click="Button_Click_MonoSave"  Margin="0"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn  Width="100" Header="{x:Static p:Resources.SequentialSaveRow}">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <!--<Button Content="Modify" VerticalAlignment="Center" Click="Button_Click_SequentialSave" Margin="0"/>-->
+                                <CheckBox IsChecked="{Binding Mode=TwoWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListViewItem}}, Path=IsSelected}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn  Width="100" Header="{x:Static p:Resources.Delete}">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="{x:Static p:Resources.Delete}" VerticalAlignment="Center" Click="Button_Click_Delete"  Margin="0"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn  Width="100" Header="{x:Static p:Resources.Modify}">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="{x:Static p:Resources.Modify}" VerticalAlignment="Center" Click="Button_Click_Modify"  Margin="0"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Grid Height="63" Margin="10,0,4,0">
+            <Button Content="{x:Static p:Resources.CreateSaveButton}" Margin="440,0,10,0" Click="Button_Click_CreateSave"/>
+            <Button Margin="0,0,440,0" Height="63" Content="{x:Static p:Resources.StartSequentialSaveButton}" VerticalAlignment="Top" HorizontalAlignment="Center" Width="440" Click="Button_Click_SequentialSave" RenderTransformOrigin="0.12,0.483"/>
+        </Grid>
+        <!--
+        -->
+    </StackPanel>
+
+</Window>

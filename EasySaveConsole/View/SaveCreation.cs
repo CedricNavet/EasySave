@@ -11,9 +11,12 @@ namespace EasySaveConsole.View
     {
         string temp;
         private string pathJson;
+        private string lang;
+        private string type;
 
-        public SaveCreation(string pathJson)
+        public SaveCreation(string pathJson, string lang)
         {
+            this.lang = lang;
             this.pathJson = pathJson;
             ShowMenu();
         }
@@ -26,26 +29,54 @@ namespace EasySaveConsole.View
         private void SequentialCreation()
         {
             Backups save = new Backups();
-            Console.WriteLine("Choissisez le nom de votre Save :");
-            save.BackupsName = Console.ReadLine();
-            do
+            switch(lang)
             {
-                Console.Clear();
-                Console.WriteLine("Choissisez votre Dossier Source");
-                save.Source = Console.ReadLine();
-                Console.WriteLine("Choissisez votre Dossier de destination");
-                save.Target = Console.ReadLine();
-            } while (!(Directory.Exists(save.Source) && Directory.Exists(save.Target)));
-            
-            Console.WriteLine("Choissisez le type de sauvegarde (differential ou mirror) :");
-            var list = new string[] { "mirror", "differential" };
-            string type = Console.ReadLine();
+                case "EN":
+                    Console.WriteLine("Choose the name of your Save :");
+                    save.BackupsName = Console.ReadLine();
+                    do
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Choose the Source Directory :");
+                        save.Source = Console.ReadLine();
+                        Console.WriteLine("Choose the destination Directory : ");
+                        save.Target = Console.ReadLine();
+                    } while (!(Directory.Exists(save.Source) && Directory.Exists(save.Target)));
 
-            while (!list.Contains(type))
-            {
-                Console.WriteLine("Choissisez le type de sauvegarde (differential ou mirror) :");
-                type = Console.ReadLine();
+                    Console.WriteLine("Choose your type of save (differential ou mirror) :");
+                    var list = new string[] { "mirror", "differential" };
+                    type = Console.ReadLine();
+
+                    while (!list.Contains(type))
+                    {
+                        Console.WriteLine("Choose your type of save (differential ou mirror) :");
+                        type = Console.ReadLine();
+                    }
+                    break;
+                case "FR":
+                    Console.WriteLine("Choissiez le nom de votre travail de sauvegarde :");
+                    save.BackupsName = Console.ReadLine();
+                    do
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Choissisez le dossier Source :");
+                        save.Source = Console.ReadLine();
+                        Console.WriteLine("Choissisez le dossier de Destination :");
+                        save.Target = Console.ReadLine();
+                    } while (!(Directory.Exists(save.Source) && Directory.Exists(save.Target)));
+
+                    Console.WriteLine("Choissiez votre type de sauvegarde (differential ou mirror) :");
+                    var list2 = new string[] { "mirror", "differential" };
+                    type = Console.ReadLine();
+
+                    while (!list2.Contains(type))
+                    {
+                        Console.WriteLine("Choissiez votre type de sauvegarde (differential ou mirror) :");
+                        type = Console.ReadLine();
+                    }
+                    break;
             }
+            
             int typeEnum = 50;
             switch (type)
             {
